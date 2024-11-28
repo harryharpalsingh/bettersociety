@@ -1,0 +1,11 @@
+D:\Work Data\@back-end-development\#bettersociety.in\bs\BetterSociety\bettersociety.application\bin\Debug\net8.0\bettersociety.application.deps.json
+D:\Work Data\@back-end-development\#bettersociety.in\bs\BetterSociety\bettersociety.application\bin\Debug\net8.0\bettersociety.application.dll
+D:\Work Data\@back-end-development\#bettersociety.in\bs\BetterSociety\bettersociety.application\bin\Debug\net8.0\bettersociety.application.pdb
+D:\Work Data\@back-end-development\#bettersociety.in\bs\BetterSociety\bettersociety.application\obj\Debug\net8.0\bettersociety.application.GeneratedMSBuildEditorConfig.editorconfig
+D:\Work Data\@back-end-development\#bettersociety.in\bs\BetterSociety\bettersociety.application\obj\Debug\net8.0\bettersociety.application.AssemblyInfoInputs.cache
+D:\Work Data\@back-end-development\#bettersociety.in\bs\BetterSociety\bettersociety.application\obj\Debug\net8.0\bettersociety.application.AssemblyInfo.cs
+D:\Work Data\@back-end-development\#bettersociety.in\bs\BetterSociety\bettersociety.application\obj\Debug\net8.0\bettersociety.application.csproj.CoreCompileInputs.cache
+D:\Work Data\@back-end-development\#bettersociety.in\bs\BetterSociety\bettersociety.application\obj\Debug\net8.0\bettersociety.application.dll
+D:\Work Data\@back-end-development\#bettersociety.in\bs\BetterSociety\bettersociety.application\obj\Debug\net8.0\refint\bettersociety.application.dll
+D:\Work Data\@back-end-development\#bettersociety.in\bs\BetterSociety\bettersociety.application\obj\Debug\net8.0\bettersociety.application.pdb
+D:\Work Data\@back-end-development\#bettersociety.in\bs\BetterSociety\bettersociety.application\obj\Debug\net8.0\ref\bettersociety.application.dll

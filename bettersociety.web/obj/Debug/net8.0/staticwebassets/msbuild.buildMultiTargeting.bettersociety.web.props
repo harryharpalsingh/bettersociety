@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\bettersociety.web.props" />
+</Project>

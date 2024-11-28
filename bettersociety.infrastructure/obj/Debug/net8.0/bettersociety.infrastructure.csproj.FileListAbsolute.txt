@@ -1,0 +1,17 @@
+D:\Work Data\@back-end-development\#bettersociety.in\bs\BetterSociety\bettersociety.infrastructure\bin\Debug\net8.0\bettersociety.infrastructure.deps.json
+D:\Work Data\@back-end-development\#bettersociety.in\bs\BetterSociety\bettersociety.infrastructure\bin\Debug\net8.0\bettersociety.infrastructure.runtimeconfig.json
+D:\Work Data\@back-end-development\#bettersociety.in\bs\BetterSociety\bettersociety.infrastructure\bin\Debug\net8.0\bettersociety.infrastructure.dll
+D:\Work Data\@back-end-development\#bettersociety.in\bs\BetterSociety\bettersociety.infrastructure\bin\Debug\net8.0\bettersociety.infrastructure.pdb
+D:\Work Data\@back-end-development\#bettersociety.in\bs\BetterSociety\bettersociety.infrastructure\bin\Debug\net8.0\bettersociety.domain.dll
+D:\Work Data\@back-end-development\#bettersociety.in\bs\BetterSociety\bettersociety.infrastructure\bin\Debug\net8.0\bettersociety.domain.pdb
+D:\Work Data\@back-end-development\#bettersociety.in\bs\BetterSociety\bettersociety.infrastructure\obj\Debug\net8.0\bettersociety.infrastructure.csproj.AssemblyReference.cache
+D:\Work Data\@back-end-development\#bettersociety.in\bs\BetterSociety\bettersociety.infrastructure\obj\Debug\net8.0\bettersociety.infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+D:\Work Data\@back-end-development\#bettersociety.in\bs\BetterSociety\bettersociety.infrastructure\obj\Debug\net8.0\bettersociety.infrastructure.AssemblyInfoInputs.cache
+D:\Work Data\@back-end-development\#bettersociety.in\bs\BetterSociety\bettersociety.infrastructure\obj\Debug\net8.0\bettersociety.infrastructure.AssemblyInfo.cs
+D:\Work Data\@back-end-development\#bettersociety.in\bs\BetterSociety\bettersociety.infrastructure\obj\Debug\net8.0\bettersociety.infrastructure.csproj.CoreCompileInputs.cache
+D:\Work Data\@back-end-development\#bettersociety.in\bs\BetterSociety\bettersociety.infrastructure\obj\Debug\net8.0\betterso.E64D73A5.Up2Date
+D:\Work Data\@back-end-development\#bettersociety.in\bs\BetterSociety\bettersociety.infrastructure\obj\Debug\net8.0\bettersociety.infrastructure.dll
+D:\Work Data\@back-end-development\#bettersociety.in\bs\BetterSociety\bettersociety.infrastructure\obj\Debug\net8.0\refint\bettersociety.infrastructure.dll
+D:\Work Data\@back-end-development\#bettersociety.in\bs\BetterSociety\bettersociety.infrastructure\obj\Debug\net8.0\bettersociety.infrastructure.pdb
+D:\Work Data\@back-end-development\#bettersociety.in\bs\BetterSociety\bettersociety.infrastructure\obj\Debug\net8.0\bettersociety.infrastructure.genruntimeconfig.cache
+D:\Work Data\@back-end-development\#bettersociety.in\bs\BetterSociety\bettersociety.infrastructure\obj\Debug\net8.0\ref\bettersociety.infrastructure.dll
