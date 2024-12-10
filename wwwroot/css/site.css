@@ -1,0 +1,43 @@
+/* Starts Skeleton row structure */
+.skeleton-row {
+    display: flex;
+    align-items: center;
+    padding: 3px;
+    margin-bottom: 2px;
+    gap: 10px;
+}
+
+.skeleton-loader {
+    background: #e0e0e0;
+    height: 25px;
+    border-radius: 3px;
+    position: relative;
+    overflow: hidden;
+}
+
+    .skeleton-loader::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -150px;
+        height: 100%;
+        width: 150px;
+        background: linear-gradient(90deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0));
+        animation: shimmer 0.9s infinite;
+    }
+
+@keyframes shimmer {
+    0% {
+        left: -150px;
+    }
+
+    100% {
+        left: 100%;
+    }
+}
+/* Ends Skeleton row structure */
+
+
+#div-home-skeleton {
+    display: none;
+}
