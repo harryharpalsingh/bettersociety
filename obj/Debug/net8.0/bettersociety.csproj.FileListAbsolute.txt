@@ -136,3 +136,4 @@ D:\Work Data\@back-end-development\#bettersociety.in\bs-repository-pattern\bette
 D:\Work Data\@back-end-development\#bettersociety.in\bs-repository-pattern\bettersocietyrepo\bettersociety\obj\Debug\net8.0\bettersociety.genruntimeconfig.cache
 D:\Work Data\@back-end-development\#bettersociety.in\bs-repository-pattern\bettersocietyrepo\bettersociety\obj\Debug\net8.0\ref\bettersociety.dll
 D:\Work Data\@back-end-development\#bettersociety.in\bs-repository-pattern\bettersocietyrepo\bettersociety\bin\Debug\net8.0\Newtonsoft.Json.dll
+D:\Work Data\@back-end-development\#bettersociety.in\bs-repository-pattern\bettersocietyrepo\bettersociety\obj\Debug\net8.0\bettersociety.sourcelink.json

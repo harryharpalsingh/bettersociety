@@ -46,10 +46,12 @@ namespace bettersociety.Migrations
                     b.Property<DateTime>("ModifiedOn")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("QuestionId")
+                    b.Property<int?>("QuestionsId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("QuestionsId");
 
                     b.ToTable("Answers");
                 });
@@ -58,7 +60,8 @@ namespace bettersociety.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasAnnotation("Relational:JsonPropertyName", "Id");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
@@ -79,7 +82,8 @@ namespace bettersociety.Migrations
 
                     b.Property<string>("Title")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(max)")
+                        .HasAnnotation("Relational:JsonPropertyName", "Title");
 
                     b.HasKey("Id");
 
@@ -94,7 +98,7 @@ namespace bettersociety.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("AnswerId")
+                    b.Property<int?>("AnswersId")
                         .HasColumnType("int");
 
                     b.Property<int>("CreatedBy")
@@ -114,7 +118,37 @@ namespace bettersociety.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("AnswersId");
+
                     b.ToTable("Votes");
+                });
+
+            modelBuilder.Entity("bettersociety.Models.Answers", b =>
+                {
+                    b.HasOne("bettersociety.Models.Questions", "Questions")
+                        .WithMany("Answers")
+                        .HasForeignKey("QuestionsId");
+
+                    b.Navigation("Questions");
+                });
+
+            modelBuilder.Entity("bettersociety.Models.Votes", b =>
+                {
+                    b.HasOne("bettersociety.Models.Answers", "Answers")
+                        .WithMany("Votes")
+                        .HasForeignKey("AnswersId");
+
+                    b.Navigation("Answers");
+                });
+
+            modelBuilder.Entity("bettersociety.Models.Answers", b =>
+                {
+                    b.Navigation("Votes");
+                });
+
+            modelBuilder.Entity("bettersociety.Models.Questions", b =>
+                {
+                    b.Navigation("Answers");
                 });
 #pragma warning restore 612, 618
         }

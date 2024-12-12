@@ -7,8 +7,6 @@ namespace bettersociety.Models
         [Key]
         public int Id { get; set; }
 
-        public int QuestionId { get; set; }
-
         public required string Answer { get; set; }
 
         public DateTime CreatedOn { get; set; } = DateTime.Now;
@@ -18,5 +16,14 @@ namespace bettersociety.Models
         public DateTime ModifiedOn { get; set; }
 
         public int Deleted { get; set; } = 0;
+
+        public int? QuestionsId { get; set; }
+
+        //Navigation property
+        public Questions? Questions { get; set; }
+
+        //One to many relationship
+        public List<Votes> Votes { get; set; } = new List<Votes>();
+
     }
 }

@@ -1,4 +1,5 @@
 using bettersociety.Data;
+using bettersociety.Mappers;
 using bettersociety.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -28,13 +29,30 @@ namespace bettersociety.Controllers
             return View(objQuestions);
         }
 
-        //public IActionResult Privacy()
+        //[HttpGet]
+        //public async Task<IActionResult> GetQA()
         //{
-        //    return View();
+        //    if (!ModelState.IsValid)
+        //    {
+        //        return Ok(new
+        //        {
+        //            Status = 0,
+        //            Message = "Model state is not valid!"
+        //        });
+        //    }
+
+        //    var questions = await _dbContext.Questions.ToListAsync();
+
+        //    return Ok(new
+        //    {
+        //        Status = 1,
+        //        TotalQuestions = questions.Count,
+        //        Questions = questions
+        //    });
         //}
 
         [HttpGet]
-        public async Task<IActionResult> GetQA()
+        public IActionResult GetQA()
         {
             if (!ModelState.IsValid)
             {
@@ -45,13 +63,40 @@ namespace bettersociety.Controllers
                 });
             }
 
-            var questions = await _dbContext.Questions.ToListAsync();
+            var questions = _dbContext.Questions
+                .Include(q => q.Answers) // Eagerly load related data
+                .ToList()
+                .Select(static q => q.ToQuestionsDto());
 
             return Ok(new
             {
                 Status = 1,
-                TotalQuestions = questions.Count,
                 Questions = questions
+            });
+        }
+
+        [HttpGet("{id}")]
+        public IActionResult GetQAById([FromRoute] int id)
+        {
+            if (!ModelState.IsValid)
+            {
+                return Ok(new
+                {
+                    Status = 0,
+                    Message = "Model state is not valid!"
+                });
+            }
+
+            var questions = _dbContext.Questions.Find(id);
+            if (questions == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(new
+            {
+                Status = 1,
+                Questions = questions.ToQuestionsDto()
             });
         }
 

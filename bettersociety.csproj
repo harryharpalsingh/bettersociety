@@ -25,4 +25,8 @@
     <None Include="wwwroot\scripts\Home.js" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Dtos\Votes\" />
+  </ItemGroup>
+
 </Project>

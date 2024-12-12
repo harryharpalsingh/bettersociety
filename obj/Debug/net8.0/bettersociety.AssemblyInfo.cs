@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("bettersociety")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+04c97cca88e55c2aaf59fad9e32c2bda9867a075")]
 [assembly: System.Reflection.AssemblyProductAttribute("bettersociety")]
 [assembly: System.Reflection.AssemblyTitleAttribute("bettersociety")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

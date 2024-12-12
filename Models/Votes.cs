@@ -7,8 +7,6 @@ namespace bettersociety.Models
         [Key]
         public int Id { get; set; }
 
-        public required int AnswerId { get; set; }
-
         public required int UpVoteType { get; set; }
 
         public int UpVotedBy { get; set; }
@@ -18,5 +16,11 @@ namespace bettersociety.Models
         public int CreatedBy { get; set; }
 
         public int Deleted { get; set; } = 0;
+
+        public int? AnswersId { get; set; }
+
+        //Navigation property
+        public Answers? Answers { get; set; }
+
     }
 }

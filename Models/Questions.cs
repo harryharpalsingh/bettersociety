@@ -9,7 +9,7 @@ namespace bettersociety.Models
         [JsonPropertyName("Id")] // Use PascalCase in JSON
         public int Id { get; set; }
 
-        //[Required]
+        [Required]
         [JsonPropertyName("Title")] // Use PascalCase in JSON
         public required string Title { get; set; } = string.Empty;
 
@@ -22,5 +22,8 @@ namespace bettersociety.Models
         public DateTime ModifiedOn { get; set; }
 
         public int Deleted { get; set; } = 0;
+
+        //One to many relationship
+        public List<Answers> Answers { get; set; } = new List<Answers>();
     }
 }
