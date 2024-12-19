@@ -18,13 +18,17 @@
             });
 
             const result = await response.json();
-            debugger
+            //debugger
             if (result && result.status === 1) {
-                const tbl = result.questions;
+                const questions = result.questions;
 
-                let qa = ``;
-                tbl.forEach(t => {
-                    qa += `
+                let qaContent = ``;
+                questions.forEach(question => {
+                    const _answer = question.answers && question.answers.length > 0
+                        ? question.answers[0].answer
+                        : "No answers available yet.";
+
+                    qaContent += `
                     <div class="media media-card rounded-0 shadow-none mb-0 bg-transparent p-3 border-bottom border-bottom-gray">
                         <div class="votes text-center votes-2">
                             <div class="vote-block">
@@ -41,9 +45,9 @@
                             </div>
                         </div>
                         <div class="media-body">
-                            <h5 class="mb-2 fw-medium"> <a asp-controller="Home" asp-action="QuestionDetail" data-id="${t.id}">${t.title}</a> </h5>
+                            <h5 class="mb-2 fw-medium"> <a asp-controller="Home" asp-action="QuestionDetail" data-id="${question.id}">${question.title}</a> </h5>
                             <p class="mb-2 truncate lh-20 fs-15">
-                            ${t.answers[0].answer}  
+                            ${_answer}  
                             </p>
                             <div class="tags">
                                 <a href="#" class="tag-link">javascript</a>
@@ -75,7 +79,7 @@
                     </div>`;
                 });
 
-                $('#div-question-answers').empty().append(qa);
+                $('#div-question-answers').empty().append(qaContent);
 
                 home.toggleSkeleton(0);
             }

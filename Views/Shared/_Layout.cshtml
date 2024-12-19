@@ -129,7 +129,7 @@
     <div>@RenderBody()</div>
 
     <!-- ================================ FOOTER AREA ================================= -->
-    <section class="footer-area pt-80px position-relative">
+    <section class="footer-area pt-80px position-relative" style="background-color:#f8f9fa;">
         <span class="vertical-bar-shape vertical-bar-shape-1"></span>
         <span class="vertical-bar-shape vertical-bar-shape-2"></span>
         <span class="vertical-bar-shape vertical-bar-shape-3"></span>
@@ -150,7 +150,10 @@
                     <div class="footer-item">
                         <h3 class="fs-18 fw-bold pb-2">Company</h3>
                         <ul class="generic-list-item generic-list-item-hover-underline pt-3">
-                            <li><a href="about.html">About</a></li>
+                            <li>
+                                <a asp-area="User" asp-controller="BlogPost" asp-action="Index">Blog</a>
+                                <a href="about.html">About</a>
+                            </li>
                             <li><a href="contact.html">Contact</a></li>
                             <li><a href="careers.html">Careers</a></li>
                             <li><a href="advertising.html">Advertising</a></li>

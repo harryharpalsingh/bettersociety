@@ -1,0 +1,237 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="author" content="bettersociety.in">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>@ViewData["Title"] - bettersociety</title>
+    <!-- Google fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com/">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&amp;display=swap" rel="stylesheet">
+
+    <!-- inject:css -->
+    <link rel="stylesheet" href="~/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/css/line-awesome.css">
+    <link rel="stylesheet" href="~/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="~/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="~/css/selectize.css">
+    <link rel="stylesheet" href="~/css/style.css">
+    <link rel="stylesheet" href="~/css/site.css">
+    <link rel="stylesheet" href="~/css/jquery-te-1.4.0.css">
+</head>
+<body>
+    <!-- start cssload-loader -->
+    <div id="preloader">
+        <div class="loader">
+            <svg class="spinner" viewBox="0 0 50 50">
+                <circle class="path" cx="25" cy="25" r="20" fill="none" stroke-width="5"></circle>
+            </svg>
+        </div>
+    </div>
+    <!-- end cssload-loader -->
+    <!--====================================== START HEADER AREA ======================================-->
+    <header class="header-area border-bottom border-bottom-gray bg-white">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-2">
+                    <div class="logo-box">
+                        <a asp-area="" asp-controller="Home" asp-action="Home" class="logo">
+                            <img src="~/assets/logo/blue-png_4x4.webp" alt="bettersociety.in" style="width:5rem;" />
+                        </a>
+                        <div class="user-action">
+                            <div class="search-menu-toggle icon-element icon-element-xs shadow-sm me-1" data-bs-toggle="tooltip" data-placement="top" title="Search">
+                                <i class="la la-search"></i>
+                            </div>
+                            <div class="off-canvas-menu-toggle icon-element icon-element-xs shadow-sm" data-bs-toggle="tooltip" data-placement="top" title="Main menu">
+                                <i class="la la-bars"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div><!-- end col-lg-2 -->
+                <div class="col-lg-10">
+                    <div class="menu-wrapper border-left border-left-gray ps-4 justify-content-end">
+                        <nav class="menu-bar me-auto">
+                            <ul>
+                                <li>
+                                    <a asp-area="User" asp-controller="BlogPost" asp-action="Index">Home</a>
+                                </li>
+                                <li>
+                                    <a asp-area="" asp-controller="About" asp-action="Index">About</a>
+                                </li>
+                                <li>
+                                    <a asp-area="" asp-controller="Contact" asp-action="Index">Contact</a>
+                                </li>
+                                @* <li>
+                                <a href="#">blog <i class="la la-angle-down fs-11"></i></a>
+                                <ul class="dropdown-menu-item">
+                                <li><a href="blog-grid-no-sidebar.html">grid no sidebar</a></li>
+                                <li><a href="blog-left-sidebar.html">blog left sidebar</a></li>
+                                <li><a href="blog-right-sidebar.html">blog right sidebar</a></li>
+                                <li><a href="blog-single.html">blog detail</a></li>
+                                </ul>
+                                </li> *@
+                            </ul><!-- end ul -->
+                        </nav><!-- end main-menu -->
+                        <form method="post" class="me-4">
+                            <div class="form-group mb-0">
+                                <input class="form-control form--control form--control-bg-gray" type="text" name="search" placeholder="Type your search words...">
+                                <button class="form-btn" type="button"><i class="la la-search"></i></button>
+                            </div>
+                        </form>
+                        <div class="nav-right-button">
+                            <a href="login.html" class="btn theme-btn"><i class="la la-user me-1"></i> Login</a>
+                        </div><!-- end nav-right-button -->
+                    </div><!-- end menu-wrapper -->
+                </div><!-- end col-lg-10 -->
+            </div><!-- end row -->
+        </div><!-- end container -->
+        <div class="off-canvas-menu custom-scrollbar-styled">
+            <div class="off-canvas-menu-close icon-element icon-element-sm shadow-sm" data-bs-toggle="tooltip" data-placement="left" title="Close menu">
+                <i class="la la-times"></i>
+            </div><!-- end off-canvas-menu-close -->
+            <ul class="generic-list-item off-canvas-menu-list pt-90px">
+                <li>
+                    <a asp-area="User" asp-controller="BlogPost" asp-action="Index">Home</a>
+                </li>
+                <li>
+                    <a asp-area="User" asp-controller="About" asp-action="Index">About</a>
+                </li>
+                <li>
+                    <a asp-area="User" asp-controller="Contact" asp-action="Index">Contact</a>
+                </li>
+            </ul>
+            <div class="off-canvas-btn-box px-4 pt-5 text-center">
+                <a href="#" class="btn theme-btn theme-btn-sm theme-btn-outline" data-bs-toggle="modal" data-bs-target="#loginModal"><i class="la la-sign-in me-1"></i> Login</a>
+                <span class="fs-15 fw-medium d-inline-block mx-2">Or</span>
+                <a href="#" class="btn theme-btn theme-btn-sm" data-bs-toggle="modal" data-bs-target="#signUpModal"><i class="la la-plus me-1"></i> Sign up</a>
+            </div>
+        </div><!-- end off-canvas-menu -->
+        <div class="mobile-search-form">
+            <div class="d-flex align-items-center">
+                <form method="post" class="flex-grow-1 me-3">
+                    <div class="form-group mb-0">
+                        <input class="form-control form--control pl-40px" type="text" name="search" placeholder="Type your search words...">
+                        <span class="la la-search input-icon"></span>
+                    </div>
+                </form>
+                <div class="search-bar-close icon-element icon-element-sm shadow-sm">
+                    <i class="la la-times"></i>
+                </div><!-- end off-canvas-menu-close -->
+            </div>
+        </div><!-- end mobile-search-form -->
+        <div class="body-overlay"></div>
+    </header><!-- end header-area -->
+    <!--====================================== END HEADER AREA ======================================-->
+
+    <div>@RenderBody()</div>
+
+    <!-- ================================ FOOTER AREA ================================= -->
+    <section class="footer-area pt-80px position-relative" style="background-color:#f8f9fa;">
+        <span class="vertical-bar-shape vertical-bar-shape-1"></span>
+        <span class="vertical-bar-shape vertical-bar-shape-2"></span>
+        <span class="vertical-bar-shape vertical-bar-shape-3"></span>
+        <span class="vertical-bar-shape vertical-bar-shape-4"></span>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 responsive-column-half">
+                    <div class="footer-item">
+                        <a asp-area="" asp-controller="Home" asp-action="Index" class="d-inline-block">
+                            <img src="~/assets/logo/blue-png_4x4.webp" alt="bettersociety.in" style="width:5rem;" class="footer-logo" />
+                        </a>
+                        @* <p class="py-3 fs-15 lh-24">
+                        The strength of society lies in the kindness of its people. Let us build a world we’re proud to share.
+                        </p> *@
+                    </div><!-- end footer-item -->
+                </div><!-- end col-lg-3 -->
+                <div class="col-lg-3 responsive-column-half">
+                    <div class="footer-item">
+                        <h3 class="fs-18 fw-bold pb-2">Company</h3>
+                        <ul class="generic-list-item generic-list-item-hover-underline pt-3">
+                            <li>
+                                <a asp-area="User" asp-controller="BlogPost" asp-action="Index">Blog</a>
+                                <a href="about.html">About</a>
+                            </li>
+                            <li><a href="contact.html">Contact</a></li>
+                            <li><a href="careers.html">Careers</a></li>
+                            <li><a href="advertising.html">Advertising</a></li>
+                        </ul>
+                    </div><!-- end footer-item -->
+                </div><!-- end col-lg-3 -->
+                <div class="col-lg-3 responsive-column-half">
+                    <div class="footer-item">
+                        <h3 class="fs-18 fw-bold pb-2">Legal Stuff</h3>
+                        <ul class="generic-list-item generic-list-item-hover-underline pt-3">
+                            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                            <li><a href="terms-and-conditions.html">Terms of Service</a></li>
+                            <li><a href="privacy-policy.html">Cookie Policy</a></li>
+                        </ul>
+                    </div><!-- end footer-item -->
+                </div><!-- end col-lg-3 -->
+                <div class="col-lg-3 responsive-column-half">
+                    <div class="footer-item">
+                        <h3 class="fs-18 fw-bold pb-2">Help</h3>
+                        <ul class="generic-list-item generic-list-item-hover-underline pt-3">
+                            <li><a href="faq.html">Knowledge Base</a></li>
+                            <li><a href="contact.html">Support</a></li>
+                        </ul>
+                    </div><!-- end footer-item -->
+                </div><!-- end col-lg-3 -->
+            </div><!-- end row -->
+        </div><!-- end container -->
+        <hr class="border-top-gray my-4">
+        <div class="container">
+            <div class="row align-items-center pb-4 copyright-wrap">
+                <div class="col-lg-6">
+                    <p class="copyright-desc copyright--desc fs-14">Copyright &copy; 2024 <a href="https://bettersociety.in/">better society</a></p>
+                </div><!-- end col-lg-6 -->
+                <div class="col-lg-6">
+                    <div class="generic-list-item social-icon-box text-end">
+                        <a class="me-1 icon-element icon-element-sm shadow-sm text-gray hover-y d-inline-block" href="#" target="_blank" title="Follow on Facebook">
+                            <svg focusable="false" class="svg-inline--fa fa-facebook-f fa-w-10" width="16px" height="16px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+                                <path d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"></path>
+                            </svg>
+                        </a>
+                        @* <a class="me-1 icon-element icon-element-sm shadow-sm text-gray hover-y d-inline-block" href="#" target="_blank" title="Follow on Twitter">
+                        <svg focusable="false" class="svg-inline--fa fa-twitter fa-w-16" width="16px" height="16px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"></path></svg>
+                        </a>
+                        <a class="me-1 icon-element icon-element-sm shadow-sm text-gray hover-y d-inline-block" href="#" target="_blank" title="Follow on Linkedin">
+                        <svg focusable="false" class="svg-inline--fa fa-linkedin fa-w-14" width="16px" height="16px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"></path></svg>
+                        </a> *@
+                        <a class="me-1 icon-element icon-element-sm shadow-sm text-gray hover-y d-inline-block" href="https://www.instagram.com/bettersociety.in" target="_blank" title="Follow on Instagram">
+                            <svg focusable="false" class="svg-inline--fa fa-instagram-square fa-w-14" width="16px" height="16px" viewBox="0 0 24 24" role="img" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.794.646-1.439 1.44-1.439.793-.001 1.44.645 1.44 1.439z"></path>
+                            </svg>
+                        </a>
+                        <a b-l8zh4ywdma="" class="me-1 icon-element icon-element-sm shadow-sm text-gray hover-y d-inline-block" href="#" target="_blank" title="Follow on Threads">
+                            <svg focusable="false" class="svg-inline--fa fa-threads fa-w-16" width="16px" height="16px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192">
+                                <path d="M141.537 88.9883C140.71 88.5919 139.87 88.2104 139.019 87.8451C137.537 60.5382 122.616 44.905 97.5619 44.745C97.4484 44.7443 97.3355 44.7443 97.222 44.7443C82.2364 44.7443 69.7731 51.1409 62.102 62.7807L75.881 72.2328C81.6116 63.5383 90.6052 61.6848 97.2286 61.6848C97.3051 61.6848 97.3819 61.6848 97.4576 61.6855C105.707 61.7381 111.932 64.1366 115.961 68.814C118.893 72.2193 120.854 76.925 121.825 82.8638C114.511 81.6207 106.601 81.2385 98.145 81.7233C74.3247 83.0954 59.0111 96.9879 60.0396 116.292C60.5615 126.084 65.4397 134.508 73.775 140.011C80.8224 144.663 89.899 146.938 99.3323 146.423C111.79 145.74 121.563 140.987 128.381 132.296C133.559 125.696 136.834 117.143 138.28 106.366C144.217 109.949 148.617 114.664 151.047 120.332C155.179 129.967 155.42 145.8 142.501 158.708C131.182 170.016 117.576 174.908 97.0135 175.059C74.2042 174.89 56.9538 167.575 45.7381 153.317C35.2355 139.966 29.8077 120.682 29.6052 96C29.8077 71.3178 35.2355 52.0336 45.7381 38.6827C56.9538 24.4249 74.2039 17.11 97.0132 16.9405C119.988 17.1113 137.539 24.4614 149.184 38.788C154.894 45.8136 159.199 54.6488 162.037 64.9503L178.184 60.6422C174.744 47.9622 169.331 37.0357 161.965 27.974C147.036 9.60668 125.202 0.195148 97.0695 0H96.9569C68.8816 0.19447 47.2921 9.6418 32.7883 28.0793C19.8819 44.4864 13.2244 67.3157 13.0007 95.9325L13 96L13.0007 96.0675C13.2244 124.684 19.8819 147.514 32.7883 163.921C47.2921 182.358 68.8816 191.806 96.9569 192H97.0695C122.03 191.827 139.624 185.292 154.118 170.811C173.081 151.866 172.51 128.119 166.26 113.541C161.776 103.087 153.227 94.5962 141.537 88.9883ZM98.4405 129.507C88.0005 130.095 77.1544 125.409 76.6196 115.372C76.2232 107.93 81.9158 99.626 99.0812 98.6368C101.047 98.5234 102.976 98.468 104.871 98.468C111.106 98.468 116.939 99.0737 122.242 100.233C120.264 124.935 108.662 128.946 98.4405 129.507Z"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div><!-- end col-lg-6 -->
+            </div><!-- end row -->
+        </div><!-- end container -->
+    </section><!-- end footer-area -->
+    <!-- ================================ END FOOTER AREA ================================= -->
+    <!-- start back to top -->
+    <div id="back-to-top" data-bs-toggle="tooltip" data-placement="top" title="Return to top">
+        <i class="la la-arrow-up"></i>
+    </div>
+    <!-- end back to top -->
+    <!-- template js files -->
+    <script src="~/js/jquery-3.7.1.min.js"></script>
+    <script src="~/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/owl.carousel.min.js"></script>
+    <script src="~/js/selectize.min.js"></script>
+    <script src="~/js/main.js"></script>
+    <script src="~/js/jquery.multi-file.min.js"></script>
+
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

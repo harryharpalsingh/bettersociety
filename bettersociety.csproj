@@ -26,6 +26,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Areas\User\Model\" />
     <Folder Include="Dtos\Votes\" />
   </ItemGroup>
 
