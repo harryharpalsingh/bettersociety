@@ -16,6 +16,7 @@ namespace bettersociety.Areas.User.Controllers
             _appDbcontext = appDbContext;
         }
 
+        //[Route("User/BlogPost/Index")] // Fixed route.
         public IActionResult Index()
         {
             return View();
@@ -33,7 +34,7 @@ namespace bettersociety.Areas.User.Controllers
         }
 
         [HttpGet("{id}")]
-        public IActionResult GetById([FromRoute] int id)
+        public IActionResult GetBlogPostById([FromRoute] int id)
         {
             var question = _appDbcontext.Questions.Find(id);
             if (question == null)
@@ -55,7 +56,7 @@ namespace bettersociety.Areas.User.Controllers
             var questionModel = createBlogDto.ToQuestionsFromCreateBlogPostDto();
             await _appDbcontext.Questions.AddAsync(questionModel);
             await _appDbcontext.SaveChangesAsync();
-            return CreatedAtAction(nameof(GetById), new { id = questionModel.Id }, questionModel.ToQuestionsDto());
+            return CreatedAtAction(nameof(GetBlogPostById), new { id = questionModel.Id }, questionModel.ToQuestionsDto());
 
         }
     }

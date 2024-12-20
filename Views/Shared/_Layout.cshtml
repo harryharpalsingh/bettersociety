@@ -38,7 +38,7 @@
             <div class="row align-items-center">
                 <div class="col-lg-2">
                     <div class="logo-box">
-                        <a asp-area="" asp-controller="Home" asp-action="Home" class="logo">
+                        <a asp-area="" asp-controller="Home" asp-action="Index" class="logo">
                             <img src="~/assets/logo/blue-png_4x4.webp" alt="bettersociety.in" style="width:5rem;" />
                         </a>
                         <div class="user-action">
@@ -64,6 +64,9 @@
                                 <li>
                                     <a asp-area="" asp-controller="Contact" asp-action="Index">Contact</a>
                                 </li>
+                                <li>
+                                    <a asp-area="User" asp-controller="BlogPost" asp-action="Index">Blog</a>
+                                </li>
                                 @* <li>
                                 <a href="#">blog <i class="la la-angle-down fs-11"></i></a>
                                 <ul class="dropdown-menu-item">
@@ -82,7 +85,8 @@
                             </div>
                         </form>
                         <div class="nav-right-button">
-                            <a href="login.html" class="btn theme-btn"><i class="la la-user me-1"></i> Login</a>
+                            <a class="btn theme-btn" asp-area="" asp-controller="Login" asp-action="Index"><i class="la la-user me-1"></i> Login</a>
+                            @* <a class="btn theme-btn" asp-route="SignupPage"><i class="la la-user me-1"></i> Login</a> *@
                         </div><!-- end nav-right-button -->
                     </div><!-- end menu-wrapper -->
                 </div><!-- end col-lg-10 -->
@@ -151,7 +155,6 @@
                         <h3 class="fs-18 fw-bold pb-2">Company</h3>
                         <ul class="generic-list-item generic-list-item-hover-underline pt-3">
                             <li>
-                                <a asp-area="User" asp-controller="BlogPost" asp-action="Index">Blog</a>
                                 <a href="about.html">About</a>
                             </li>
                             <li><a href="contact.html">Contact</a></li>

@@ -482,17 +482,17 @@ body {
 
 /*==== bg =====*/
 .bg-diagonal-gradient-primary {
-    background: #3cb1c6 !important;
+    background: #305eff !important;
     background: -moz-linear-gradient(-45deg, #3597a9 0%, #78e7f1 100%) !important;
     background: -webkit-linear-gradient(-45deg, #3597a9 0%, #78e7f1 100%) !important;
-    background: linear-gradient(135deg, #3597a9 0%, #78e7f1 100%) !important;
+    background: linear-gradient(135deg, #305eff 0%, #305effcc 100%) !important
 }
 
 .bg-diagonal-gradient-primary-2 {
     background: #3597a9 !important;
-    background: -moz-linear-gradient(-45deg, #3597a9 0%, #78e7f1 100%) !important;
-    background: -webkit-linear-gradient(-45deg, #3597a9 0%, #78e7f1 100%) !important;
-    background: linear-gradient(135deg, #2c65bd 0%, #55989f 100%) !important;
+    background: -moz-linear-gradient(-45deg, #305eff 0%, #305effcc 100%) !important;
+    background: -webkit-linear-gradient(-45deg, #305eff 0%, #305effcc 100%) !important;
+    background: linear-gradient(135deg, #305eff 0%, #305effcc 100%) !important;
 }
 
 .bg-vertical-gradient-gray {
