@@ -509,6 +509,10 @@
       "PackagePath": "staticwebassets\\scripts\\Home.js"
     },
     {
+      "Id": "D:\\Work Data\\@back-end-development\\#bettersociety.in\\bs-repository-pattern\\bettersocietyrepo\\bettersociety\\wwwroot\\scripts\\User.js",
+      "PackagePath": "staticwebassets\\scripts\\User.js"
+    },
+    {
       "Id": "obj\\Release\\net8.0\\staticwebassets\\msbuild.bettersociety.Microsoft.AspNetCore.StaticWebAssets.props",
       "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
     },

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "7SXRgXCYzI8QG0JsFyjqDkqZgQALWJiyModmi55l1Lw=",
+  "Hash": "pBLOhFoLDKqTxfwW2fi/dAEqZS+eazW/HmiOQ/07I9E=",
   "Source": "bettersociety",
   "BasePath": "_content/bettersociety",
   "Mode": "Default",
@@ -2447,6 +2447,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\scripts\\Home.js"
+    },
+    {
+      "Identity": "D:\\Work Data\\@back-end-development\\#bettersociety.in\\bs-repository-pattern\\bettersocietyrepo\\bettersociety\\wwwroot\\scripts\\User.js",
+      "SourceId": "bettersociety",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Work Data\\@back-end-development\\#bettersociety.in\\bs-repository-pattern\\bettersocietyrepo\\bettersociety\\wwwroot\\",
+      "BasePath": "_content/bettersociety",
+      "RelativePath": "scripts/User.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\scripts\\User.js"
     }
   ]
 }

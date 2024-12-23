@@ -1,4 +1,5 @@
 ﻿using bettersociety.Models;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
@@ -14,5 +15,27 @@ namespace bettersociety.Data
         public DbSet<Questions> Questions { get; set; }
         public DbSet<Answers> Answers { get; set; }
         public DbSet<Votes> Votes { get; set; }
+
+        //Defining User Roles
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            base.OnModelCreating(builder);
+
+            List<IdentityRole> roles = new List<IdentityRole>
+            {
+               new IdentityRole
+               {
+                   Name="Admin",
+                   NormalizedName="ADMIN"
+               },
+               new IdentityRole
+               {
+                    Name="User",
+                    NormalizedName="USER"
+               }
+            };
+
+            builder.Entity<IdentityRole>().HasData(roles);
+        }
     }
 }

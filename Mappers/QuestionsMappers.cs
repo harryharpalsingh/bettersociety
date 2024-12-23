@@ -12,6 +12,7 @@ namespace bettersociety.Mappers
             {
                 Id = questionsModel.Id,
                 Title = questionsModel.Title,
+                QuestionDetail = questionsModel.QuestionDetail,
                 CreatedBy = questionsModel.CreatedBy,
                 CreatedOn = questionsModel.CreatedOn,
                 Answers = questionsModel.Answers?.Select(a => new AnswersDto
@@ -21,7 +22,7 @@ namespace bettersociety.Mappers
                     CreatedOn = a.CreatedOn,
                     CreatedBy = a.CreatedBy
                 }).ToList() ?? new List<AnswersDto>() // Ensure empty list if null
-                
+
                 /*
                  Check for Answers:
                     Use the null-conditional operator questionsModel.Answers?.Select(...) to avoid null reference exceptions.

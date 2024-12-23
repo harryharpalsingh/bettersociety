@@ -18,6 +18,7 @@ namespace bettersociety.Areas.User.Mappers
             return new Questions
             {
                 Title = createBlogPostDto.Title,
+                QuestionDetail = createBlogPostDto.QuestionDetail
             };
         }
     }

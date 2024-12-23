@@ -6,6 +6,7 @@ D:\Work Data\@back-end-development\#bettersociety.in\bs-repository-pattern\bette
 D:\Work Data\@back-end-development\#bettersociety.in\bs-repository-pattern\bettersocietyrepo\bettersociety\obj\Release\net8.0\PubTmp\Out\bettersociety.pdb
 D:\Work Data\@back-end-development\#bettersociety.in\bs-repository-pattern\bettersocietyrepo\bettersociety\obj\Release\net8.0\PubTmp\Out\Azure.Core.dll
 D:\Work Data\@back-end-development\#bettersociety.in\bs-repository-pattern\bettersocietyrepo\bettersociety\obj\Release\net8.0\PubTmp\Out\Azure.Identity.dll
+D:\Work Data\@back-end-development\#bettersociety.in\bs-repository-pattern\bettersocietyrepo\bettersociety\obj\Release\net8.0\PubTmp\Out\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 D:\Work Data\@back-end-development\#bettersociety.in\bs-repository-pattern\bettersocietyrepo\bettersociety\obj\Release\net8.0\PubTmp\Out\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
 D:\Work Data\@back-end-development\#bettersociety.in\bs-repository-pattern\bettersocietyrepo\bettersociety\obj\Release\net8.0\PubTmp\Out\Microsoft.Bcl.AsyncInterfaces.dll
 D:\Work Data\@back-end-development\#bettersociety.in\bs-repository-pattern\bettersocietyrepo\bettersociety\obj\Release\net8.0\PubTmp\Out\Microsoft.Data.SqlClient.dll

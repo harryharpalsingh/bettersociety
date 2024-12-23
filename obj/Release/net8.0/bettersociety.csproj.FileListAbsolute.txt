@@ -137,3 +137,4 @@ D:\Work Data\@back-end-development\#bettersociety.in\bs-repository-pattern\bette
 D:\Work Data\@back-end-development\#bettersociety.in\bs-repository-pattern\bettersocietyrepo\bettersociety\obj\Release\net8.0\bettersociety.pdb
 D:\Work Data\@back-end-development\#bettersociety.in\bs-repository-pattern\bettersocietyrepo\bettersociety\obj\Release\net8.0\bettersociety.genruntimeconfig.cache
 D:\Work Data\@back-end-development\#bettersociety.in\bs-repository-pattern\bettersocietyrepo\bettersociety\obj\Release\net8.0\ref\bettersociety.dll
+D:\Work Data\@back-end-development\#bettersociety.in\bs-repository-pattern\bettersocietyrepo\bettersociety\bin\Release\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll

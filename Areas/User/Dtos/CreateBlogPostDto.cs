@@ -5,8 +5,10 @@ using System.Text.Json.Serialization;
 namespace bettersociety.Areas.User.Dtos
 {
     public class CreateBlogPostDto
-    { 
+    {
         public required string Title { get; set; } = string.Empty;
+
+        public required string QuestionDetail { get; set; } = string.Empty;
 
         //public int? ImageID { get; set; }
 

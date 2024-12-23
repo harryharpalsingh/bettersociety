@@ -8,6 +8,8 @@ namespace bettersociety.Dtos.Questions
         public int Id { get; set; }
 
         public required string Title { get; set; } = string.Empty;
+        
+        public required string QuestionDetail { get; set; } = string.Empty;
 
         public int? ImageID { get; set; }
 

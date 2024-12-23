@@ -13,6 +13,9 @@ namespace bettersociety.Models
         [JsonPropertyName("Title")] // Use PascalCase in JSON
         public required string Title { get; set; } = string.Empty;
 
+        [Required]
+        public required string QuestionDetail { get; set; } = string.Empty;
+
         public int? ImageID { get; set; }
 
         public DateTime CreatedOn { get; set; } = DateTime.Now;
