@@ -120,6 +120,21 @@
                 const result = await response.text(); // Response might not always be JSON
                 //console.log(result);
 
+                //#region Save Token
+                const token = response.token; // Extract the token from the API response
+                const expires = new Date(Date.now() + 60 * 60 * 1000).toUTCString(); // 1 hour expiry
+                // Set the cookie
+                document.cookie = `token=${token}; expires=${expires}; path=/; secure; samesite=strict`;
+
+                /*
+                    Explanation of Cookie Attributes :
+                    expires: Sets when the cookie should expire. Use UTC format.
+                    path=/: Ensures the cookie is accessible on all paths of the site.
+                    secure: Ensures the cookie is only sent over HTTPS (effective in production).
+                    samesite=strict: Prevents the cookie from being sent with cross-site requests, reducing CSRF risks.
+                */
+                //#endregion
+
                 $('#txtUserName, #txtUserEmail, #txtUserPassword').val('');
                 alert("Login successfull!");
                 window.open("/User/Home", "_self");
@@ -139,6 +154,18 @@
             console.error("Error:", error);
             alert("An unexpected error occurred. Please try again later.");
         }
+    },
+
+    getCookie(name) {
+        const value = `; ${document.cookie}`;
+        const parts = value.split(`; ${name}=`);
+        if (parts.length === 2) return parts.pop().split(';').shift();
+    },
+
+    readToken() {
+        // Example: Read the token
+        const token = getCookie("token");
+        console.log("Retrieved token:", token);
     },
 
     async createBlogPost() {
@@ -165,7 +192,7 @@
             };
 
             // Send data to server
-            const response = await fetch('/User/BlogPost/CreateBlogPost', { // Add leading slash for correct URL
+            const response = await fetch('/User/BlogPost/CreateBlogPost', { 
                 method: "POST",
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(blogPostData),
