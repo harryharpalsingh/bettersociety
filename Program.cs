@@ -1,5 +1,7 @@
 using bettersociety.Data;
+using bettersociety.Interfaces;
 using bettersociety.Models;
+using bettersociety.Service;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -61,6 +63,9 @@ builder.Services.AddAuthentication(options =>
         IssuerSigningKey = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes(builder.Configuration["JWT:SigningKey"]))
     };
 });
+
+//Dependency injection
+builder.Services.AddScoped<ITokenService, TokenService>();
 
 var app = builder.Build();
 

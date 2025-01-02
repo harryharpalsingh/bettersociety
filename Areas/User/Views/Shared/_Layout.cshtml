@@ -34,59 +34,186 @@
     </div>
     <!-- end cssload-loader -->
     <!--====================================== START HEADER AREA ======================================-->
-    <header class="header-area border-bottom border-bottom-gray bg-white">
+    <header class="header-area bg-white border-bottom border-bottom-gray">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-2">
                     <div class="logo-box">
-                        <a asp-area="" asp-controller="Home" asp-action="Index" class="logo">
+                        <a asp-area="User" asp-controller="Home" asp-action="Index" class="logo">
                             <img src="~/assets/logo/blue-png_4x4.webp" alt="bettersociety.in" style="width:5rem;" />
                         </a>
+
                         <div class="user-action">
                             <div class="search-menu-toggle icon-element icon-element-xs shadow-sm me-1" data-bs-toggle="tooltip" data-placement="top" title="Search">
                                 <i class="la la-search"></i>
                             </div>
-                            <div class="off-canvas-menu-toggle icon-element icon-element-xs shadow-sm" data-bs-toggle="tooltip" data-placement="top" title="Main menu">
+                            <div class="off-canvas-menu-toggle icon-element icon-element-xs shadow-sm me-1" data-bs-toggle="tooltip" data-placement="top" title="Main menu">
                                 <i class="la la-bars"></i>
+                            </div>
+                            <div class="user-off-canvas-menu-toggle icon-element icon-element-xs shadow-sm" data-bs-toggle="tooltip" data-placement="top" title="User menu">
+                                <i class="la la-user"></i>
                             </div>
                         </div>
                     </div>
                 </div><!-- end col-lg-2 -->
                 <div class="col-lg-10">
-                    <div class="menu-wrapper border-left border-left-gray ps-4 justify-content-end">
+                    <div class="menu-wrapper border-left border-left-gray ps-4">
                         <nav class="menu-bar me-auto">
                             <ul>
                                 <li>
-                                    <a asp-area="User" asp-controller="BlogPost" asp-action="Index">Home</a>
+                                    <a asp-area="">Home</a>
+                                </li>
+                                <li class="is-mega-menu">
+                                    <a href="#">pages <i class="la la-angle-down fs-11"></i></a>
+                                    <div class="dropdown-menu-item mega-menu">
+                                        <ul class="row">
+                                            <li class="col-lg-3">
+                                                <a href="user-profile.html">user profile</a>
+                                                <a href="notifications.html">Notifications</a>
+                                                <a href="referrals.html">Referrals</a>
+                                                <a href="setting.html">settings</a>
+                                                <a href="ask-question.html">ask question</a>
+                                                <a href="question-details.html">question details</a>
+                                                <a href="about.html">about</a>
+                                                <a href="revisions.html">revisions</a>
+                                                <a href="category.html">category</a>
+                                                <a href="companies.html">companies</a>
+                                                <a href="company-details.html">company details</a>
+                                            </li>
+                                            <li class="col-lg-3">
+                                                <a href="careers.html">careers</a>
+                                                <a href="career-details.html">career details</a>
+                                                <a href="contact.html">contact</a>
+                                                <a href="faq.html">FAQs</a>
+                                                <a href="pricing-table.html">pricing tables</a>
+                                                <a href="error.html">page 404</a>
+                                                <a href="terms-and-conditions.html">Terms & conditions</a>
+                                                <a href="privacy-policy.html">privacy policy</a>
+                                                <a href="cart.html">cart</a>
+                                                <a href="talent.html">talent</a>
+                                                <a href="advertising.html">advertising</a>
+                                            </li>
+                                            <li class="col-lg-3">
+                                                <a href="free-demo.html">free demo</a>
+                                                <a href="checkout.html">checkout</a>
+                                                <a href="wishlist.html">wishlist</a>
+                                                <a href="login.html">login</a>
+                                                <a href="login-2.html">login 2</a>
+                                                <a href="signup.html">sign up</a>
+                                                <a href="signup-2.html">sign up 2</a>
+                                                <a href="recover-password.html">recover password</a>
+                                                <a href="questions-layout-2.html">questions layout 2</a>
+                                                <a href="questions-full-width.html">questions full-width </a>
+                                                <a href="questions-left-sidebar.html">questions left sidebar </a>
+                                            </li>
+                                            <li class="col-lg-3">
+                                                <a href="questions-right-sidebar.html">questions right sidebar</a>
+                                                <a href="user-list.html">user list </a>
+                                                <a href="category-list.html">category list</a>
+                                                <a href="tags-list.html">tags list </a>
+                                                <a href="add-post.html">add post </a>
+                                                <a href="badges-list.html">Badges list</a>
+                                                <a href="job-list.html">job list </a>
+                                                <a href="error-2.html">page 404 2</a>
+                                            </li>
+                                        </ul>
+                                    </div>
                                 </li>
                                 <li>
-                                    <a asp-area="" asp-controller="About" asp-action="Index">About</a>
+                                    <a href="#">blog <i class="la la-angle-down fs-11"></i></a>
+                                    <ul class="dropdown-menu-item">
+                                        <li><a href="blog-grid-no-sidebar.html">grid no sidebar</a></li>
+                                        <li><a href="blog-left-sidebar.html">blog left sidebar</a></li>
+                                        <li><a href="blog-right-sidebar.html">blog right sidebar</a></li>
+                                        <li><a href="blog-single.html">blog detail</a></li>
+                                    </ul>
                                 </li>
-                                <li>
-                                    <a asp-area="" asp-controller="Contact" asp-action="Index">Contact</a>
-                                </li>
-                                <li>
-                                    <a asp-area="User" asp-controller="BlogPost" asp-action="Index">Blog</a>
-                                </li>
-                                @* <li>
-                                <a href="#">blog <i class="la la-angle-down fs-11"></i></a>
-                                <ul class="dropdown-menu-item">
-                                <li><a href="blog-grid-no-sidebar.html">grid no sidebar</a></li>
-                                <li><a href="blog-left-sidebar.html">blog left sidebar</a></li>
-                                <li><a href="blog-right-sidebar.html">blog right sidebar</a></li>
-                                <li><a href="blog-single.html">blog detail</a></li>
-                                </ul>
-                                </li> *@
                             </ul><!-- end ul -->
                         </nav><!-- end main-menu -->
-                        <form method="post" class="me-4">
+                        <form method="post" class="me-2">
                             <div class="form-group mb-0">
                                 <input class="form-control form--control form--control-bg-gray" type="text" name="search" placeholder="Type your search words...">
                                 <button class="form-btn" type="button"><i class="la la-search"></i></button>
                             </div>
                         </form>
                         <div class="nav-right-button">
-                            <a class="btn theme-btn" asp-controller="Signup" asp-action="Index"><i class="la la-user me-1"></i> Login</a>
+                            <ul class="user-action-wrap d-flex align-items-center">
+                                <li class="dropdown">
+                                    <span class="ball red ball-lg noti-dot"></span>
+                                    <a class="nav-link dropdown-toggle dropdown--toggle" href="#" id="notificationDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <i class="la la-bell"></i>
+                                    </a>
+                                    <div class="dropdown-menu dropdown--menu dropdown-menu-right mt-3 keep-open" aria-labelledby="notificationDropdown">
+                                        <h6 class="dropdown-header"><i class="la la-bell pe-1 fs-16"></i>Notifications</h6>
+                                        <div class="dropdown-divider border-top-gray mb-0"></div>
+                                        <div class="dropdown-item-list">
+                                            <a class="dropdown-item" href="notifications.html">
+                                                <div class="media media-card media--card shadow-none mb-0 rounded-0 align-items-center bg-transparent">
+                                                    <div class="media-img media-img-sm flex-shrink-0">
+                                                        <img src="images/img3.jpg" alt="avatar">
+                                                    </div>
+                                                    <div class="media-body p-0 border-left-0">
+                                                        <h5 class="fs-14 fw-regular">John Doe following your post</h5>
+                                                        <small class="meta d-block lh-24">
+                                                            <span>45 secs ago</span>
+                                                        </small>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            <a class="dropdown-item" href="notifications.html">
+                                                <div class="media media-card media--card shadow-none mb-0 rounded-0 align-items-center bg-transparent">
+                                                    <div class="media-img media-img-sm flex-shrink-0">
+                                                        <img src="images/img4.jpg" alt="avatar">
+                                                    </div>
+                                                    <div class="media-body p-0 border-left-0">
+                                                        <h5 class="fs-14 fw-regular">Arnold Smith answered on your post</h5>
+                                                        <small class="meta d-block lh-24">
+                                                            <span>5 mins ago</span>
+                                                        </small>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            <a class="dropdown-item" href="notifications.html">
+                                                <div class="media media-card media--card shadow-none mb-0 rounded-0 align-items-center bg-transparent">
+                                                    <div class="media-img media-img-sm flex-shrink-0">
+                                                        <img src="images/img4.jpg" alt="avatar">
+                                                    </div>
+                                                    <div class="media-body p-0 border-left-0">
+                                                        <h5 class="fs-14 fw-regular">Saeed bookmarked your post</h5>
+                                                        <small class="meta d-block lh-24">
+                                                            <span>1 hour ago</span>
+                                                        </small>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <a class="dropdown-item pb-1 border-bottom-0 text-center btn-text fw-regular" href="notifications.html">View All Notifications <i class="la la-arrow-right icon ms-1"></i></a>
+                                    </div>
+                                </li>
+                                <li class="dropdown user-dropdown">
+                                    <a class="nav-link dropdown-toggle dropdown--toggle ps-2" href="#" id="userMenuDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <div class="media media-card media--card shadow-none mb-0 rounded-0 align-items-center bg-transparent">
+                                            <div class="media-img media-img-xs flex-shrink-0 rounded-full me-2">
+                                                <img src="images/img4.jpg" alt="avatar" class="rounded-full">
+                                            </div>
+                                            <div class="media-body p-0 border-left-0">
+                                                <h5 class="fs-14">Arden Smith</h5>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <div class="dropdown-menu dropdown--menu dropdown-menu-right mt-3 keep-open" aria-labelledby="userMenuDropdown">
+                                        <h6 class="dropdown-header">Hi, Arden Smith</h6>
+                                        <div class="dropdown-divider border-top-gray mb-0"></div>
+                                        <div class="dropdown-item-list">
+                                            <a class="dropdown-item" href="user-profile.html"><i class="la la-user me-2"></i>Profile</a>
+                                            <a class="dropdown-item" href="notifications.html"><i class="la la-bell me-2"></i>Notifications</a>
+                                            <a class="dropdown-item" href="referrals.html"><i class="la la-user-plus me-2"></i>Referrals</a>
+                                            <a class="dropdown-item" href="setting.html"><i class="la la-gear me-2"></i>Settings</a>
+                                            <a class="dropdown-item" href="index.html"><i class="la la-power-off me-2"></i>Log out</a>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
                         </div><!-- end nav-right-button -->
                     </div><!-- end menu-wrapper -->
                 </div><!-- end col-lg-10 -->
@@ -98,21 +225,125 @@
             </div><!-- end off-canvas-menu-close -->
             <ul class="generic-list-item off-canvas-menu-list pt-90px">
                 <li>
-                    <a asp-area="User" asp-controller="BlogPost" asp-action="Index">Home</a>
+                    <a href="#">Home</a>
+                    <ul class="sub-menu">
+                        <li><a href="index.html">Home - landing</a></li>
+                        <li><a href="home-2.html">Home - main</a></li>
+                    </ul>
                 </li>
                 <li>
-                    <a asp-area="User" asp-controller="About" asp-action="Index">About</a>
+                    <a href="#">Pages</a>
+                    <ul class="sub-menu">
+                        <li><a href="user-profile.html">user profile</a></li>
+                        <li><a href="notifications.html">Notifications</a></li>
+                        <li><a href="referrals.html">Referrals</a></li>
+                        <li><a href="setting.html">settings</a></li>
+                        <li><a href="ask-question.html">ask question</a></li>
+                        <li><a href="question-details.html">question details</a></li>
+                        <li><a href="about.html">about</a></li>
+                        <li><a href="revisions.html">revisions</a></li>
+                        <li><a href="category.html">category</a></li>
+                        <li><a href="companies.html">companies</a></li>
+                        <li><a href="company-details.html">company details</a></li>
+                        <li><a href="careers.html">careers</a></li>
+                        <li><a href="career-details.html">career details</a></li>
+                        <li><a href="contact.html">contact</a></li>
+                        <li><a href="faq.html">FAQs</a></li>
+                        <li><a href="pricing-table.html">pricing tables</a></li>
+                        <li><a href="error.html">page 404</a></li>
+                        <li><a href="terms-and-conditions.html">Terms & conditions</a></li>
+                        <li><a href="privacy-policy.html">privacy policy</a></li>
+                    </ul>
                 </li>
                 <li>
-                    <a asp-area="User" asp-controller="Contact" asp-action="Index">Contact</a>
+                    <a href="#">blog</a>
+                    <ul class="sub-menu">
+                        <li><a href="blog-grid-no-sidebar.html">grid no sidebar</a></li>
+                        <li><a href="blog-left-sidebar.html">blog left sidebar</a></li>
+                        <li><a href="blog-right-sidebar.html">blog right sidebar</a></li>
+                        <li><a href="blog-single.html">blog detail</a></li>
+                    </ul>
                 </li>
             </ul>
             <div class="off-canvas-btn-box px-4 pt-5 text-center">
-                <a href="#" class="btn theme-btn theme-btn-sm theme-btn-outline" data-bs-toggle="modal" data-bs-target="#loginModal"><i class="la la-sign-in me-1"></i> Login</a>
+                <a href="login.html" class="btn theme-btn theme-btn-sm theme-btn-outline"><i class="la la-sign-in me-1"></i> Login</a>
                 <span class="fs-15 fw-medium d-inline-block mx-2">Or</span>
-                <a href="#" class="btn theme-btn theme-btn-sm" data-bs-toggle="modal" data-bs-target="#signUpModal"><i class="la la-plus me-1"></i> Sign up</a>
+                <a href="signup.html" class="btn theme-btn theme-btn-sm"><i class="la la-plus me-1"></i> Sign up</a>
             </div>
         </div><!-- end off-canvas-menu -->
+        <div class="user-off-canvas-menu custom-scrollbar-styled">
+            <div class="user-off-canvas-menu-close icon-element icon-element-sm shadow-sm" data-bs-toggle="tooltip" data-placement="left" title="Close menu">
+                <i class="la la-times"></i>
+            </div><!-- end user-off-canvas-menu-close -->
+            <ul class="nav nav-tabs generic-tabs generic--tabs pt-90px ps-4 shadow-sm" id="myTab2" role="tablist">
+                <li class="nav-item"><div class="anim-bar"></div></li>
+                <li class="nav-item">
+                    <a class="nav-link active" id="user-notification-menu-tab" data-bs-toggle="tab" href="#user-notification-menu" role="tab" aria-controls="user-notification-menu" aria-selected="true">Notifications</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="user-profile-menu-tab" data-bs-toggle="tab" href="#user-profile-menu" role="tab" aria-controls="user-profile-menu" aria-selected="false">Profile</a>
+                </li>
+            </ul>
+            <div class="tab-content pt-3" id="myTabContent2">
+                <div class="tab-pane fade show active" id="user-notification-menu" role="tabpanel" aria-labelledby="user-notification-menu-tab">
+                    <div class="dropdown--menu shadow-none w-auto rounded-0">
+                        <div class="dropdown-item-list">
+                            <a class="dropdown-item" href="notifications.html">
+                                <div class="media media-card media--card shadow-none mb-0 rounded-0 align-items-center bg-transparent">
+                                    <div class="media-img media-img-sm flex-shrink-0">
+                                        <img src="images/img3.jpg" alt="avatar">
+                                    </div>
+                                    <div class="media-body p-0 border-left-0">
+                                        <h5 class="fs-14 fw-regular">John Doe following your post</h5>
+                                        <small class="meta d-block lh-24">
+                                            <span>45 secs ago</span>
+                                        </small>
+                                    </div>
+                                </div>
+                            </a>
+                            <a class="dropdown-item" href="notifications.html">
+                                <div class="media media-card media--card shadow-none mb-0 rounded-0 align-items-center bg-transparent">
+                                    <div class="media-img media-img-sm flex-shrink-0">
+                                        <img src="images/img4.jpg" alt="avatar">
+                                    </div>
+                                    <div class="media-body p-0 border-left-0">
+                                        <h5 class="fs-14 fw-regular">Arnold Smith answered on your post</h5>
+                                        <small class="meta d-block lh-24">
+                                            <span>5 mins ago</span>
+                                        </small>
+                                    </div>
+                                </div>
+                            </a>
+                            <a class="dropdown-item" href="notifications.html">
+                                <div class="media media-card media--card shadow-none mb-0 rounded-0 align-items-center bg-transparent">
+                                    <div class="media-img media-img-sm flex-shrink-0">
+                                        <img src="images/img4.jpg" alt="avatar">
+                                    </div>
+                                    <div class="media-body p-0 border-left-0">
+                                        <h5 class="fs-14 fw-regular">Saeed bookmarked your post</h5>
+                                        <small class="meta d-block lh-24">
+                                            <span>1 hour ago</span>
+                                        </small>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <a class="dropdown-item border-bottom-0 text-center btn-text fw-regular" href="notifications.html">View All Notifications <i class="la la-arrow-right icon ms-1"></i></a>
+                    </div>
+                </div><!-- end tab-pane -->
+                <div class="tab-pane fade" id="user-profile-menu" role="tabpanel" aria-labelledby="user-profile-menu-tab">
+                    <div class="dropdown--menu shadow-none w-auto rounded-0">
+                        <div class="dropdown-item-list">
+                            <a class="dropdown-item" href="user-profile.html"><i class="la la-user me-2"></i>Profile</a>
+                            <a class="dropdown-item" href="notifications.html"><i class="la la-bell me-2"></i>Notifications</a>
+                            <a class="dropdown-item" href="referrals.html"><i class="la la-user-plus me-2"></i>Referrals</a>
+                            <a class="dropdown-item" href="setting.html"><i class="la la-gear me-2"></i>Settings</a>
+                            <a class="dropdown-item" href="index.html"><i class="la la-power-off me-2"></i>Log out</a>
+                        </div>
+                    </div>
+                </div><!-- end tab-pane -->
+            </div>
+        </div><!-- end user-off-canvas-menu -->
         <div class="mobile-search-form">
             <div class="d-flex align-items-center">
                 <form method="post" class="flex-grow-1 me-3">
@@ -142,7 +373,7 @@
             <div class="row">
                 <div class="col-lg-3 responsive-column-half">
                     <div class="footer-item">
-                        <a asp-area="" asp-controller="Home" asp-action="Index" class="d-inline-block">
+                        <a asp-area="User" asp-controller="Home" asp-action="Index" class="d-inline-block">
                             <img src="~/assets/logo/blue-png_4x4.webp" alt="bettersociety.in" style="width:5rem;" class="footer-logo" />
                         </a>
                         @* <p class="py-3 fs-15 lh-24">

@@ -51,6 +51,7 @@
 
                 $('#txtUserName, #txtUserEmail, #txtUserPassword').val('');
                 alert("User created successfully!");
+                window.open("/Login");
                 //redirect to login page
             }
             else {
@@ -61,6 +62,77 @@
                 const errorResponse = await response.json();
                 const errorMessages = errorResponse?.map(err => err.description).join('\n') || "An error occurred.";
                 alert("Error: " + errorMessages);
+            }
+        }
+        catch (error) {
+            console.error("Error:", error);
+            alert("An unexpected error occurred. Please try again later.");
+        }
+    },
+
+    async login() {
+        let userName = $('#txtUserNameOrEmail').val()?.trim(); // Trim whitespace
+        let email = $('#txtUserNameOrEmail').val();
+        let password = $('#txtUserPassword').val();
+
+        // Validate userName
+        if (!userName) {
+            alert("User name or Email is required and cannot be empty.");
+            return;
+        }
+
+        //// Additional Title Validation: Minimum and Maximum Length
+        //if (userName.length < 5 || userName.length > 30) {
+        //    alert("Title must be between 5 and 30 characters.");
+        //    return;
+        //}
+
+        //// Validate email
+        //if (!email) {
+        //    alert("Email is required and cannot be empty.");
+        //    return;
+        //}
+
+        // Validate password
+        if (!password) {
+            alert("Password is required and cannot be empty.");
+            return;
+        }
+
+        // Prepare data object
+        let loginData = {
+            UserName: userName,
+            Email: email,
+            Password: password
+        };
+
+        try {
+            // Send data to server
+            const response = await fetch('/Login/Login', { // Add leading slash for correct URL
+                method: "POST",
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(loginData),
+            });
+
+            // Handle the response
+            if (response.ok) {
+                //const result = await response.json();
+                const result = await response.text(); // Response might not always be JSON
+                //console.log(result);
+
+                $('#txtUserName, #txtUserEmail, #txtUserPassword').val('');
+                alert("Login successfull!");
+                window.open("/User/Home", "_self");
+                //redirect to User -> Home
+            }
+            else {
+                const errorResponse = await response.json();
+                alert("Error: " + JSON.stringify(errorResponse));
+
+                // Error case
+                //const errorResponse = await response.json();
+                //const errorMessages = errorResponse?.map(err => err.description).join('\n') || "An error occurred.";
+                //alert("Error: " + errorMessages);
             }
         }
         catch (error) {
