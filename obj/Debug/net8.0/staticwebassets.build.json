@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "1q1wHc4quml7dGZ4E1kOFuIXwguu4YIBBDQpPjwC7NQ=",
+  "Hash": "OPGNi+Z5UleLIQZaHsWEOdKtAJ3mchJD53RK2Ywp02s=",
   "Source": "bettersociety",
   "BasePath": "_content/bettersociety",
   "Mode": "Default",
@@ -91,6 +91,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\banner\\Michelangelo_-_Creation_of_Adam_(cropped)_from_wiki_media - Censored.jpg"
+    },
+    {
+      "Identity": "D:\\Work Data\\@back-end-development\\#bettersociety.in\\bs-repository-pattern\\bettersocietyrepo\\bettersociety\\wwwroot\\assets\\images\\404.svg",
+      "SourceId": "bettersociety",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Work Data\\@back-end-development\\#bettersociety.in\\bs-repository-pattern\\bettersocietyrepo\\bettersociety\\wwwroot\\",
+      "BasePath": "_content/bettersociety",
+      "RelativePath": "assets/images/404.svg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\images\\404.svg"
     },
     {
       "Identity": "D:\\Work Data\\@back-end-development\\#bettersociety.in\\bs-repository-pattern\\bettersocietyrepo\\bettersociety\\wwwroot\\assets\\images\\ask-question.svg",
@@ -243,6 +262,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\images\\question-and-answer-svgrepo-com.svg"
+    },
+    {
+      "Identity": "D:\\Work Data\\@back-end-development\\#bettersociety.in\\bs-repository-pattern\\bettersocietyrepo\\bettersociety\\wwwroot\\assets\\images\\SeñorHarpal.jpg",
+      "SourceId": "bettersociety",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Work Data\\@back-end-development\\#bettersociety.in\\bs-repository-pattern\\bettersocietyrepo\\bettersociety\\wwwroot\\",
+      "BasePath": "_content/bettersociety",
+      "RelativePath": "assets/images/SeñorHarpal.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\images\\SeñorHarpal.jpg"
     },
     {
       "Identity": "D:\\Work Data\\@back-end-development\\#bettersociety.in\\bs-repository-pattern\\bettersocietyrepo\\bettersociety\\wwwroot\\assets\\images\\superhero.svg",

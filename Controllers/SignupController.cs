@@ -3,6 +3,7 @@ using bettersociety.Interfaces;
 using bettersociety.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json.Linq;
 
 namespace bettersociety.Controllers
 {
@@ -42,11 +43,11 @@ namespace bettersociety.Controllers
                     {
                         //return RedirectToAction("Index", "Home");
                         //return Ok("User created successfully");
+
                         return Ok(new NewUserDto
                         {
                             UserName = appUser.UserName,
-                            Email = appUser.Email,
-                            Token = _tokenService.CreateToken(appUser)
+                            Email = appUser.Email
                         });
                     }
                     else

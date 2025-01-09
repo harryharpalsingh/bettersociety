@@ -61,9 +61,12 @@
                         <nav class="menu-bar me-auto">
                             <ul>
                                 <li>
-                                    <a asp-area="">Home</a>
+                                    <a asp-area="User" asp-controller="Home" asp-action="Index">Home</a>
                                 </li>
-                                <li class="is-mega-menu">
+                                <li>
+                                    <a asp-area="User" asp-controller="BlogPost" asp-action="Index">Blog</a>
+                                </li>
+                                <!--<li class="is-mega-menu">
                                     <a href="#">pages <i class="la la-angle-down fs-11"></i></a>
                                     <div class="dropdown-menu-item mega-menu">
                                         <ul class="row">
@@ -127,7 +130,7 @@
                                         <li><a href="blog-right-sidebar.html">blog right sidebar</a></li>
                                         <li><a href="blog-single.html">blog detail</a></li>
                                     </ul>
-                                </li>
+                                </li>-->
                             </ul><!-- end ul -->
                         </nav><!-- end main-menu -->
                         <form method="post" class="me-2">
@@ -194,7 +197,7 @@
                                     <a class="nav-link dropdown-toggle dropdown--toggle ps-2" href="#" id="userMenuDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         <div class="media media-card media--card shadow-none mb-0 rounded-0 align-items-center bg-transparent">
                                             <div class="media-img media-img-xs flex-shrink-0 rounded-full me-2">
-                                                <img src="images/img4.jpg" alt="avatar" class="rounded-full">
+                                                <img src="~/assets/images/señorharpal.jpg" alt="avatar" class="rounded-full" />
                                             </div>
                                             <div class="media-body p-0 border-left-0">
                                                 <h5 class="fs-14">Arden Smith</h5>
@@ -209,7 +212,7 @@
                                             <a class="dropdown-item" href="notifications.html"><i class="la la-bell me-2"></i>Notifications</a>
                                             <a class="dropdown-item" href="referrals.html"><i class="la la-user-plus me-2"></i>Referrals</a>
                                             <a class="dropdown-item" href="setting.html"><i class="la la-gear me-2"></i>Settings</a>
-                                            <a class="dropdown-item" href="index.html"><i class="la la-power-off me-2"></i>Log out</a>
+                                            <a class="dropdown-item" asp-area="" asp-controller="Login" asp-action="Logout"><i class="la la-power-off me-2"></i>Log out</a>
                                         </div>
                                     </div>
                                 </li>
@@ -338,7 +341,7 @@
                             <a class="dropdown-item" href="notifications.html"><i class="la la-bell me-2"></i>Notifications</a>
                             <a class="dropdown-item" href="referrals.html"><i class="la la-user-plus me-2"></i>Referrals</a>
                             <a class="dropdown-item" href="setting.html"><i class="la la-gear me-2"></i>Settings</a>
-                            <a class="dropdown-item" href="index.html"><i class="la la-power-off me-2"></i>Log out</a>
+                            <a class="dropdown-item" href="index.html"><i class="la la-power-off me-2"></i>Long out</a>
                         </div>
                     </div>
                 </div><!-- end tab-pane -->

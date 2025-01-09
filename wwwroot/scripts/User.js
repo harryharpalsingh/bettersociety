@@ -1,4 +1,4 @@
-﻿let user = {
+﻿let auth = {
     async signUp() {
         let userName = $('#txtUserName').val()?.trim(); // Trim whitespace
         let email = $('#txtUserEmail').val();
@@ -110,7 +110,9 @@
             // Send data to server
             const response = await fetch('/Login/Login', { // Add leading slash for correct URL
                 method: "POST",
-                headers: { 'Content-Type': 'application/json' },
+                headers: {
+                    'Content-Type': 'application/json',
+                },
                 body: JSON.stringify(loginData),
             });
 
@@ -121,10 +123,10 @@
                 //console.log(result);
 
                 //#region Save Token
-                const token = response.token; // Extract the token from the API response
-                const expires = new Date(Date.now() + 60 * 60 * 1000).toUTCString(); // 1 hour expiry
-                // Set the cookie
-                document.cookie = `token=${token}; expires=${expires}; path=/; secure; samesite=strict`;
+                //const token = response.token; // Extract the token from the API response
+                //const expires = new Date(Date.now() + 60 * 60 * 1000).toUTCString(); // 1 hour expiry
+                //// Set the cookie
+                //document.cookie = `token=${token}; expires=${expires}; path=/; secure; samesite=strict`;
 
                 /*
                     Explanation of Cookie Attributes :
@@ -137,7 +139,7 @@
 
                 $('#txtUserName, #txtUserEmail, #txtUserPassword').val('');
                 alert("Login successfull!");
-                window.open("/User/Home", "_self");
+                window.open("/User/BlogPost", "_self");
                 //redirect to User -> Home
             }
             else {
@@ -155,23 +157,25 @@
             alert("An unexpected error occurred. Please try again later.");
         }
     },
-
+ 
     getCookie(name) {
-        const value = `; ${document.cookie}`;
-        const parts = value.split(`; ${name}=`);
-        if (parts.length === 2) return parts.pop().split(';').shift();
+        const cookies = document.cookie.split(';'); // Split cookies into individual key-value pairs
+        for (let i = 0; i < cookies.length; i++) {
+            const cookie = cookies[i].trim(); // Trim leading/trailing spaces
+            if (cookie.startsWith(name + '=')) {
+                return cookie.substring((name + '=').length); // Extract the cookie value
+            }
+        }
+        return null; // Return null if the cookie is not found
     },
+};
 
-    readToken() {
-        // Example: Read the token
-        const token = getCookie("token");
-        console.log("Retrieved token:", token);
-    },
-
+let user = {
     async createBlogPost() {
         try {
             // Gather data from the form or inputs
-            let title = $("#txtTitle").val()?.trim(); // Trim whitespace
+            let title = $("#txtTitle").val()?.trim();
+            let postDetail = $("#txtPostDetail").val()?.trim();
 
             // Validate Title
             if (!title) {
@@ -185,16 +189,26 @@
                 return;
             }
 
+            // Validate Title
+            if (!postDetail) {
+                alert("Post Content is required and cannot be empty.");
+                return;
+            }
+
             // Prepare data object
             let blogPostData = {
                 title: title,
+                QuestionDetail: postDetail
                 // Include other properties if needed, e.g., createdOn, createdBy, etc.
             };
 
             // Send data to server
-            const response = await fetch('/User/BlogPost/CreateBlogPost', { 
+            const response = await fetch('/User/BlogPost/CreateBlogPost', {
                 method: "POST",
-                headers: { 'Content-Type': 'application/json' },
+                headers: {
+                    'Content-Type': 'application/json',
+                    //'X-XSRF-TOKEN': auth.getCookie("XSRF-TOKEN")
+                },
                 body: JSON.stringify(blogPostData),
             });
 

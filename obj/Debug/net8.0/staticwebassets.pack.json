@@ -13,6 +13,14 @@
       "PackagePath": "staticwebassets\\assets\\banner\\Michelangelo_-_Creation_of_Adam_(cropped)_from_wiki_media - Censored.jpg"
     },
     {
+      "Id": "D:\\Work Data\\@back-end-development\\#bettersociety.in\\bs-repository-pattern\\bettersocietyrepo\\bettersociety\\wwwroot\\assets\\images\\404.svg",
+      "PackagePath": "staticwebassets\\assets\\images\\404.svg"
+    },
+    {
+      "Id": "D:\\Work Data\\@back-end-development\\#bettersociety.in\\bs-repository-pattern\\bettersocietyrepo\\bettersociety\\wwwroot\\assets\\images\\SeñorHarpal.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\SeñorHarpal.jpg"
+    },
+    {
       "Id": "D:\\Work Data\\@back-end-development\\#bettersociety.in\\bs-repository-pattern\\bettersocietyrepo\\bettersociety\\wwwroot\\assets\\images\\ask-question.svg",
       "PackagePath": "staticwebassets\\assets\\images\\ask-question.svg"
     },

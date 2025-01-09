@@ -2,6 +2,7 @@ using bettersociety.Data;
 using bettersociety.Interfaces;
 using bettersociety.Models;
 using bettersociety.Service;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -62,6 +63,14 @@ builder.Services.AddAuthentication(options =>
         ValidateIssuerSigningKey = true,
         IssuerSigningKey = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes(builder.Configuration["JWT:SigningKey"]))
     };
+}).AddCookie(CookieAuthenticationDefaults.AuthenticationScheme, options =>
+{
+    options.LoginPath = "/Login";
+    options.LogoutPath = "/Logout";
+    options.AccessDeniedPath = "/Home/Error"; // Path to the access denied page
+    options.Cookie.HttpOnly = true; // Secure cookie against XSS
+    options.Cookie.SecurePolicy = CookieSecurePolicy.Always; // HTTPS only
+    options.Cookie.SameSite = SameSiteMode.Strict; // Prevent CSRF
 });
 
 //Dependency injection
@@ -72,7 +81,7 @@ var app = builder.Build();
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
-    app.UseExceptionHandler("/Home/Error");
+    app.UseExceptionHandler("/Error/Index");
     app.UseHsts();
 }
 
@@ -81,6 +90,24 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
+
+// Add custom middleware to extract token from cookie
+app.Use(async (context, next) =>
+{
+    // Extract token from cookie
+    var token = context.Request.Cookies["XSRF-TOKEN"];
+
+    if (!string.IsNullOrEmpty(token))
+    {
+        // Add token to Authorization header for middleware to validate
+        context.Request.Headers["Authorization"] = $"Bearer {token}";
+    }
+
+    await next();
+});
+
+// Map error pages
+app.UseStatusCodePagesWithReExecute("/Error/Index", "?statusCode={0}");
 
 app.UseAuthentication();
 app.UseAuthorization();
@@ -100,5 +127,11 @@ app.MapControllerRoute(
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+
+// Error handling route
+app.MapControllerRoute(
+    name: "error",
+    pattern: "Error/{statusCode}",
+    defaults: new { controller = "Error", action = "Index" });
 
 app.Run();

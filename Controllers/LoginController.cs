@@ -1,5 +1,8 @@
 ﻿using bettersociety.Dtos.Login;
+using bettersociety.Interfaces;
 using bettersociety.Models;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
@@ -10,18 +13,19 @@ namespace bettersociety.Controllers
     {
         private readonly SignInManager<AppUser> _signInManager;
         private readonly UserManager<AppUser> _userManager;
+        private readonly ITokenService _tokenService;
 
-        public LoginController(SignInManager<AppUser> signInManager, UserManager<AppUser> userManager)
+        public LoginController(SignInManager<AppUser> signInManager, UserManager<AppUser> userManager, ITokenService tokenService)
         {
             _signInManager = signInManager;
             _userManager = userManager;
+            _tokenService = tokenService;
         }
 
         public IActionResult Index()
         {
             return View();
         }
-
 
         [HttpPost("Login")]
         public async Task<IActionResult> Login([FromBody] LoginDto loginDto)
@@ -47,6 +51,15 @@ namespace bettersociety.Controllers
                 if (result.Succeeded)
                 {
                     // Optionally generate a JWT token or authentication cookie here
+                    var _Token = _tokenService.CreateToken(user);
+                    Response.Cookies.Append("XSRF-TOKEN", _Token, new CookieOptions
+                    {
+                        HttpOnly = true,          // Prevent JavaScript access
+                        Secure = true,            // Use only over HTTPS
+                        SameSite = SameSiteMode.Strict, // Prevent CSRF
+                        Expires = DateTime.UtcNow.AddHours(1) // Set an expiry
+                    });
+
                     return Ok(new { message = "Login successful!" });
                 }
                 else
@@ -60,11 +73,13 @@ namespace bettersociety.Controllers
             }
         }
 
-        [HttpPost("Logout")]
+        [HttpGet("Logout")]
         public async Task<IActionResult> Logout()
         {
+            // Clear the authentication cookie
+            Response.Cookies.Delete("XSRF-TOKEN");
             await _signInManager.SignOutAsync();
-            return Ok(new { message = "Logout successful." });
+            return RedirectToAction("Index", "Home"); // Redirect to homepage or login page after logout
         }
     }
 }
