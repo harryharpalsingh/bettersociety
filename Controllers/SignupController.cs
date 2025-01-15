@@ -1,7 +1,9 @@
 ﻿using bettersociety.Dtos.Signup;
+using bettersociety.Interfaces;
 using bettersociety.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json.Linq;
 
 namespace bettersociety.Controllers
 {
@@ -9,9 +11,12 @@ namespace bettersociety.Controllers
     public class SignupController : Controller
     {
         private readonly UserManager<AppUser> _userManager;
-        public SignupController(UserManager<AppUser> userManager)
+        private readonly ITokenService _tokenService;
+
+        public SignupController(UserManager<AppUser> userManager, ITokenService tokenService)
         {
             _userManager = userManager;
+            _tokenService = tokenService;
         }
 
         [HttpPost("Signup")]
@@ -37,7 +42,13 @@ namespace bettersociety.Controllers
                     if (roleResult.Succeeded)
                     {
                         //return RedirectToAction("Index", "Home");
-                        return Ok("User created successfully");
+                        //return Ok("User created successfully");
+
+                        return Ok(new NewUserDto
+                        {
+                            UserName = appUser.UserName,
+                            Email = appUser.Email
+                        });
                     }
                     else
                     {

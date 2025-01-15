@@ -1,5 +1,6 @@
 wwwroot\assets\banner\Creation_of_Adam.webp
 wwwroot\assets\banner\Michelangelo_-_Creation_of_Adam_(cropped)_from_wiki_media - Censored.jpg
+wwwroot\assets\images\404.svg
 wwwroot\assets\images\ask-question.svg
 wwwroot\assets\images\charity-help.svg
 wwwroot\assets\images\donation.svg
@@ -8,6 +9,7 @@ wwwroot\assets\images\praying-pray.svg
 wwwroot\assets\images\question-and-answer.svg
 wwwroot\assets\images\question-and-answer-svgrepo-com(1).svg
 wwwroot\assets\images\question-and-answer-svgrepo-com.svg
+wwwroot\assets\images\SeñorHarpal.jpg
 wwwroot\assets\images\superhero.svg
 wwwroot\assets\images\superhero-light-skin-tone-svgrepo-com.svg
 wwwroot\assets\images\svg icons.txt

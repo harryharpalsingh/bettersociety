@@ -2,11 +2,13 @@
 using bettersociety.Areas.User.Mappers;
 using bettersociety.Data;
 using bettersociety.Mappers;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace bettersociety.Areas.User.Controllers
 {
     [Area("User")]
+    [Authorize]
     public class BlogPostController : Controller
     {
         private readonly ApplicationDbContext _appDbcontext;
