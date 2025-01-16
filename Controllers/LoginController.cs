@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 
 namespace bettersociety.Controllers
 {
@@ -50,6 +51,20 @@ namespace bettersociety.Controllers
                 var result = await _signInManager.CheckPasswordSignInAsync(user, loginDto.Password, lockoutOnFailure: false);
                 if (result.Succeeded)
                 {
+                    //#region Register Claim
+                    //var claims = new List<Claim>
+                    //{
+                    //    new Claim(ClaimTypes.NameIdentifier, user.Id),
+                    //    new Claim(ClaimTypes.Name, user.UserName)
+                    //    // Add other claims as needed
+                    //};
+
+                    //var identity = new ClaimsIdentity(claims, "Identity.Application");
+                    //var principal = new ClaimsPrincipal(identity);
+
+                    //await HttpContext.SignInAsync("Identity.Application", principal);
+                    //#endregion
+
                     // Optionally generate a JWT token or authentication cookie here
                     var _Token = _tokenService.CreateToken(user);
                     Response.Cookies.Append("XSRF-TOKEN", _Token, new CookieOptions

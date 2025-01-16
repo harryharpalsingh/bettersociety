@@ -1,8 +1,11 @@
 ﻿using bettersociety.Areas.User.Dtos;
+using bettersociety.Areas.User.Interfaces;
 using bettersociety.Areas.User.Mappers;
 using bettersociety.Data;
 using bettersociety.Mappers;
+using bettersociety.Models;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace bettersociety.Areas.User.Controllers
@@ -12,10 +15,13 @@ namespace bettersociety.Areas.User.Controllers
     public class BlogPostController : Controller
     {
         private readonly ApplicationDbContext _appDbcontext;
+        private readonly IBlogPostRepository _blogPostRepository;
+        private readonly UserManager<AppUser> _userManager;
 
-        public BlogPostController(ApplicationDbContext appDbContext)
+        public BlogPostController(ApplicationDbContext appDbContext, IBlogPostRepository blogPostRepository)
         {
             _appDbcontext = appDbContext;
+            _blogPostRepository = blogPostRepository;
         }
 
         //[Route("User/BlogPost/Index")] // Fixed route.
@@ -33,6 +39,16 @@ namespace bettersociety.Areas.User.Controllers
             }
 
             return View();
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetAllBlogPostOfUser()
+        {
+            var blogPosts = await _blogPostRepository.GetQuestionsAsync();
+
+            var blogPostDto = blogPosts.Select(b => b.ToQuestionsDto());
+
+            return View(blogPosts);
         }
 
         [HttpGet("{id}")]
@@ -55,7 +71,7 @@ namespace bettersociety.Areas.User.Controllers
                 return BadRequest(ModelState);
             }
 
-            var questionModel = createBlogDto.ToQuestionsFromCreateBlogPostDto();
+            var questionModel = createBlogDto.ToQuestionsFromCreateBlogPostDto(HttpContext, _userManager);
             await _appDbcontext.Questions.AddAsync(questionModel);
             await _appDbcontext.SaveChangesAsync();
             return CreatedAtAction(nameof(GetBlogPostById), new { id = questionModel.Id }, questionModel.ToQuestionsDto());

@@ -8,14 +8,14 @@ namespace bettersociety.Dtos.Questions
         public int Id { get; set; }
 
         public required string Title { get; set; } = string.Empty;
-        
+
         public required string QuestionDetail { get; set; } = string.Empty;
 
         public int? ImageID { get; set; }
 
         public DateTime CreatedOn { get; set; } = DateTime.Now;
 
-        public int CreatedBy { get; set; }
+        public string CreatedBy { get; set; } = string.Empty;
 
         public int Deleted { get; set; } = 0;
 

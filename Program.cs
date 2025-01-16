@@ -1,3 +1,5 @@
+using bettersociety.Areas.User.Interfaces;
+using bettersociety.Areas.User.Repository;
 using bettersociety.Data;
 using bettersociety.Interfaces;
 using bettersociety.Models;
@@ -7,6 +9,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+using System.Security.Claims;
 //using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -41,6 +44,7 @@ builder.Services.AddIdentity<AppUser, IdentityRole>(options =>
     options.Password.RequireUppercase = true;
     options.Password.RequireNonAlphanumeric = true;
     options.Password.RequiredLength = 8;
+    options.ClaimsIdentity.UserIdClaimType = ClaimTypes.NameIdentifier;
 }).AddEntityFrameworkStores<ApplicationDbContext>();
 
 builder.Services.AddAuthentication(options =>
@@ -75,6 +79,7 @@ builder.Services.AddAuthentication(options =>
 
 //Dependency injection
 builder.Services.AddScoped<ITokenService, TokenService>();
+builder.Services.AddScoped<IBlogPostRepository, BlogPostRepository>();
 
 var app = builder.Build();
 
