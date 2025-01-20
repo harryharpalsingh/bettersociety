@@ -52,9 +52,9 @@ namespace bettersociety.Areas.User.Controllers
         }
 
         [HttpGet("{id}")]
-        public IActionResult GetBlogPostById([FromRoute] int id)
+        public async Task<IActionResult> GetBlogPostById([FromRoute] int id)
         {
-            var question = _appDbcontext.Questions.Find(id);
+            var question = await _blogPostRepository.GetByIdAsync(id);
             if (question == null)
             {
                 return NotFound();
@@ -72,10 +72,39 @@ namespace bettersociety.Areas.User.Controllers
             }
 
             var questionModel = createBlogDto.ToQuestionsFromCreateBlogPostDto(HttpContext, _userManager);
-            await _appDbcontext.Questions.AddAsync(questionModel);
-            await _appDbcontext.SaveChangesAsync();
+            await _blogPostRepository.CreateAsync(questionModel);
+            //await _appDbcontext.Questions.AddAsync(questionModel);
+            //await _appDbcontext.SaveChangesAsync();
             return CreatedAtAction(nameof(GetBlogPostById), new { id = questionModel.Id }, questionModel.ToQuestionsDto());
+        }
 
+        [HttpPost]
+        public async Task<IActionResult> UpdateBlogPost([FromBody] UpdateBlogPostDto updateBlogPostDto)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            var questionsModel = await _blogPostRepository.UpdateAsync(updateBlogPostDto);
+            if (questionsModel == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(questionsModel.ToQuestionsDto());
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> DeleteBlogPost(int id)
+        {
+            var questionsModel = await _blogPostRepository.DeleteAsync(id);
+            if (questionsModel == null)
+            {
+                return null;
+            }
+
+            return NoContent();
         }
     }
 }
