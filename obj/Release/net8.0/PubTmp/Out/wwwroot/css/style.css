@@ -421,6 +421,14 @@ body {
     border-bottom-left-radius: 8px !important;
 }
 
+.radius-top-right-8 {
+    border-top-right-radius: 8px !important;
+}
+
+.radius-bottom-right-8 {
+    border-bottom-right-radius: 8px !important;
+}
+
 .before-none::before {
     display: none !important;
 }

@@ -138,7 +138,7 @@
                 //#endregion
 
                 $('#txtUserName, #txtUserEmail, #txtUserPassword').val('');
-                alert("Login successfull!");
+                //alert("Login successfull!");
                 window.open("/User/BlogPost", "_self");
                 //redirect to User -> Home
             }
@@ -157,7 +157,7 @@
             alert("An unexpected error occurred. Please try again later.");
         }
     },
- 
+
     getCookie(name) {
         const cookies = document.cookie.split(';'); // Split cookies into individual key-value pairs
         for (let i = 0; i < cookies.length; i++) {
@@ -227,5 +227,91 @@ let user = {
             console.error("An error occurred:", e);
             alert("An error occurred while saving the blog post. Please try again.");
         }
+    },
+};
+
+let global = {
+    async executeOrder(button, asyncFunction, ...args) {
+        try {
+            global.toggleLoader(1);
+            // Execute the provided async function with arguments
+            await asyncFunction(...args);
+
+            //how to use ...args
+            /* function exampleFunction(...args) {
+                console.log(args); // This will log all the arguments passed to the function in an array.
+            }
+            exampleFunction(1, 2, 3, "hello", true); */
+
+            global.toggleLoader(0);
+        }
+        catch (error) {
+            console.error("An error occurred:", error);
+            alert("An unexpected error occurred. Please try again.");
+        }
+        finally {
+            //do something here
+        }
+    },
+
+    toggleLoader(prm) {
+        switch (prm) {
+            case 1:
+                if ($("#better-loader-overlay").length === 0) { // Check if loader already exists
+                    $("body").append(`
+                    <div id="better-loader-overlay">
+                        <div class="better-loader-container">
+                            <i class="las la-cog better-spinner"></i>
+                            Please fxckxng wait!
+                        </div>
+                    </div>`);
+                }
+                $("#better-loader-overlay").show();
+                break;
+            case 0:
+                $("#better-loader-overlay").hide();
+                break;
+        }
+    },
+
+    toggleAlert(_prm, _message, _inputToFocus) {
+        /*
+            alert-primary (Blue)
+            alert-secondary (Grey)
+            alert-success (Green)
+            alert-danger (Red)
+            alert-warning (Yellow)
+            alert-dark (dark grey)
+        */
+
+        let _class = ["alert-success", "alert-danger", "alert-warning", "alert-primary"];
+        let _iconClass = ["la-check", "la-times", "la-exclamation-triangle", "la-info-circle"];
+
+        if ($("#better-alert").length === 0) { // Check if alert already exists
+            $("body").append(`
+            <div id='better-alert' class="alert ${_class[_prm]}" role="alert">
+                <i id='better-alert-icon' class='las ${_iconClass[_prm]}' aria-hidden='true'></i>
+                <span id='better-alert-message'>${_message}</span>
+            </div>`);
+
+            //$("body").append(`
+            //<div id='better-alert' class="alert better-alert-dark show" role="alert">
+            //    <i id='better-alert-icon' class='las ${_iconClass[_prm]}' aria-hidden='true'></i>
+            //    <span id='better-alert-message'>${_message}</span>
+            //</div>`);
+        }
+        else {
+            $("#better-alert").removeClass().addClass(`alert ${_class[_prm]}`);
+            $("#better-alert-icon").removeClass().addClass(`las ${_iconClass[_prm]}`);
+            $("#better-alert-message").html(_message);
+        }
+
+        $("#better-alert").fadeIn(300).delay(3000).fadeOut(500);
+
+        if (_inputToFocus) {
+            $(_inputToFocus).focus();
+        }
+
+        /* This is a primary alert with <a href="#" class="alert-link">an example link</a>. Give it a click if you like. */
     },
 };

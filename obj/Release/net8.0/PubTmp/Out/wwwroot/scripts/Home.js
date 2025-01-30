@@ -47,7 +47,7 @@
                         <div class="media-body">
                             <h5 class="mb-2 fw-medium"> <a asp-controller="Home" asp-action="QuestionDetail" data-id="${question.id}">${question.title}</a> </h5>
                             <p class="mb-2 truncate lh-20 fs-15">
-                            ${_answer}  
+                            ${question.questionDetail}  
                             </p>
                             <div class="tags">
                                 <a href="#" class="tag-link">javascript</a>

@@ -1,4 +1,4 @@
-﻿let user = {
+﻿let auth = {
     async signUp() {
         let userName = $('#txtUserName').val()?.trim(); // Trim whitespace
         let email = $('#txtUserEmail').val();
@@ -110,7 +110,9 @@
             // Send data to server
             const response = await fetch('/Login/Login', { // Add leading slash for correct URL
                 method: "POST",
-                headers: { 'Content-Type': 'application/json' },
+                headers: {
+                    'Content-Type': 'application/json',
+                },
                 body: JSON.stringify(loginData),
             });
 
@@ -121,10 +123,10 @@
                 //console.log(result);
 
                 //#region Save Token
-                const token = response.token; // Extract the token from the API response
-                const expires = new Date(Date.now() + 60 * 60 * 1000).toUTCString(); // 1 hour expiry
-                // Set the cookie
-                document.cookie = `token=${token}; expires=${expires}; path=/; secure; samesite=strict`;
+                //const token = response.token; // Extract the token from the API response
+                //const expires = new Date(Date.now() + 60 * 60 * 1000).toUTCString(); // 1 hour expiry
+                //// Set the cookie
+                //document.cookie = `token=${token}; expires=${expires}; path=/; secure; samesite=strict`;
 
                 /*
                     Explanation of Cookie Attributes :
@@ -136,8 +138,8 @@
                 //#endregion
 
                 $('#txtUserName, #txtUserEmail, #txtUserPassword').val('');
-                alert("Login successfull!");
-                window.open("/User/Home", "_self");
+                //alert("Login successfull!");
+                window.open("/User/BlogPost", "_self");
                 //redirect to User -> Home
             }
             else {
@@ -157,21 +159,23 @@
     },
 
     getCookie(name) {
-        const value = `; ${document.cookie}`;
-        const parts = value.split(`; ${name}=`);
-        if (parts.length === 2) return parts.pop().split(';').shift();
+        const cookies = document.cookie.split(';'); // Split cookies into individual key-value pairs
+        for (let i = 0; i < cookies.length; i++) {
+            const cookie = cookies[i].trim(); // Trim leading/trailing spaces
+            if (cookie.startsWith(name + '=')) {
+                return cookie.substring((name + '=').length); // Extract the cookie value
+            }
+        }
+        return null; // Return null if the cookie is not found
     },
+};
 
-    readToken() {
-        // Example: Read the token
-        const token = getCookie("token");
-        console.log("Retrieved token:", token);
-    },
-
+let user = {
     async createBlogPost() {
         try {
             // Gather data from the form or inputs
-            let title = $("#txtTitle").val()?.trim(); // Trim whitespace
+            let title = $("#txtTitle").val()?.trim();
+            let postDetail = $("#txtPostDetail").val()?.trim();
 
             // Validate Title
             if (!title) {
@@ -185,16 +189,26 @@
                 return;
             }
 
+            // Validate Title
+            if (!postDetail) {
+                alert("Post Content is required and cannot be empty.");
+                return;
+            }
+
             // Prepare data object
             let blogPostData = {
                 title: title,
+                QuestionDetail: postDetail
                 // Include other properties if needed, e.g., createdOn, createdBy, etc.
             };
 
             // Send data to server
-            const response = await fetch('/User/BlogPost/CreateBlogPost', { 
+            const response = await fetch('/User/BlogPost/CreateBlogPost', {
                 method: "POST",
-                headers: { 'Content-Type': 'application/json' },
+                headers: {
+                    'Content-Type': 'application/json',
+                    //'X-XSRF-TOKEN': auth.getCookie("XSRF-TOKEN")
+                },
                 body: JSON.stringify(blogPostData),
             });
 
@@ -213,5 +227,91 @@
             console.error("An error occurred:", e);
             alert("An error occurred while saving the blog post. Please try again.");
         }
+    },
+};
+
+let global = {
+    async executeOrder(button, asyncFunction, ...args) {
+        try {
+            global.toggleLoader(1);
+            // Execute the provided async function with arguments
+            await asyncFunction(...args);
+
+            //how to use ...args
+            /* function exampleFunction(...args) {
+                console.log(args); // This will log all the arguments passed to the function in an array.
+            }
+            exampleFunction(1, 2, 3, "hello", true); */
+
+            global.toggleLoader(0);
+        }
+        catch (error) {
+            console.error("An error occurred:", error);
+            alert("An unexpected error occurred. Please try again.");
+        }
+        finally {
+            //do something here
+        }
+    },
+
+    toggleLoader(prm) {
+        switch (prm) {
+            case 1:
+                if ($("#better-loader-overlay").length === 0) { // Check if loader already exists
+                    $("body").append(`
+                    <div id="better-loader-overlay">
+                        <div class="better-loader-container">
+                            <i class="las la-cog better-spinner"></i>
+                            Please fxckxng wait!
+                        </div>
+                    </div>`);
+                }
+                $("#better-loader-overlay").show();
+                break;
+            case 0:
+                $("#better-loader-overlay").hide();
+                break;
+        }
+    },
+
+    toggleAlert(_prm, _message, _inputToFocus) {
+        /*
+            alert-primary (Blue)
+            alert-secondary (Grey)
+            alert-success (Green)
+            alert-danger (Red)
+            alert-warning (Yellow)
+            alert-dark (dark grey)
+        */
+
+        let _class = ["alert-success", "alert-danger", "alert-warning", "alert-primary"];
+        let _iconClass = ["la-check", "la-times", "la-exclamation-triangle", "la-info-circle"];
+
+        if ($("#better-alert").length === 0) { // Check if alert already exists
+            $("body").append(`
+            <div id='better-alert' class="alert ${_class[_prm]}" role="alert">
+                <i id='better-alert-icon' class='las ${_iconClass[_prm]}' aria-hidden='true'></i>
+                <span id='better-alert-message'>${_message}</span>
+            </div>`);
+
+            //$("body").append(`
+            //<div id='better-alert' class="alert better-alert-dark show" role="alert">
+            //    <i id='better-alert-icon' class='las ${_iconClass[_prm]}' aria-hidden='true'></i>
+            //    <span id='better-alert-message'>${_message}</span>
+            //</div>`);
+        }
+        else {
+            $("#better-alert").removeClass().addClass(`alert ${_class[_prm]}`);
+            $("#better-alert-icon").removeClass().addClass(`las ${_iconClass[_prm]}`);
+            $("#better-alert-message").html(_message);
+        }
+
+        $("#better-alert").fadeIn(300).delay(3000).fadeOut(500);
+
+        if (_inputToFocus) {
+            $(_inputToFocus).focus();
+        }
+
+        /* This is a primary alert with <a href="#" class="alert-link">an example link</a>. Give it a click if you like. */
     },
 };

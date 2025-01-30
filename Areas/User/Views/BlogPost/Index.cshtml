@@ -41,7 +41,7 @@
                             </div>
                         </div>
                         <div class="form-group mb-0">
-                            <button type="button" class="btn theme-btn" onclick="user.createBlogPost(); return false;">Publish Your Post</button>
+                            <button type="button" id="btnCreateBlog" class="btn theme-btn">Publish Your Post</button>
                         </div><!-- end form-group -->
                     </div><!-- end card-body -->
                 </div>
@@ -90,4 +90,10 @@
 @section Scripts
 {
     <script type="text/javascript" src="~/scripts/User.js"></script>
+
+    <script type="text/javascript">
+        $("#btnCreateBlog").click(function () {
+            global.executeOrder(this, user.createBlogPost);
+        });
+    </script>
 }

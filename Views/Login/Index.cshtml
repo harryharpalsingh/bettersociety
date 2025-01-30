@@ -3,21 +3,11 @@
 }
 
 <!--====================================== START LOGIN AREA ======================================-->
-<section class="login-area pt-100px pb-80px position-relative">
+<section class="login-area pt-50px pb-80px position-relative">
     <div class="container">
         <form action="#" class="card card-item login-form">
             <div class="card-body row p-0">
-                <div class="col-lg-6">
-                    <div class="form-content p-4 h-100 d-flex align-items-center justify-content-center flex-column bg-diagonal-gradient-primary radius-top-left-8 radius-bottom-left-8 text-center">
-                        <h3 class="fs-35 pb-3 fw-bold text-white">Good to see you again</h3>
-                        <p class="text-white fs-18">
-                            Log in with your information that you entered
-                            <br> during your registration.
-                        </p>
-                        <p class="text-white text-center pt-60px pb-3">Don't have an account?</p>
-                        <a asp-area="" asp-controller="Signup" asp-action="Index" class="btn theme-btn theme-btn-white px-5 lh-24">Sign up</a>
-                    </div>
-                </div><!-- end col-lg-6 -->
+
                 <div class="col-lg-5 mx-auto">
                     <div class="form-action-wrapper py-5">
                         <div class="form-group">
@@ -50,7 +40,7 @@
                             <a href="recover-password.html" class="btn-text fs-14 hover-underline fw-regular">Forgot Password?</a>
                         </div><!-- end form-group -->
                         <div class="form-group">
-                            <button id="send-message-btn" class="btn theme-btn w-100" type="button" onclick="auth.login(); return false;">Log in <i class="la la-arrow-right icon ms-1"></i></button>
+                            <button id="btn-login" class="btn theme-btn w-100" type="button">Log in <i class="la la-arrow-right icon ms-1"></i></button>
                         </div><!-- end form-group -->
                         <div class="social-icon-box">
                             <div class="pb-3 d-flex align-items-center">
@@ -71,6 +61,19 @@
                         </div>
                     </div><!-- end form-action-wrapper -->
                 </div><!-- end col-lg-5 -->
+
+                <div class="col-lg-6">
+                    <div class="form-content p-4 h-100 d-flex align-items-center justify-content-center flex-column bg-diagonal-gradient-primary radius-top-right-8 radius-bottom-right-8 text-center">
+                        <h3 class="fs-35 pb-3 fw-bold text-white">Good to see you again</h3>
+                        <p class="text-white fs-18">
+                            Log in with your information that you entered
+                            <br> during your registration.
+                        </p>
+                        <p class="text-white text-center pt-60px pb-3">Don't have an account?</p>
+                        <a asp-area="" asp-controller="Signup" asp-action="Index" class="btn theme-btn theme-btn-white px-5 lh-24">Sign up</a>
+                    </div>
+                </div><!-- end col-lg-5 -->
+
             </div><!-- end row -->
         </form>
         <p class="text-black text-center fs-15">Don’t have an account? <a class="text-color hover-underline" asp-area="" asp-controller="Signup" asp-action="Index">Sign up</a></p>
@@ -97,4 +100,10 @@
 @section Scripts
 {
     <script type="text/javascript" src="~/scripts/User.js"></script>
+
+    <script type="text/javascript">
+        $("#btn-login").click(function () {
+            global.executeOrder(this, auth.login);
+        });
+    </script>
 }

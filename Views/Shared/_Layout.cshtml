@@ -64,9 +64,6 @@
                                 <li>
                                     <a asp-area="" asp-controller="Contact" asp-action="Index">Contact</a>
                                 </li>
-                                <li>
-                                    <a asp-area="User" asp-controller="BlogPost" asp-action="Index">Blog</a>
-                                </li>
                                 @* <li>
                                 <a href="#">blog <i class="la la-angle-down fs-11"></i></a>
                                 <ul class="dropdown-menu-item">
@@ -108,9 +105,9 @@
                 </li>
             </ul>
             <div class="off-canvas-btn-box px-4 pt-5 text-center">
-                <a href="#" class="btn theme-btn theme-btn-sm theme-btn-outline" data-bs-toggle="modal" data-bs-target="#loginModal"><i class="la la-sign-in me-1"></i> Login</a>
+                <a class="btn theme-btn theme-btn-sm theme-btn-outline" asp-area="" asp-controller="Login" asp-action="Index"><i class="la la-sign-in me-1"></i> Login</a>
                 <span class="fs-15 fw-medium d-inline-block mx-2">Or</span>
-                <a href="#" class="btn theme-btn theme-btn-sm" data-bs-toggle="modal" data-bs-target="#signUpModal"><i class="la la-plus me-1"></i> Sign up</a>
+                <a class="btn theme-btn theme-btn-sm" asp-area="" asp-controller="Signup" asp-action="Index"><i class="la la-plus me-1"></i> Sign up</a>
             </div>
         </div><!-- end off-canvas-menu -->
         <div class="mobile-search-form">
