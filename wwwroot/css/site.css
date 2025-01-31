@@ -50,9 +50,13 @@
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.6); /* Semi-transparent background */
-    backdrop-filter: blur(1px); /* Apply blur effect */
+    /*backdrop-filter: blur(1px);  Apply blur effect */
     display: none; /* Initially hidden */
     z-index: 9999; /* Ensure it's on top of everything */
+
+    background-color: rgba(0, 0, 0, 0.62);
+    background-image: radial-gradient(rgb(0 0 0 / 15%) 1px, transparent 1px);
+    background-size: 5px 5px;
     /* Centering the loader-container */
     display: flex;
     justify-content: center;
