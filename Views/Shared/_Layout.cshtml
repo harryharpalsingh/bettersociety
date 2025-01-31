@@ -42,10 +42,12 @@
                             <img src="~/assets/logo/blue-png_4x4.webp" alt="bettersociety.in" style="width:5rem;" />
                         </a>
                         <div class="user-action">
-                            <div class="search-menu-toggle icon-element icon-element-xs shadow-sm me-1" data-bs-toggle="tooltip" data-placement="top" title="Search">
+                            <!--data-bs-toggle="tooltip" data-placement="top" title="Search"-->
+                            <div class="search-menu-toggle icon-element icon-element-xs shadow-sm me-1">
                                 <i class="la la-search"></i>
                             </div>
-                            <div class="off-canvas-menu-toggle icon-element icon-element-xs shadow-sm" data-bs-toggle="tooltip" data-placement="top" title="Main menu">
+                            <!--data-bs-toggle="tooltip" data-placement="top" title="Main menu"-->
+                            <div class="off-canvas-menu-toggle icon-element icon-element-xs shadow-sm">
                                 <i class="la la-bars"></i>
                             </div>
                         </div>
@@ -90,7 +92,8 @@
             </div><!-- end row -->
         </div><!-- end container -->
         <div class="off-canvas-menu custom-scrollbar-styled">
-            <div class="off-canvas-menu-close icon-element icon-element-sm shadow-sm" data-bs-toggle="tooltip" data-placement="left" title="Close menu">
+            <!--data-bs-toggle="tooltip" data-placement="left" title="Close menu"-->
+            <div class="off-canvas-menu-close icon-element icon-element-sm shadow-sm">
                 <i class="la la-times"></i>
             </div><!-- end off-canvas-menu-close -->
             <ul class="generic-list-item off-canvas-menu-list pt-90px">
@@ -104,12 +107,15 @@
                     <a asp-area="" asp-controller="Contact" asp-action="Index">Contact</a>
                 </li>
             </ul>
+
             <div class="off-canvas-btn-box px-4 pt-5 text-center">
                 <a class="btn theme-btn theme-btn-sm theme-btn-outline" asp-area="" asp-controller="Login" asp-action="Index"><i class="la la-sign-in me-1"></i> Login</a>
                 <span class="fs-15 fw-medium d-inline-block mx-2">Or</span>
                 <a class="btn theme-btn theme-btn-sm" asp-area="" asp-controller="Signup" asp-action="Index"><i class="la la-plus me-1"></i> Sign up</a>
             </div>
+
         </div><!-- end off-canvas-menu -->
+
         <div class="mobile-search-form">
             <div class="d-flex align-items-center">
                 <form method="post" class="flex-grow-1 me-3">

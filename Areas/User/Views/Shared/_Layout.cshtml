@@ -44,13 +44,18 @@
                         </a>
 
                         <div class="user-action">
-                            <div class="search-menu-toggle icon-element icon-element-xs shadow-sm me-1" data-bs-toggle="tooltip" data-placement="top" title="Search">
+                            <!--data-bs-toggle="tooltip" data-placement="top" title="Search"-->
+                            <div class="search-menu-toggle icon-element icon-element-xs shadow-sm me-1">
                                 <i class="la la-search"></i>
                             </div>
-                            <div class="off-canvas-menu-toggle icon-element icon-element-xs shadow-sm me-1" data-bs-toggle="tooltip" data-placement="top" title="Main menu">
+
+                            <!--data-bs-toggle="tooltip" data-placement="top" title="Main menu"-->
+                            <div class="off-canvas-menu-toggle icon-element icon-element-xs shadow-sm me-1">
                                 <i class="la la-bars"></i>
                             </div>
-                            <div class="user-off-canvas-menu-toggle icon-element icon-element-xs shadow-sm" data-bs-toggle="tooltip" data-placement="top" title="User menu">
+
+                            <!--data-bs-toggle="tooltip" data-placement="top" title="User menu"-->
+                            <div class="user-off-canvas-menu-toggle icon-element icon-element-xs shadow-sm">
                                 <i class="la la-user"></i>
                             </div>
                         </div>
@@ -64,7 +69,7 @@
                                     <a asp-area="User" asp-controller="Home" asp-action="Index">Home</a>
                                 </li>
                                 <li>
-                                    <a asp-area="User" asp-controller="BlogPost" asp-action="Index">Blog</a>
+                                    <a asp-area="User" asp-controller="BlogPost" asp-action="Index">Post a Question</a>
                                 </li>
                                 <!--<li class="is-mega-menu">
                                     <a href="#">pages <i class="la la-angle-down fs-11"></i></a>
@@ -228,58 +233,40 @@
             </div><!-- end off-canvas-menu-close -->
             <ul class="generic-list-item off-canvas-menu-list pt-90px">
                 <li>
+                    <a asp-area="User" asp-controller="Home" asp-action="Index">Home</a>
+                </li>
+                <li>
+                    <a asp-area="User" asp-controller="BlogPost" asp-action="Index">Post a Question</a>
+                </li>
+
+                <!--<li>
                     <a href="#">Home</a>
                     <ul class="sub-menu">
-                        <li><a href="index.html">Home - landing</a></li>
+                        <li><a href="index.html">Home</a></li>
                         <li><a href="home-2.html">Home - main</a></li>
                     </ul>
-                </li>
-                <li>
-                    <a href="#">Pages</a>
-                    <ul class="sub-menu">
-                        <li><a href="user-profile.html">user profile</a></li>
-                        <li><a href="notifications.html">Notifications</a></li>
-                        <li><a href="referrals.html">Referrals</a></li>
-                        <li><a href="setting.html">settings</a></li>
-                        <li><a href="ask-question.html">ask question</a></li>
-                        <li><a href="question-details.html">question details</a></li>
-                        <li><a href="about.html">about</a></li>
-                        <li><a href="revisions.html">revisions</a></li>
-                        <li><a href="category.html">category</a></li>
-                        <li><a href="companies.html">companies</a></li>
-                        <li><a href="company-details.html">company details</a></li>
-                        <li><a href="careers.html">careers</a></li>
-                        <li><a href="career-details.html">career details</a></li>
-                        <li><a href="contact.html">contact</a></li>
-                        <li><a href="faq.html">FAQs</a></li>
-                        <li><a href="pricing-table.html">pricing tables</a></li>
-                        <li><a href="error.html">page 404</a></li>
-                        <li><a href="terms-and-conditions.html">Terms & conditions</a></li>
-                        <li><a href="privacy-policy.html">privacy policy</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#">blog</a>
-                    <ul class="sub-menu">
-                        <li><a href="blog-grid-no-sidebar.html">grid no sidebar</a></li>
-                        <li><a href="blog-left-sidebar.html">blog left sidebar</a></li>
-                        <li><a href="blog-right-sidebar.html">blog right sidebar</a></li>
-                        <li><a href="blog-single.html">blog detail</a></li>
-                    </ul>
-                </li>
+                </li>-->
             </ul>
-            <div class="off-canvas-btn-box px-4 pt-5 text-center">
+
+            <!--<div class="off-canvas-btn-box px-4 pt-5 text-center">
                 <a href="login.html" class="btn theme-btn theme-btn-sm theme-btn-outline"><i class="la la-sign-in me-1"></i> Login</a>
                 <span class="fs-15 fw-medium d-inline-block mx-2">Or</span>
                 <a href="signup.html" class="btn theme-btn theme-btn-sm"><i class="la la-plus me-1"></i> Sign up</a>
-            </div>
+            </div>-->
+
         </div><!-- end off-canvas-menu -->
+
         <div class="user-off-canvas-menu custom-scrollbar-styled">
-            <div class="user-off-canvas-menu-close icon-element icon-element-sm shadow-sm" data-bs-toggle="tooltip" data-placement="left" title="Close menu">
+            <!--data-bs-toggle="tooltip" data-placement="left" title="Close menu"-->
+            <div class="user-off-canvas-menu-close icon-element icon-element-sm shadow-sm">
                 <i class="la la-times"></i>
-            </div><!-- end user-off-canvas-menu-close -->
+            </div>
+            <!-- end user-off-canvas-menu-close -->
+
             <ul class="nav nav-tabs generic-tabs generic--tabs pt-90px ps-4 shadow-sm" id="myTab2" role="tablist">
-                <li class="nav-item"><div class="anim-bar"></div></li>
+                <li class="nav-item">
+                    <div class="anim-bar"></div>
+                </li>
                 <li class="nav-item">
                     <a class="nav-link active" id="user-notification-menu-tab" data-bs-toggle="tab" href="#user-notification-menu" role="tab" aria-controls="user-notification-menu" aria-selected="true">Notifications</a>
                 </li>
@@ -334,14 +321,30 @@
                         <a class="dropdown-item border-bottom-0 text-center btn-text fw-regular" href="notifications.html">View All Notifications <i class="la la-arrow-right icon ms-1"></i></a>
                     </div>
                 </div><!-- end tab-pane -->
+
                 <div class="tab-pane fade" id="user-profile-menu" role="tabpanel" aria-labelledby="user-profile-menu-tab">
                     <div class="dropdown--menu shadow-none w-auto rounded-0">
                         <div class="dropdown-item-list">
-                            <a class="dropdown-item" href="user-profile.html"><i class="la la-user me-2"></i>Profile</a>
-                            <a class="dropdown-item" href="notifications.html"><i class="la la-bell me-2"></i>Notifications</a>
-                            <a class="dropdown-item" href="referrals.html"><i class="la la-user-plus me-2"></i>Referrals</a>
-                            <a class="dropdown-item" href="setting.html"><i class="la la-gear me-2"></i>Settings</a>
-                            <a class="dropdown-item" href="index.html"><i class="la la-power-off me-2"></i>Long out</a>
+                            <a class="dropdown-item">
+                                <i class="la la-user me-2"></i>
+                                Profile
+                            </a>
+                            <a class="dropdown-item">
+                                <i class="la la-bell me-2"></i>
+                                Notifications
+                            </a>
+                            <a class="dropdown-item">
+                                <i class="la la-user-plus me-2"></i>
+                                Referrals
+                            </a>
+                            <a class="dropdown-item">
+                                <i class="la la-gear me-2"></i>
+                                Settings
+                            </a>
+                            <a class="dropdown-item" asp-area="" asp-controller="Login" asp-action="Logout">
+                                <i class="la la-power-off me-2"></i>
+                                Log out
+                            </a>
                         </div>
                     </div>
                 </div><!-- end tab-pane -->
