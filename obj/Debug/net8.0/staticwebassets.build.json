@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "9xszWLQN/M2/5HPI3r7OWq80DOAKZsA1djGYcsLZJVg=",
+  "Hash": "Vb1zl2tgpqYApJc9dopluPzhuj+C/wW8IbZ0DHp1BNg=",
   "Source": "bettersociety",
   "BasePath": "_content/bettersociety",
   "Mode": "Default",
@@ -528,6 +528,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\jquery.fancybox.min.css"
+    },
+    {
+      "Identity": "E:\\Work Data\\@back-end-development\\#bettersociety.in\\bettersociety-master\\bettersocietyrepo\\bettersociety\\wwwroot\\css\\jquery-te.png",
+      "SourceId": "bettersociety",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\Work Data\\@back-end-development\\#bettersociety.in\\bettersociety-master\\bettersocietyrepo\\bettersociety\\wwwroot\\",
+      "BasePath": "_content/bettersociety",
+      "RelativePath": "css/jquery-te.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\jquery-te.png"
     },
     {
       "Identity": "E:\\Work Data\\@back-end-development\\#bettersociety.in\\bettersociety-master\\bettersocietyrepo\\bettersociety\\wwwroot\\css\\jquery-te-1.4.0.css",

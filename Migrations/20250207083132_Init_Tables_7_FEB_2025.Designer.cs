@@ -12,8 +12,8 @@ using bettersociety.Data;
 namespace bettersociety.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20241223080046_updated Questions table")]
-    partial class updatedQuestionstable
+    [Migration("20250207083132_Init_Tables_7_FEB_2025")]
+    partial class Init_Tables_7_FEB_2025
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -50,6 +50,20 @@ namespace bettersociety.Migrations
                         .HasFilter("[NormalizedName] IS NOT NULL");
 
                     b.ToTable("AspNetRoles", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "10470182-5810-4113-b2fb-ef45adf74a00",
+                            Name = "Admin",
+                            NormalizedName = "ADMIN"
+                        },
+                        new
+                        {
+                            Id = "6888ca22-db4e-4ee1-9a05-0cf67c7cd214",
+                            Name = "User",
+                            NormalizedName = "USER"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -266,8 +280,9 @@ namespace bettersociety.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("CreatedBy")
-                        .HasColumnType("int");
+                    b.Property<string>("CreatedBy")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("CreatedOn")
                         .HasColumnType("datetime2");

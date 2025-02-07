@@ -7,7 +7,7 @@
 namespace bettersociety.Migrations
 {
     /// <inheritdoc />
-    public partial class removedrequiredfromQuestionsCreatedBy : Migration
+    public partial class updated_table_questions_added_column_CategoryID : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -15,28 +15,26 @@ namespace bettersociety.Migrations
             migrationBuilder.DeleteData(
                 table: "AspNetRoles",
                 keyColumn: "Id",
-                keyValue: "07964eeb-887a-4ba1-ab25-5f904e72f98d");
+                keyValue: "0a232bff-16c4-4a6b-bc66-15f1c407060d");
 
             migrationBuilder.DeleteData(
                 table: "AspNetRoles",
                 keyColumn: "Id",
-                keyValue: "2d4989c8-f004-4ea7-94a6-20273142d547");
+                keyValue: "1ad03a9d-7223-49bb-aa2b-22bf32879818");
 
-            migrationBuilder.AlterColumn<string>(
-                name: "CreatedBy",
+            migrationBuilder.AddColumn<int>(
+                name: "CategoryID",
                 table: "Questions",
-                type: "nvarchar(max)",
-                nullable: false,
-                oldClrType: typeof(int),
-                oldType: "int");
+                type: "int",
+                nullable: true);
 
             migrationBuilder.InsertData(
                 table: "AspNetRoles",
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "492fe823-f1e4-45dc-8da7-b9ad1427c9a5", null, "Admin", "ADMIN" },
-                    { "d94458c4-48ae-49c2-9a82-7b139582a44b", null, "User", "USER" }
+                    { "802ac7ac-70a7-43f6-8f87-de9d19adca51", null, "User", "USER" },
+                    { "b69dbdeb-2dda-4438-b74f-2c88a4111d96", null, "Admin", "ADMIN" }
                 });
         }
 
@@ -46,28 +44,24 @@ namespace bettersociety.Migrations
             migrationBuilder.DeleteData(
                 table: "AspNetRoles",
                 keyColumn: "Id",
-                keyValue: "492fe823-f1e4-45dc-8da7-b9ad1427c9a5");
+                keyValue: "802ac7ac-70a7-43f6-8f87-de9d19adca51");
 
             migrationBuilder.DeleteData(
                 table: "AspNetRoles",
                 keyColumn: "Id",
-                keyValue: "d94458c4-48ae-49c2-9a82-7b139582a44b");
+                keyValue: "b69dbdeb-2dda-4438-b74f-2c88a4111d96");
 
-            migrationBuilder.AlterColumn<int>(
-                name: "CreatedBy",
-                table: "Questions",
-                type: "int",
-                nullable: false,
-                oldClrType: typeof(string),
-                oldType: "nvarchar(max)");
+            migrationBuilder.DropColumn(
+                name: "CategoryID",
+                table: "Questions");
 
             migrationBuilder.InsertData(
                 table: "AspNetRoles",
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "07964eeb-887a-4ba1-ab25-5f904e72f98d", null, "Admin", "ADMIN" },
-                    { "2d4989c8-f004-4ea7-94a6-20273142d547", null, "User", "USER" }
+                    { "0a232bff-16c4-4a6b-bc66-15f1c407060d", null, "User", "USER" },
+                    { "1ad03a9d-7223-49bb-aa2b-22bf32879818", null, "Admin", "ADMIN" }
                 });
         }
     }

@@ -12,8 +12,8 @@ using bettersociety.Data;
 namespace bettersociety.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20250116210205_removed required from Questions.CreatedBy")]
-    partial class removedrequiredfromQuestionsCreatedBy
+    [Migration("20250207083421_new_tables_Tags_QuestionCategories_QuestionsXrefTags")]
+    partial class new_tables_Tags_QuestionCategories_QuestionsXrefTags
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -54,13 +54,13 @@ namespace bettersociety.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "492fe823-f1e4-45dc-8da7-b9ad1427c9a5",
+                            Id = "1ad03a9d-7223-49bb-aa2b-22bf32879818",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "d94458c4-48ae-49c2-9a82-7b139582a44b",
+                            Id = "0a232bff-16c4-4a6b-bc66-15f1c407060d",
                             Name = "User",
                             NormalizedName = "USER"
                         });
@@ -271,6 +271,32 @@ namespace bettersociety.Migrations
                     b.ToTable("AspNetUsers", (string)null);
                 });
 
+            modelBuilder.Entity("bettersociety.Models.QuestionCategories", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Category")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("Deleted")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("QuestionCategories");
+                });
+
             modelBuilder.Entity("bettersociety.Models.Questions", b =>
                 {
                     b.Property<int>("Id")
@@ -308,6 +334,60 @@ namespace bettersociety.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Questions");
+                });
+
+            modelBuilder.Entity("bettersociety.Models.QuestionsXrefTags", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreatedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("Deleted")
+                        .HasColumnType("int");
+
+                    b.Property<int>("QuestionId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TagId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("QuestionsXrefTags");
+                });
+
+            modelBuilder.Entity("bettersociety.Models.Tags", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreatedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("Deleted")
+                        .HasColumnType("int");
+
+                    b.Property<string>("TagName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Tags");
                 });
 
             modelBuilder.Entity("bettersociety.Models.Votes", b =>

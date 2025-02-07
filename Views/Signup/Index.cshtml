@@ -53,7 +53,7 @@
                             </div>
                         </div><!-- end form-group -->
                         <div class="form-group">
-                            <button id="send-message-btn" class="btn theme-btn w-100" type="button" onclick="user.signUp(); return false;">Sign up <i class="la la-arrow-right icon ms-1"></i></button>
+                            <button id="btnSignup" class="btn theme-btn w-100" type="button">Sign up <i class="la la-arrow-right icon ms-1"></i></button>
                         </div><!-- end form-group -->
                         <p class="fs-13 lh-18 pb-3">By clicking “Sign up”, you agree to our <a href="terms-and-conditions.html" class="text-color hover-underline">terms of conditions</a>, <a href="privacy-policy.html" class="text-color hover-underline">privacy policy</a></p>
                         <div class="social-icon-box">
@@ -117,4 +117,10 @@
 @section Scripts
 {
     <script type="text/javascript" src="~/scripts/User.js"></script>
+
+    <script type="text/javascript">
+        $("#btnSignup").click(function () {
+            global.executeOrder(this, auth.signUp);
+        });
+    </script>
 }

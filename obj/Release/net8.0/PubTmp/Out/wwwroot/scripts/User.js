@@ -1,30 +1,32 @@
 ﻿let auth = {
     async signUp() {
+        $('#btnSignup').prop('disabled', true);
+
         let userName = $('#txtUserName').val()?.trim(); // Trim whitespace
         let email = $('#txtUserEmail').val();
         let password = $('#txtUserPassword').val();
 
         // Validate userName
         if (!userName) {
-            alert("User name is required and cannot be empty.");
+            global.toggleAlert(2, "User name is required and cannot be empty.", "#txtUserName");
             return;
         }
 
         // Additional Title Validation: Minimum and Maximum Length
         if (userName.length < 5 || userName.length > 30) {
-            alert("Title must be between 5 and 30 characters.");
+            global.toggleAlert(2, "User name must be between 5 and 30 characters.", "#txtUserName");
             return;
         }
 
         // Validate email
         if (!email) {
-            alert("Email is required and cannot be empty.");
+            global.toggleAlert(2, "Email is required and cannot be empty.", "#txtUserEmail");
             return;
         }
 
         // Validate password
         if (!password) {
-            alert("Password is required and cannot be empty.");
+            global.toggleAlert(2, "Password is required and cannot be empty.", "#txtUserPassword");
             return;
         }
 
@@ -37,37 +39,52 @@
 
         try {
             // Send data to server
-            const response = await fetch('/SignUp/Signup', { // Add leading slash for correct URL
+            const response = await fetch('/Signup/Signup', { // Add leading slash for correct URL
                 method: "POST",
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(signupData),
             });
 
-            // Handle the response
             if (response.ok) {
-                //const result = await response.json();
-                const result = await response.text(); // Response might not always be JSON
-                //console.log(result);
+                // 200-299 Success Response
+                const result = await response.text(); // Or response.json() if it's JSON
+                auth.clearSignupInputs();
+                global.toggleAlert(0, "Registration successful! Congratulations, you're now part of better society.", "");
+                window.open("/Login", "_self");
+            }
+            else if (response.status === 400) {
+                // 400 Bad Request (Validation errors)
+                let errorResponse;
+                try {
+                    errorResponse = await response.json(); // Attempt to parse JSON
+                }
+                catch {
+                    errorResponse = { message: await response.text() }; // Fallback for plain text errors
+                }
 
-                $('#txtUserName, #txtUserEmail, #txtUserPassword').val('');
-                alert("User created successfully!");
-                window.open("/Login");
-                //redirect to login page
+                const errorMessages = errorResponse?.Errors?.join('\n') || errorResponse?.message || "Invalid request.";
+                global.toggleAlert(1, `${errorMessages}`, "");
+            }
+            else if (response.status === 500) {
+                // 500 Internal Server Error
+                global.toggleAlert(1, "Server error. Please try again later.", "");
             }
             else {
-                //const errorResponse = await response.json();
-                //alert("Error: " + JSON.stringify(errorResponse));
-
-                // Error case
-                const errorResponse = await response.json();
-                const errorMessages = errorResponse?.map(err => err.description).join('\n') || "An error occurred.";
-                alert("Error: " + errorMessages);
+                // Other unexpected statuses
+                global.toggleAlert(1, `Unexpected error: ${response.statusText}`, "");
             }
         }
         catch (error) {
-            console.error("Error:", error);
-            alert("An unexpected error occurred. Please try again later.");
+            // Network errors (e.g., no internet, server down)
+            console.error("Network Error:", error);
+            global.toggleAlert(1, "Network error. Please check your internet connection.", "");
         }
+
+        $('#btnSignup').prop('disabled', false);
+    },
+
+    clearSignupInputs() {
+        $('#txtUserName, #txtUserEmail, #txtUserPassword').val('');
     },
 
     async login() {
@@ -77,9 +94,18 @@
 
         // Validate userName
         if (!userName) {
-            alert("User name or Email is required and cannot be empty.");
+            global.toggleAlert(2, "User name or Email is required and cannot be empty.", "#txtUserNameOrEmail");
             return;
         }
+
+        // Validate password
+        if (!password) {
+            alert("");
+            global.toggleAlert(2, "Password is required and cannot be empty.", "#txtUserPassword");
+            return;
+        }
+
+        //#region unused code
 
         //// Additional Title Validation: Minimum and Maximum Length
         //if (userName.length < 5 || userName.length > 30) {
@@ -93,11 +119,7 @@
         //    return;
         //}
 
-        // Validate password
-        if (!password) {
-            alert("Password is required and cannot be empty.");
-            return;
-        }
+        //#endregion
 
         // Prepare data object
         let loginData = {
@@ -120,7 +142,6 @@
             if (response.ok) {
                 //const result = await response.json();
                 const result = await response.text(); // Response might not always be JSON
-                //console.log(result);
 
                 //#region Save Token
                 //const token = response.token; // Extract the token from the API response
@@ -138,23 +159,17 @@
                 //#endregion
 
                 $('#txtUserName, #txtUserEmail, #txtUserPassword').val('');
-                //alert("Login successfull!");
-                window.open("/User/BlogPost", "_self");
-                //redirect to User -> Home
+                //redirect to Feed
+                window.open("/User/AskQuestion", "_self");
+
             }
             else {
-                const errorResponse = await response.json();
-                alert("Error: " + JSON.stringify(errorResponse));
-
-                // Error case
-                //const errorResponse = await response.json();
-                //const errorMessages = errorResponse?.map(err => err.description).join('\n') || "An error occurred.";
-                //alert("Error: " + errorMessages);
+                global.toggleAlert(1, "Unexpected error : " + JSON.stringify(errorResponse), "");
             }
         }
         catch (error) {
             console.error("Error:", error);
-            alert("An unexpected error occurred. Please try again later.");
+            global.toggleAlert(1, "An unexpected error occurred. Please try again later.", "");
         }
     },
 
@@ -247,7 +262,7 @@ let global = {
         }
         catch (error) {
             console.error("An error occurred:", error);
-            alert("An unexpected error occurred. Please try again.");
+            global.toggleAlert(1, "An unexpected error occurred. Please try again later.", "");
         }
         finally {
             //do something here
@@ -284,8 +299,9 @@ let global = {
             alert-dark (dark grey)
         */
 
+        //[0,1,2,3]
         let _class = ["alert-success", "alert-danger", "alert-warning", "alert-primary"];
-        let _iconClass = ["la-check", "la-times", "la-exclamation-triangle", "la-info-circle"];
+        let _iconClass = ["la-check", "la-skull-crossbones", "la-exclamation-triangle", "la-info-circle"];
 
         if ($("#better-alert").length === 0) { // Check if alert already exists
             $("body").append(`
@@ -293,12 +309,6 @@ let global = {
                 <i id='better-alert-icon' class='las ${_iconClass[_prm]}' aria-hidden='true'></i>
                 <span id='better-alert-message'>${_message}</span>
             </div>`);
-
-            //$("body").append(`
-            //<div id='better-alert' class="alert better-alert-dark show" role="alert">
-            //    <i id='better-alert-icon' class='las ${_iconClass[_prm]}' aria-hidden='true'></i>
-            //    <span id='better-alert-message'>${_message}</span>
-            //</div>`);
         }
         else {
             $("#better-alert").removeClass().addClass(`alert ${_class[_prm]}`);
@@ -306,7 +316,7 @@ let global = {
             $("#better-alert-message").html(_message);
         }
 
-        $("#better-alert").fadeIn(300).delay(3000).fadeOut(500);
+        $("#better-alert").fadeIn(300).delay(7000).fadeOut(500);
 
         if (_inputToFocus) {
             $(_inputToFocus).focus();

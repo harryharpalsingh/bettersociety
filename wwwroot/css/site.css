@@ -115,6 +115,8 @@
 
     #better-alert i {
         margin-right: 5px;
+        font-size: 1.4rem;
+        vertical-align: middle;
     }
 
 .better-alert-dark {

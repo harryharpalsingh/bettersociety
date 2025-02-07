@@ -4,6 +4,7 @@ using bettersociety.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json.Linq;
+using System.Data;
 
 namespace bettersociety.Controllers
 {
@@ -35,6 +36,12 @@ namespace bettersociety.Controllers
                     Email = signupDto.Email,
                 };
 
+                var existingUser = await _userManager.FindByEmailAsync(signupDto.Email);
+                if (existingUser != null)
+                {
+                    return BadRequest(new { Message = "Email is already registered." });
+                }
+
                 var createdUser = await _userManager.CreateAsync(appUser, signupDto.Password);
                 if (createdUser.Succeeded)
                 {
@@ -44,25 +51,32 @@ namespace bettersociety.Controllers
                         //return RedirectToAction("Index", "Home");
                         //return Ok("User created successfully");
 
-                        return Ok(new NewUserDto
-                        {
-                            UserName = appUser.UserName,
-                            Email = appUser.Email
-                        });
+                        //return Ok(new NewUserDto
+                        //{
+                        //    UserName = appUser.UserName,
+                        //    Email = appUser.Email
+                        //});
+
+                        return StatusCode(201, "User created successfully");
                     }
                     else
                     {
-                        return StatusCode(500, roleResult.Errors);
+                        //return StatusCode(500, roleResult.Errors);
+                        return BadRequest(new { Errors = createdUser.Errors.Select(e => e.Description) });
+
+                        //Similarly, for role assignment failure:
+                        //return BadRequest(new { Errors = roleResult.Errors.Select(e => e.Description) });
                     }
                 }
                 else
                 {
-                    return StatusCode(500, createdUser.Errors);
+                    return BadRequest(new { Errors = createdUser.Errors.Select(e => e.Description) });
                 }
             }
             catch (Exception ex)
             {
-                return StatusCode(500, ex);
+                //return StatusCode(500, ex);
+                return StatusCode(500, new { Message = "An error occurred.", Details = ex.Message });
             }
         }
 

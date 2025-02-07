@@ -15,6 +15,9 @@ namespace bettersociety.Data
         public DbSet<Questions> Questions { get; set; }
         public DbSet<Answers> Answers { get; set; }
         public DbSet<Votes> Votes { get; set; }
+        public DbSet<Tags> Tags { get; set; }
+        public DbSet<QuestionCategories> QuestionCategories { get; set; }
+        public DbSet<QuestionsXrefTags> QuestionsXrefTags { get; set; }
 
         //Defining User Roles
         protected override void OnModelCreating(ModelBuilder builder)

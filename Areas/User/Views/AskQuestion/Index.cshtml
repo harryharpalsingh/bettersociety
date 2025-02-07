@@ -1,0 +1,288 @@
+﻿@{
+    ViewData["Title"] = "Ask a question";
+}
+
+<!-- ================================ START QUESTION AREA ================================= -->
+<section class="question-area pt-80px pb-40px">
+    <div class="container">
+        <div class="filters pb-40px d-flex flex-wrap justify-content-between">
+            <h3 class="fs-22 fw-medium mr-0">Ask a Question</h3>
+            <ul class="breadcrumb-list">
+                <li><a href="#">Home</a><span><svg xmlns="http://www.w3.org/2000/svg" height="19px" viewBox="0 0 24 24" width="19px" fill="#000000"><path d="M0 0h24v24H0V0z" fill="none"></path><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6-6-6z"></path></svg></span></li>
+                <li>Ask a Question</li>
+            </ul>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="card card-item">
+                    <form method="post" class="card-body">
+                        <div class="input-box">
+                            <label class="fs-14 text-black fw-medium mb-0">Question Title</label>
+                            <p class="fs-13 pb-3 lh-20">Be specific and imagine you’re asking a question to another person</p>
+                            <div class="form-group">
+                                <input id="txtTitle" class="form-control form--control" type="text" name="text" placeholder="e.g. Is there an R function for finding the index of an element in a vector?">
+                            </div>
+                        </div><!-- end input-box -->
+                        <div class="input-box">
+                            <div class="d-flex align-items-center justify-content-between">
+                                <div>
+                                    <label class="fs-14 text-black fw-medium mb-0">Tags</label>
+                                    <p class="fs-13 pb-3 lh-20">Add up to 5 tags to describe what your question is about:</p>
+                                </div>
+                                <button type="button" class="popover-trigger btn border border-gray py-1 lh-18 px-2" data-container="body" data-bs-toggle="popover" data-placement="top">
+                                    <svg aria-hidden="true" class="svg-icon-color-gray" width="14" height="14"><path d="M7 1a6 6 0 100 12A6 6 0 007 1zm1.06 9.06c-.02.63-.48 1.02-1.1 1-.57-.02-1.03-.43-1.01-1.06.02-.63.5-1.04 1.08-1.02.6.02 1.05.45 1.03 1.08zm.73-3.07l-.47.3c-.2.15-.36.36-.44.6a3.6 3.6 0 00-.08.65c0 .04-.03.14-.16.14h-1.4c-.14 0-.16-.09-.16-.13-.01-.5.11-.99.36-1.42A4.6 4.6 0 017.7 6.07c.15-.1.21-.21.3-.33a1.14 1.14 0 00.02-1.48c-.22-.26-.46-.4-.92-.4-.45 0-.83.23-1.02.52-.19.3-.16.63-.16.94H4.2c0-1.17.31-1.92.98-2.36a3.5 3.5 0 011.83-.44c.88 0 1.58.16 2.2.62.58.42.88 1.02.88 1.82 0 .5-.17.9-.43 1.24-.15.2-.44.47-.86.79h-.01z"></path></svg>
+                                </button>
+                                <div class="generic-popover d-none">
+                                    <h4 class="fs-16 pb-1">How to tag</h4>
+                                    <p class="pb-2 fs-14">Tags help the right people find and answer your question.</p>
+                                    <ul class="generic-list-item generic-list-item-bullet">
+                                        <li class="lh-18 text-black-50">Identify your tags by completing the sentence, "My question is about…"</li>
+                                        <li class="lh-18 text-black-50">Include tags that are crucial to your question only, like <div class="tag-link">c#</div></li>
+                                        <li class="lh-18 text-black-50">Only include version numbers, like <div class="tag-link">c#-4.0</div>, when absolutely necessary</li>
+                                        <li class="lh-18 text-black-50">Use existing <a href="#" class="d-inline-block text-color hover-underline" target="_blank">popular tags</a></li>
+                                    </ul>
+                                    <p class="pb-1 fs-14">If you can’t find a tag:</p>
+                                    <p class="fs-14 text-black-50">
+                                        <a href="#" class="text-color hover-underline" target="_blank">Create new tags</a> or post without it and <a href="#" class="text-color hover-underline" target="_blank">ask the community</a>
+                                        to create one for you.
+                                    </p>
+                                </div><!-- end generic-popover -->
+                            </div>
+                            <div class="form-group">
+                                <input id="txtTags" class="input-tags input--tags" type="text" name="tags" placeholder="e.g. javascript">
+                            </div>
+                        </div><!-- end input-box -->
+                        <div class="input-box">
+                            <label class="fs-14 text-black fw-medium mb-0">Category</label>
+                            <p class="fs-13 pb-3 lh-20">Please choose the appropriate section so the question can be searched easily.</p>
+                            <div class="form-group">
+                                <select id="ddlCategory" class="select-container select--container" data-placeholder="Select a Category">
+                                    <option selected value="">Select a Category</option>
+                                    <option value="1">Analytics</option>
+                                    <option value="2">Communication</option>
+                                    <option value="3">Company</option>
+                                    <option value="4">Language</option>
+                                    <option value="5">Management</option>
+                                    <option value="6">Programmers</option>
+                                    <option value="7">Programs</option>
+                                    <option value="8">University</option>
+                                </select>
+                            </div>
+                        </div><!-- end input-box -->
+                        <div class="input-box">
+                            <label class="fs-14 text-black fw-medium mb-0">Details</label>
+                            <p class="fs-13 pb-3 lh-20">Include all the information someone would need to answer your question</p>
+                            <div class="form-group">
+                                <textarea id="txtPostDetail" class="form-control form--control user-text-editor" rows="10" cols="40"></textarea>
+                                <div class="d-flex align-items-center pt-2">
+                                    <div class="me-3">
+                                        ``` <code class="badge bg-gray border border-gray text-gray">code</code> ```
+                                    </div>
+                                    <div class="me-3 fw-bold">**bold**</div>
+                                    <div class="me-3 font-italic">*italic*</div>
+                                    <div>&gt;quote</div>
+                                </div>
+                            </div>
+                        </div><!-- end input-box -->
+                        <div class="input-box">
+                            <label class="fs-14 text-black fw-medium">Image</label>
+                            <div class="form-group">
+                                <div class="file-upload-wrap file-upload-layout-2">
+                                    <input id="fpAttachment" type="file" name="files[]" class="file-upload-input" multiple>
+                                    <span class="file-upload-text d-flex align-items-center justify-content-center"><i class="la la-cloud-upload me-2 fs-24"></i>Drop files here or click to upload.</span>
+                                </div>
+                            </div>
+                        </div><!-- end input-box -->
+                        <div class="input-box pt-2">
+                            <div class="form-group">
+                                <div class="form-check custom-checkbox mb-1">
+                                    <input class="form-check-input" type="checkbox" value="" id="notifiedMe">
+                                    <label class="form-check-label" for="notifiedMe">
+                                        Get notified by email when someone answers this question.
+                                    </label>
+                                </div>
+                                <div class="form-check custom-checkbox mb-1">
+                                    <input class="form-check-input" type="checkbox" value="" id="youAgreeCheckBox">
+                                    <label class="form-check-label" for="youAgreeCheckBox">
+                                        By asking your question, you agree to the <a href="privacy-policy.html" class="text-color hover-underline">Privacy Policy.</a>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="btn-box">
+                                <button type="submit" class="btn theme-btn">Publish your question</button>
+                            </div>
+                        </div>
+                    </form>
+                </div><!-- end card -->
+            </div><!-- end col-lg-8 -->
+            <div class="col-lg-4">
+                <div class="sidebar">
+                    <div class="card card-item p-4">
+                        <h3 class="fs-17 pb-3">Step 1: Draft your question</h3>
+                        <div class="divider"><span></span></div>
+                        <p class="fs-14 lh-22 pb-2 pt-3">The community is here to help you with specific coding, algorithm, or language problems.</p>
+                        <p class="fs-14 lh-22">Avoid asking opinion-based questions.</p>
+                        <div id="accordion" class="generic-accordion pt-4">
+                            <div class="card">
+                                <div class="card-header" id="headingOne">
+                                    <button class="btn btn-link fs-15" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                        <span><span class="text-color pe-2 fs-16">1.</span> Summarize the problem</span>
+                                        <i class="la la-angle-down collapse-icon"></i>
+                                    </button>
+                                </div>
+                                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-bs-parent="#accordion">
+                                    <div class="card-body">
+                                        <ul class="generic-list-item generic-list-item-bullet generic-list-item--bullet-2 fs-14">
+                                            <li class="lh-18 text-black-50">Include details about your goal</li>
+                                            <li class="lh-18 text-black-50">Describe expected and actual results</li>
+                                            <li class="lh-18 text-black-50 mb-0">Include any error messages</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div><!-- end card -->
+                            <div class="card">
+                                <div class="card-header" id="headingTwo">
+                                    <button class="btn btn-link collapsed fs-15" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                        <span><span class="text-color pe-2 fs-16">2.</span> Describe what you’ve tried</span>
+                                        <i class="la la-angle-down collapse-icon"></i>
+                                    </button>
+                                </div>
+                                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-bs-parent="#accordion">
+                                    <div class="card-body">
+                                        <p class="fs-14 lh-22 text-black-50">
+                                            Show what you’ve tried and tell us what you found (on this site or elsewhere) and why it didn’t meet your needs. You can get better answers when you provide research.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div><!-- end card -->
+                            <div class="card">
+                                <div class="card-header" id="headingThree">
+                                    <button class="btn btn-link collapsed fs-15" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                        <span><span class="text-color pe-2 fs-16">3.</span> Show some code</span>
+                                        <i class="la la-angle-down collapse-icon"></i>
+                                    </button>
+                                </div>
+                                <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-bs-parent="#accordion">
+                                    <div class="card-body">
+                                        <p class="fs-14 lh-22 text-black-50">
+                                            When appropriate, share the minimum amount of code others need to reproduce your problem (also called a
+                                            <a href="#" class="text-color hover-underline">minimum</a>, <a href="#" class="text-color hover-underline">reproducible example</a>)
+                                        </p>
+                                    </div>
+                                </div>
+                            </div><!-- end card -->
+                        </div><!-- end accordion -->
+                    </div><!-- end card -->
+                    <div id="accordion-two" class="generic-accordion">
+                        <div class="card mb-3">
+                            <div class="card-header" id="headingFour">
+                                <button class="btn btn-link collapsed fs-15" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                    <span>Have a non-programming question?</span>
+                                    <i class="la la-angle-down collapse-icon"></i>
+                                </button>
+                            </div>
+                            <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-bs-parent="#accordion-two">
+                                <div class="card-body">
+                                    <p class="fs-14 lh-22 text-black-50 pb-2">
+                                        <a class="text-color hover-underline d-block" href="#" target="_blank">Super user</a>
+                                        Troubleshooting hardware and software issues
+                                    </p>
+                                    <p class="fs-14 lh-22 text-black-50 pb-2">
+                                        <a class="text-color hover-underline d-block" href="#" target="_blank">Software engineering</a>
+                                        For software development methods and process questions
+                                    </p>
+                                    <p class="fs-14 lh-22 text-black-50 pb-2">
+                                        <a class="text-color hover-underline d-block" href="#" target="_blank">Hardware recommendations</a>
+                                    </p>
+                                    <p class="fs-14 lh-22 text-black-50 pb-2">
+                                        <a class="text-color hover-underline d-block" href="#" target="_blank">Software recommendations</a>
+                                    </p>
+                                    <p class="fs-14 lh-22 text-black-50">Ask questions about the site on <a class="text-color hover-underline" href="#" target="_blank">meta</a></p>
+                                </div>
+                            </div>
+                        </div><!-- end card -->
+                        <div class="card">
+                            <div class="card-header" id="headingFive">
+                                <button class="btn btn-link collapsed fs-15" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                                    <span>More helpful links</span>
+                                    <i class="la la-angle-down collapse-icon"></i>
+                                </button>
+                            </div>
+                            <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-bs-parent="#accordion-two">
+                                <div class="card-body">
+                                    <p class="fs-14 lh-22 text-black-50 pb-2">
+                                        Find more information about <a class="text-color hover-underline" href="#" target="_blank">how to ask a good question here</a>
+                                    </p>
+                                    <p class="fs-14 lh-22 text-black-50">
+                                        Visit the <a class="text-color hover-underline" href="#" target="_blank">help center</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div><!-- end card -->
+
+                    </div><!-- end accordion -->
+                </div><!-- end sidebar -->
+            </div><!-- end col-lg-4 -->
+        </div><!-- end row -->
+    </div><!-- end container -->
+</section><!-- end question-area -->
+<!-- ================================ END QUESTION AREA ================================= -->
+<!-- ================================ START CTA AREA ================================= -->
+<section class="get-started-area pt-80px pb-50px pattern-bg bg-gray">
+    <div class="container">
+        <div class="text-center">
+            <h2 class="section-title"> <b>better society</b> Q&A communities are different. <br> Here's how</h2>
+        </div>
+        <div class="row pt-50px">
+            <div class="col-lg-4 responsive-column-half">
+                <div class="card card-item hover-y text-center">
+                    <div class="card-body">
+                        <!--<img src="images/bubble.png" alt="bubble">-->
+
+                        <svg width="100" height="100" viewBox="-0.563 0 13.75 13.75" xmlns="http://www.w3.org/2000/svg"><g data-name="Group 8"><path data-name="Path 9" d="M0 5.625a5.625 5.625 0 1 1 5.625 5.625 5.625 5.625 0 0 1 -5.625 -5.625" fill="#305eff" /></g><g data-name="Group 9" fill="#293a56"><path data-name="Path 10" d="M12.25 5H9.37l-1.652 -1.18A0.375 0.375 0 0 0 7.125 4.125v0.875h-1a0.375 0.375 0 0 0 -0.375 0.375v1.159h-2.25a0.375 0.375 0 0 0 -0.375 0.375v5.029a0.375 0.375 0 0 0 0.375 0.375h3.329l1.914 1.367A0.375 0.375 0 0 0 9.335 13.375v-1.063h1.54a0.375 0.375 0 0 0 0.375 -0.375V10.125h1a0.375 0.375 0 0 0 0.375 -0.375V5.375a0.375 0.375 0 0 0 -0.375 -0.375m-1.75 6.563H8.96a0.375 0.375 0 0 0 -0.375 0.375v0.708l-1.419 -1.013a0.375 0.375 0 0 0 -0.218 -0.07h-3.074V7.284h6.625Zm1.375 -2.188h-0.625V6.909a0.375 0.375 0 0 0 -0.375 -0.375h-4.375V5.75h1a0.375 0.375 0 0 0 0.375 -0.375v-0.521l1.157 0.827a0.375 0.375 0 0 0 0.218 0.07h2.625Z" /><path data-name="Path 11" d="M5.375 9.726a0.375 0.375 0 0 0 0.265 -0.64 0.388 0.388 0 0 0 -0.53 0 0.375 0.375 0 0 0 0.265 0.64" /><path data-name="Path 12" d="M7.242 9.726a0.375 0.375 0 0 0 0.265 -0.64 0.388 0.388 0 0 0 -0.53 0 0.383 0.383 0 0 0 -0.11 0.265 0.376 0.376 0 0 0 0.375 0.375" /><path data-name="Path 13" d="M9.111 9.726a0.375 0.375 0 0 0 0.265 -0.64 0.388 0.388 0 0 0 -0.53 0 0.375 0.375 0 0 0 0.265 0.64" /></g></svg>
+
+                        <h5 class="card-title pt-4 pb-2">Expert communities.</h5>
+                        <p class="card-text">This is just a simple text made for this unique and awesome template, you can easily edit it as you want.</p>
+                    </div><!-- end card-body -->
+                </div><!-- end card -->
+            </div><!-- end col-lg-4 -->
+            <div class="col-lg-4 responsive-column-half">
+                <div class="card card-item hover-y text-center">
+                    <div class="card-body">
+                        <!--<img src="images/vote.png" alt="vote">-->
+                        <!--<svg fill="#000000" width="100px" height="100px" viewBox="0 0 3 3" xmlns="http://www.w3.org/2000/svg"><path d="M1.589 0.786a0.125 0.125 0 0 0 -0.041 -0.026 0.125 0.125 0 0 0 -0.095 0 0.125 0.125 0 0 0 -0.041 0.026l-0.5 0.5a0.125 0.125 0 1 0 0.177 0.177L1.375 1.176V2.625a0.125 0.125 0 0 0 0.25 0V1.176l0.286 0.287a0.125 0.125 0 0 0 0.177 0 0.125 0.125 0 0 0 0 -0.177ZM2.375 0.25H0.625a0.125 0.125 0 0 0 0 0.25h1.75a0.125 0.125 0 0 0 0 -0.25" /></svg>-->
+
+                        <svg width="100px" height="100px" viewBox="0 0 6 6" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2.375 2.5a0.875 0.875 0 1 0 0 -1.75 0.875 0.875 0 0 0 0 1.75" fill="#305eff" stroke="#000000" stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round" /><path d="m4 2.5 0.75 -0.75 0.75 0.75" stroke="#000000" stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round" /><path d="M0.5 5.1V5.25h3.75v-0.15c0 -0.56 0 -0.84 -0.109 -1.054a1 1 0 0 0 -0.437 -0.437C3.49 3.5 3.21 3.5 2.65 3.5h-0.55c-0.56 0 -0.84 0 -1.054 0.109a1 1 0 0 0 -0.437 0.437C0.5 4.26 0.5 4.54 0.5 5.1" fill="#305eff" stroke="#000000" stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round" /></svg>
+
+                        <h5 class="card-title pt-4 pb-2">The right answer. Right on top.</h5>
+                        <p class="card-text">This is just a simple text made for this unique and awesome template, you can easily edit it as you want.</p>
+                    </div><!-- end card-body -->
+                </div><!-- end card -->
+            </div><!-- end col-lg-4 -->
+            <div class="col-lg-4 responsive-column-half">
+                <div class="card card-item hover-y text-center">
+                    <div class="card-body">
+                        <!--<img src="images/check.png" alt="check">-->
+
+                        <svg fill="#305eff" width="100px" height="100px" viewBox="0 0 3 3" xmlns="http://www.w3.org/2000/svg"><path d="M2.75 1.209a0.125 0.125 0 0 0 -0.107 -0.084l-0.711 -0.104L1.613 0.375a0.125 0.125 0 0 0 -0.225 0L1.069 1.02 0.357 1.125a0.125 0.125 0 0 0 -0.101 0.085 0.125 0.125 0 0 0 0.031 0.125l0.516 0.5 -0.125 0.71a0.125 0.125 0 0 0 0.05 0.125 0.125 0.125 0 0 0 0.131 0.009L1.5 2.345l0.637 0.335a0.116 0.116 0 0 0 0.058 0.015 0.125 0.125 0 0 0 0.074 -0.024 0.125 0.125 0 0 0 0.05 -0.125l-0.125 -0.71 0.516 -0.5A0.125 0.125 0 0 0 2.75 1.209m-0.769 0.5a0.125 0.125 0 0 0 -0.036 0.111l0.09 0.524 -0.47 -0.25a0.125 0.125 0 0 0 -0.117 0l-0.47 0.25 0.09 -0.524a0.125 0.125 0 0 0 -0.036 -0.111l-0.375 -0.375 0.526 -0.076a0.125 0.125 0 0 0 0.095 -0.069L1.5 0.713l0.235 0.477a0.125 0.125 0 0 0 0.095 0.069l0.526 0.076Z" /></svg>
+
+                        <h5 class="card-title pt-4 pb-2">Share knowledge. Earn trust.</h5>
+                        <p class="card-text">This is just a simple text made for this unique and awesome template, you can easily edit it as you want.</p>
+                    </div><!-- end card-body -->
+                </div><!-- end card -->
+            </div><!-- end col-lg-4 -->
+        </div><!-- end row -->
+    </div><!-- end container -->
+</section>
+<!-- ================================ END CTA AREA ================================= -->
+@section Scripts
+{
+    <script type="text/javascript" src="~/scripts/User.js"></script>
+
+    <script type="text/javascript">
+        $("#btnCreateBlog").click(function () {
+            global.executeOrder(this, user.createBlogPost);
+        });
+    </script>
+}

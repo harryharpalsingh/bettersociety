@@ -105,6 +105,10 @@
       "PackagePath": "staticwebassets\\css\\jquery-te-1.4.0.css"
     },
     {
+      "Id": "E:\\Work Data\\@back-end-development\\#bettersociety.in\\bettersociety-master\\bettersocietyrepo\\bettersociety\\wwwroot\\css\\jquery-te.png",
+      "PackagePath": "staticwebassets\\css\\jquery-te.png"
+    },
+    {
       "Id": "E:\\Work Data\\@back-end-development\\#bettersociety.in\\bettersociety-master\\bettersocietyrepo\\bettersociety\\wwwroot\\css\\jquery.fancybox.min.css",
       "PackagePath": "staticwebassets\\css\\jquery.fancybox.min.css"
     },

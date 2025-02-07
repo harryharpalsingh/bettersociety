@@ -18,6 +18,8 @@ namespace bettersociety.Models
 
         public int? ImageID { get; set; }
 
+        public int? CategoryID { get; set; }
+
         public DateTime CreatedOn { get; set; } = DateTime.Now;
 
         public string CreatedBy { get; set; }

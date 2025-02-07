@@ -18,6 +18,10 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = E:\Work Data\@back-end-development\#bettersociety.in\bettersociety-master\bettersocietyrepo\bettersociety
 build_property._RazorSourceGeneratorDebug = 
 
+[E:/Work Data/@back-end-development/\#bettersociety.in/bettersociety-master/bettersocietyrepo/bettersociety/Areas/User/Views/AskQuestion/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlclxWaWV3c1xBc2tRdWVzdGlvblxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [E:/Work Data/@back-end-development/\#bettersociety.in/bettersociety-master/bettersocietyrepo/bettersociety/Areas/User/Views/BlogPost/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlclxWaWV3c1xCbG9nUG9zdFxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
