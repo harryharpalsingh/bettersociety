@@ -32,7 +32,7 @@ namespace bettersociety.Mappers
                     Use the null-coalescing operator ?? to assign an empty list new List<AnswersDto>() when questionsModel.Answers is null.
                  */
 
-            };
-        }
+                };
+            }
     }
 }
