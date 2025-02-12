@@ -16,12 +16,16 @@ namespace bettersociety.Areas.User.Controllers
     {
         private readonly ApplicationDbContext _context;
         private readonly IBlogPostRepository _blogPostRepository;
+        private readonly IQuestionXrefTagsRepository _questionXrefTagsRepository;
         private readonly UserManager<AppUser> _userManager;
 
-        public AskQuestionController(ApplicationDbContext dbContext, IBlogPostRepository blogPostRepository)
+        public AskQuestionController(ApplicationDbContext dbContext,
+            IBlogPostRepository blogPostRepository,
+            IQuestionXrefTagsRepository questionXrefTagsRepository)
         {
             _context = dbContext;
             _blogPostRepository = blogPostRepository;
+            _questionXrefTagsRepository = questionXrefTagsRepository;
         }
 
         public IActionResult Index()
@@ -42,15 +46,29 @@ namespace bettersociety.Areas.User.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreatePost([FromBody] CreateBlogPostDto createBlogDto)
+        public async Task<IActionResult> CreatePost([FromBody] CreateBlogPostDto createBlogDto, IEnumerable<int> tagIds)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            var questionModel = createBlogDto.ToQuestionsFromCreateBlogPostDto(HttpContext, _userManager);
+            var questionModel = createBlogDto.ToQuestionsFromCreatePostDto(HttpContext, _userManager);
             await _blogPostRepository.CreateAsync(questionModel);
+
+            int QuestionId = questionModel.Id;
+
+            List<QuestionsXrefTags> tags = new List<QuestionsXrefTags>();
+            foreach (int id in tagIds)
+            {
+                QuestionsXrefTags qt = new QuestionsXrefTags();
+                qt.QuestionId = QuestionId;
+                qt.TagId = id;
+                tags.Add(qt);
+            }
+
+            await _questionXrefTagsRepository.CreateRangeAsync(tags);
+
             return CreatedAtAction(nameof(GetPostById), new { id = questionModel.Id }, questionModel.ToQuestionsDto());
         }
     }

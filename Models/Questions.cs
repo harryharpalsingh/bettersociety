@@ -29,6 +29,7 @@ namespace bettersociety.Models
         public int Deleted { get; set; } = 0;
 
         //One to many relationship
-        public List<Answers> Answers { get; set; } = new List<Answers>();
+        //Lazy Loading: Virtual property
+        public virtual List<Answers> Answers { get; set; } = new List<Answers>();
     }
 }

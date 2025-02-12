@@ -20,7 +20,7 @@ namespace bettersociety.Models
         public int? AnswersId { get; set; }
 
         //Navigation property
-        public Answers? Answers { get; set; }
+        public virtual Answers? Answers { get; set; }
 
     }
 }

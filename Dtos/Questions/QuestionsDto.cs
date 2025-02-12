@@ -13,12 +13,14 @@ namespace bettersociety.Dtos.Questions
 
         public int? ImageID { get; set; }
 
+        public int? CategoryID { get; set; }
+
         public DateTime CreatedOn { get; set; } = DateTime.Now;
 
         public string CreatedBy { get; set; } = string.Empty;
 
         public int Deleted { get; set; } = 0;
 
-        public List<AnswersDto> Answers { get; set; } = new List<AnswersDto>();
+        public virtual List<AnswersDto> Answers { get; set; } = new List<AnswersDto>();
     }
 }

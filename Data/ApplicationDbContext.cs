@@ -40,5 +40,12 @@ namespace bettersociety.Data
 
             builder.Entity<IdentityRole>().HasData(roles);
         }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            //optionsBuilder.UseLazyLoadingProxies(); // Enable Lazy Loading
+
+            // if you are using Eager Loading (via .Include()), then you do NOT need UseLazyLoadingProxies() in OnConfiguring().
+        }
     }
 }

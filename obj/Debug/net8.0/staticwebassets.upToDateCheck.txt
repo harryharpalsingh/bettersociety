@@ -20,9 +20,11 @@ wwwroot\assets\logo\better-society-mini-logo.pdf
 wwwroot\assets\logo\blue-png_4x4.png
 wwwroot\assets\logo\blue-png_4x4.webp
 wwwroot\assets\logo\blue-png_full.png
+wwwroot\assets\logo\bs-logo-svg.svg
 wwwroot\css\bootstrap.min.css
 wwwroot\css\intlTelInput.min.css
 wwwroot\css\jquery.fancybox.min.css
+wwwroot\css\jquery-te.png
 wwwroot\css\jquery-te-1.4.0.css
 wwwroot\css\leaflet.css
 wwwroot\css\line-awesome.css

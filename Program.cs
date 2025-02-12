@@ -80,6 +80,7 @@ builder.Services.AddAuthentication(options =>
 //Dependency injection
 builder.Services.AddScoped<ITokenService, TokenService>();
 builder.Services.AddScoped<IBlogPostRepository, BlogPostRepository>();
+builder.Services.AddScoped<IQuestionXrefTagsRepository, QuestionXrefTagsRepository>();
 
 var app = builder.Build();
 

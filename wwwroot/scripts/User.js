@@ -49,8 +49,11 @@
                 // 200-299 Success Response
                 const result = await response.text(); // Or response.json() if it's JSON
                 auth.clearSignupInputs();
-                global.toggleAlert(0, "Registration successful! Congratulations, you're now part of better society.", "");
-                window.open("/Login", "_self");
+                global.toggleAlert(0, "Registration successful! Redirecting to Login page..", "");
+
+                setTimeout(function () {
+                    window.open("/Login", "_self");
+                }, 5000); // Delay of 5 seconds (5000 milliseconds)
             }
             else if (response.status === 400) {
                 // 400 Bad Request (Validation errors)
@@ -189,42 +192,60 @@ let user = {
     async createBlogPost() {
         try {
             // Gather data from the form or inputs
-            let title = $("#txtTitle").val()?.trim();
-            let postDetail = $("#txtPostDetail").val()?.trim();
+            let title = $("#txtQuestionTitle").val()?.trim();
+            let postDetail = $(".jqte_editor").html()?.trim();
+            //let tagIds = []; 
+            let category = $('#ddlCategory :selected').val();
+
+            let tagIds = $('#divTags span').map(function () {
+                let id = $(this).attr('id'); // Get the id of the span
+                if (!id) return null; // Skip if id is missing
+
+                let match = id.match(/^spnTag_(\d+)$/); // Validate pattern spnTag_<number>
+                return match ? parseInt(match[1]) : null; // Return number if valid, otherwise null
+            }).get().filter(num => num !== null); // Remove any invalid (null) values
+            //console.log(tagIds); // Output: [1, 2, 3, ...]
 
             // Validate Title
             if (!title) {
-                alert("Title is required and cannot be empty.");
+                global.toggleAlert(1, "Question title is required and cannot be empty.", "#txtQuestionTitle");
                 return;
             }
 
             // Additional Title Validation: Minimum and Maximum Length
             if (title.length < 5 || title.length > 100) {
-                alert("Title must be between 5 and 100 characters.");
+                global.toggleAlert(2, "Title must be between 5 and 100 characters.", "#txtQuestionTitle");
                 return;
             }
 
             // Validate Title
             if (!postDetail) {
-                alert("Post Content is required and cannot be empty.");
+                global.toggleAlert(2, "Post Content is required and cannot be empty.", "");
+                return;
+            }
+
+            if (category = '' || category == 0) {
+                global.toggleAlert(1, "Please select category.", "");
                 return;
             }
 
             // Prepare data object
             let blogPostData = {
                 title: title,
-                QuestionDetail: postDetail
+                QuestionDetail: postDetail,
+                CategoryId: category,
+                Tags: tagIds
                 // Include other properties if needed, e.g., createdOn, createdBy, etc.
             };
 
             // Send data to server
-            const response = await fetch('/User/BlogPost/CreateBlogPost', {
+            const response = await fetch('/User/AskQuestion/CreatePost', {
                 method: "POST",
                 headers: {
                     'Content-Type': 'application/json',
                     //'X-XSRF-TOKEN': auth.getCookie("XSRF-TOKEN")
                 },
-                body: JSON.stringify(blogPostData),
+                body: JSON.stringify({ "blogPostData": blogPostData, "tagIds": tagIds }),
             });
 
             // Handle the response

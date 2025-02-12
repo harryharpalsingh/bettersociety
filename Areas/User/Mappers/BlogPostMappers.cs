@@ -17,7 +17,7 @@ namespace bettersociety.Areas.User.Mappers
         //        CreatedBy = questionsModel.CreatedBy
         //    };
         //}        
-        public static Questions ToQuestionsFromCreateBlogPostDto(this CreateBlogPostDto createBlogPostDto, HttpContext httpContext, UserManager<AppUser> _userManager)
+        public static Questions ToQuestionsFromCreatePostDto(this CreateBlogPostDto createBlogPostDto, HttpContext httpContext, UserManager<AppUser> _userManager)
         {
             var isAuthenticated = httpContext.User.Identity?.IsAuthenticated ?? false;
             if (!isAuthenticated)
@@ -37,6 +37,7 @@ namespace bettersociety.Areas.User.Mappers
             {
                 Title = createBlogPostDto.Title,
                 QuestionDetail = createBlogPostDto.QuestionDetail,
+                CategoryID = createBlogPostDto.CategoryId,
                 CreatedBy = userId.ToString(),
             };
         }

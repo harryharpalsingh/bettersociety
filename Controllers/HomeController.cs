@@ -40,9 +40,17 @@ namespace bettersociety.Controllers
             }
 
             var questions = _dbContext.Questions
-                .Include(q => q.Answers) // Eagerly load related data
-                .ToList()
-                .Select(static q => q.ToQuestionsDto());
+                //.Include(q => q.Answers) // Eagerly load related data
+                .AsNoTracking() //Improves performance (no tracking needed for read-only queries)
+                .Select(static q => q.ToQuestionsDto())
+                .ToList();
+
+            ////Explicit loading
+            //var questions = _dbContext.Questions.ToList();
+            //foreach (var question in questions)
+            //{
+            //    _dbContext.Entry(question).Collection(q => q.Answers).Load(); // Explicitly loads Answers
+            //}
 
             return Ok(new
             {

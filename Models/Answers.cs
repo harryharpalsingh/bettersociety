@@ -20,10 +20,10 @@ namespace bettersociety.Models
         public int? QuestionsId { get; set; }
 
         //Navigation property
-        public Questions? Questions { get; set; }
+        public virtual Questions? Questions { get; set; }
 
         //One to many relationship
-        public List<Votes> Votes { get; set; } = new List<Votes>();
+        public virtual List<Votes> Votes { get; set; } = new List<Votes>();
 
     }
 }

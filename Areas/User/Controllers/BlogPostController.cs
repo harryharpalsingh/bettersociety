@@ -71,7 +71,7 @@ namespace bettersociety.Areas.User.Controllers
                 return BadRequest(ModelState);
             }
 
-            var questionModel = createBlogDto.ToQuestionsFromCreateBlogPostDto(HttpContext, _userManager);
+            var questionModel = createBlogDto.ToQuestionsFromCreatePostDto(HttpContext, _userManager);
             await _blogPostRepository.CreateAsync(questionModel);
             //await _appDbcontext.Questions.AddAsync(questionModel);
             //await _appDbcontext.SaveChangesAsync();
