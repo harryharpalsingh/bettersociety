@@ -51,6 +51,7 @@
                             </div>
                             <div class="form-group">
                                 <input id="txtTags" class="input-tags input--tags" type="text" name="tags" placeholder="e.g. javascript">
+                                <div id="divTagList" class="tags-container"></div>
                             </div>
                         </div><!-- end input-box -->
                         <div class="input-box">
@@ -58,15 +59,7 @@
                             <p class="fs-13 pb-3 lh-20">Please choose the appropriate category so the question can be searched easily.</p>
                             <div class="form-group">
                                 <select id="ddlCategory" class="select-container select--container" data-placeholder="Select a Category">
-                                    <option selected value="">Select a Category</option>
-                                    <option value="1">Analytics</option>
-                                    <option value="2">Communication</option>
-                                    <option value="3">Company</option>
-                                    <option value="4">Language</option>
-                                    <option value="5">Management</option>
-                                    <option value="6">Programmers</option>
-                                    <option value="7">Programs</option>
-                                    <option value="8">University</option>
+                                    <option selected value="0">Select a Category</option>
                                 </select>
                             </div>
                         </div><!-- end input-box -->
@@ -279,11 +272,13 @@
 <!-- ================================ END CTA AREA ================================= -->
 @section Scripts
 {
-    <script type="text/javascript" src="~/scripts/User.js"></script>
-
     <script type="text/javascript">
         $("#btnAskQuestion").click(function () {
-            global.executeOrder(this, user.createBlogPost);
+            global.executeOrder(this, question.postQuestion);
+        });
+
+        $(document).ready(function() {
+            question.getCategories();
         });
     </script>
 }

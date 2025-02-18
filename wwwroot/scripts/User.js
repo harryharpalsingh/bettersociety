@@ -2,9 +2,25 @@
     async signUp() {
         $('#btnSignup').prop('disabled', true);
 
+        let userFullName = $('#txtFullName').val()?.trim();
+        var fullNamePattern = /^[A-Z][a-zA-Z' -]{1,49}$/;
         let userName = $('#txtUserName').val()?.trim(); // Trim whitespace
         let email = $('#txtUserEmail').val();
         let password = $('#txtUserPassword').val();
+
+        /*
+        Regex pattern checks if the name:
+            Starts with an uppercase letter.
+            Only contains letters, spaces, apostrophes, or hyphens.
+            Is between 2 and 50 characters long.
+        */
+
+        // Check if the full name matches the pattern
+        if (!fullNamePattern.test(userFullName)) {
+            // Show error message if validation fails
+            global.toggleAlert(2, "Please enter a valid Full name.", "#txtUserName");
+            return false; // Prevent form submission
+        }
 
         // Validate userName
         if (!userName) {
@@ -32,6 +48,7 @@
 
         // Prepare data object
         let signupData = {
+            FullName: userFullName,
             UserName: userName,
             Email: email,
             Password: password
@@ -56,16 +73,34 @@
                 }, 5000); // Delay of 5 seconds (5000 milliseconds)
             }
             else if (response.status === 400) {
-                // 400 Bad Request (Validation errors)
+                // 400 Bad Request (Validation errors or other issues)
                 let errorResponse;
+
                 try {
-                    errorResponse = await response.json(); // Attempt to parse JSON
+                    // Try to parse the response as JSON
+                    errorResponse = await response.json();
+                    console.log('Parsed JSON response:', errorResponse); // Log the parsed response for debugging
                 }
-                catch {
-                    errorResponse = { message: await response.text() }; // Fallback for plain text errors
+                catch (error) {
+                    // Fallback for non-JSON responses
+                    try {
+                        const textResponse = await response.text();
+                        console.log('Parsed text response:', textResponse); // Log the text response for debugging
+                        errorResponse = { message: textResponse };
+                    }
+                    catch (textError) {
+                        // Handle case when even text parsing fails
+                        console.error('Error parsing response as text:', textError);
+                        errorResponse = { message: "An unknown error occurred." };
+                    }
                 }
 
-                const errorMessages = errorResponse?.Errors?.join('\n') || errorResponse?.message || "Invalid request.";
+                // Check for errors field (case-insensitive) or fallback to message
+                const errorMessages = (errorResponse?.errors || errorResponse?.Errors)?.length
+                    ? (errorResponse.errors || errorResponse.Errors).join('\n')  // Join the validation errors if they exist
+                    : errorResponse?.message || "Invalid request."; // Fallback if no errors or message found
+
+                // Display the error messages using the global alert function
                 global.toggleAlert(1, `${errorMessages}`, "");
             }
             else if (response.status === 500) {
@@ -188,8 +223,128 @@
     },
 };
 
-let user = {
-    async createBlogPost() {
+let question = {
+    async getTags() {
+        $('#divTagList').empty();
+        try {
+            const response = await fetch('/User/Tags/GetAllTags', {
+                method: "GET",
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                //body: JSON.stringify({ "blogPostData": blogPostData, "tagIds": tagIds }),
+            });
+
+            // Handle the response
+            if (response.ok) {
+                const result = await response.json();
+
+                let _tagList = result.tags;
+                let _tagListHtml = ``;
+
+                if (_tagList && _tagList.length > 0) {
+                    _tagList.forEach(t => {
+                        _tagListHtml += `<div id='divTag_${t.id}' class='question-tag'>${t.tagName}</div>`;
+                    });
+
+                    if (_tagListHtml != '') {
+                        $('#divTagList').append(_tagListHtml);
+                    }
+                }
+            }
+            else if (response.status = 404) {
+                global.toggleAlert(1, "No Tags found!", "");
+            }
+            else {
+                try {
+                    const errorResponse = await response.json();
+                    global.toggleAlert(1, "A wild error appears : " + JSON.stringify(errorResponse), "");
+                }
+                catch {
+                    alert("An unknown error occurred.");
+                }
+            }
+        }
+        catch (e) {
+            console.error("An error occurred:", e);
+            alert("An error occurred while saving the blog post. Please try again.");
+        }
+    },
+
+    async getCategories() {
+        $('#ddlCategory').empty().append(`<option selected value="0">Select a Category</option>`);
+        try {
+            const response = await fetch('/User/AskQuestion/GetCategories', {
+                method: "GET",
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                //body: JSON.stringify({ "blogPostData": blogPostData, "tagIds": tagIds }),
+            });
+
+            // Handle the response
+            if (response.ok) {
+                const result = await response.json();
+                let categoryList = ``;
+
+                if (result.categories && result.categories.length > 0) {
+                    result.categories.forEach(c => {
+                        categoryList += `<option value="${c.id}">${c.category}</option>`;
+                    });
+
+                    if (categoryList != '') {
+                        $('#ddlCategory').append(categoryList);
+                    }
+                }
+            }
+            else if (response.status = 404) {
+                global.toggleAlert(1, "No Category found!", "");
+            }
+            else {
+                try {
+                    const errorResponse = await response.json();
+                    global.toggleAlert(1, "A wild error appears : " + JSON.stringify(errorResponse), "");
+                }
+                catch {
+                    global.toggleAlert(1, "An unknown error occurred", "");
+                }
+            }
+        }
+        catch (e) {
+            global.toggleAlert(1, "A wild error appears : " + e, "");
+        }
+    },
+
+    filterTags() {
+        let searchText = $("#txtTags").val().toLowerCase();
+        let tags = $("#divTagList .question-tag");
+
+        if (searchText.length === 0) {
+            $("#divTagList").hide(); // Hide if input is empty
+            return;
+        }
+
+        let anyMatch = false;
+        tags.each(function () {
+            let tagText = $(this).text().toLowerCase();
+            if (tagText.includes(searchText)) {
+                $(this).show();
+                anyMatch = true;
+            }
+            else {
+                $(this).hide();
+            }
+        });
+
+        if (anyMatch) {
+            $("#divTagList").show();
+        }
+        else {
+            $("#divTagList").hide();
+        }
+    },
+
+    async postQuestion() {
         try {
             // Gather data from the form or inputs
             let title = $("#txtQuestionTitle").val()?.trim();

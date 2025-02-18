@@ -1,4 +1,13 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<AppUser> SignInManager
+@inject UserManager<AppUser> UserManager
+
+@{
+    var user = User.Identity.IsAuthenticated ? await UserManager.GetUserAsync(User) : null;
+    var userName = user?.FullName ?? "Guest";
+}
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -206,12 +215,12 @@
                                                 <img src="~/assets/images/señorharpal.jpg" alt="avatar" class="rounded-full" />
                                             </div>
                                             <div class="media-body p-0 border-left-0">
-                                                <h5 class="fs-14">Sandeep Rehan</h5>
+                                                <h5 class="fs-14">@userName</h5>
                                             </div>
                                         </div>
                                     </a>
                                     <div class="dropdown-menu dropdown--menu dropdown-menu-right mt-3 keep-open" aria-labelledby="userMenuDropdown">
-                                        <h6 class="dropdown-header">Hi, Sandeep Rehan</h6>
+                                        <h6 class="dropdown-header">Hi, @userName</h6>
                                         <div class="dropdown-divider border-top-gray mb-0"></div>
                                         <div class="dropdown-item-list">
                                             <a class="dropdown-item" href="user-profile.html"><i class="la la-user me-2"></i>Profile</a>
@@ -468,6 +477,7 @@
     <script src="~/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/owl.carousel.min.js"></script>
     <script src="~/js/jquery-te-1.4.0.min.js"></script>
+    <script type="text/javascript" src="~/scripts/User.js"></script>
     <script src="~/js/selectize.min.js"></script>
     <script src="~/js/jquery.multi-file.min.js"></script>
     <script src="~/js/main.js"></script>

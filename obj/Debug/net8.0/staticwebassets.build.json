@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "KcFpVFw70n4f+1sKjo/zr5dE66eRzGk4yYVAJ5JUYLA=",
+  "Hash": "TEYtMDfSjkNDDSwHEladXmOtNgGrUc4S3NMxb9l+mTw=",
   "Source": "bettersociety",
   "BasePath": "_content/bettersociety",
   "Mode": "Default",
@@ -787,8 +787,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "481uvdnyxu",
-      "Integrity": "tCQSH0hpCuVhb9lM4b3BprVvA2rvIYB+HHLTvCfzK+g=",
+      "Fingerprint": "k6564zbshp",
+      "Integrity": "RAC3SpVw4L+EkCm7c03hXn9PEp4sPaUsBvwXXfpzAVY=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\site.css"
@@ -1480,8 +1480,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "b3dtc67sln",
-      "Integrity": "eUR+R4uOKSWmCpOiqGvRS45/f2dUri2I0mSGlK7V8gw=",
+      "Fingerprint": "owmcuinfuw",
+      "Integrity": "+JSH9zy1T+d+wgkgMN0e+LBctd2bPuM3OBmi38KdQcA=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\selectize.min.js"
@@ -2803,8 +2803,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "uszcp07o7d",
-      "Integrity": "wpYrwl4IRreOjb8EcYjzM7vk1cje51JGFSi4/J4vPRk=",
+      "Fingerprint": "4m21m8z059",
+      "Integrity": "hBYuTz3Ywr6ABMhLyRBFoab4dJwFQ9b2jRfWgkyAs+k=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\scripts\\User.js"
@@ -4720,7 +4720,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 09 Dec 2024 10:54:37 GMT"
+          "Value": "Wed, 12 Feb 2025 12:31:17 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -4757,7 +4757,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 09 Dec 2024 10:54:37 GMT"
+          "Value": "Wed, 12 Feb 2025 12:31:17 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -4802,7 +4802,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 09 Dec 2024 10:54:37 GMT"
+          "Value": "Wed, 12 Feb 2025 12:31:17 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -4847,7 +4847,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 09 Dec 2024 10:54:37 GMT"
+          "Value": "Wed, 12 Feb 2025 12:31:17 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -5764,51 +5764,6 @@
       ]
     },
     {
-      "Route": "css/site.481uvdnyxu.css",
-      "AssetFile": "E:\\Work Data\\@back-end-development\\#bettersociety.in\\bettersociety-master\\bettersocietyrepo\\bettersociety\\wwwroot\\css\\site.css",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "2787"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"tCQSH0hpCuVhb9lM4b3BprVvA2rvIYB+HHLTvCfzK+g=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Fri, 07 Feb 2025 09:56:57 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "481uvdnyxu"
-        },
-        {
-          "Name": "label",
-          "Value": "css/site.css"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-tCQSH0hpCuVhb9lM4b3BprVvA2rvIYB+HHLTvCfzK+g="
-        }
-      ]
-    },
-    {
       "Route": "css/site.css",
       "AssetFile": "E:\\Work Data\\@back-end-development\\#bettersociety.in\\bettersociety-master\\bettersocietyrepo\\bettersociety\\wwwroot\\css\\site.css",
       "Selectors": [],
@@ -5819,7 +5774,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "2787"
+          "Value": "3042"
         },
         {
           "Name": "Content-Type",
@@ -5827,11 +5782,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"tCQSH0hpCuVhb9lM4b3BprVvA2rvIYB+HHLTvCfzK+g=\""
+          "Value": "\"RAC3SpVw4L+EkCm7c03hXn9PEp4sPaUsBvwXXfpzAVY=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 07 Feb 2025 09:56:57 GMT"
+          "Value": "Tue, 18 Feb 2025 09:19:31 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -5841,7 +5796,52 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-tCQSH0hpCuVhb9lM4b3BprVvA2rvIYB+HHLTvCfzK+g="
+          "Value": "sha256-RAC3SpVw4L+EkCm7c03hXn9PEp4sPaUsBvwXXfpzAVY="
+        }
+      ]
+    },
+    {
+      "Route": "css/site.k6564zbshp.css",
+      "AssetFile": "E:\\Work Data\\@back-end-development\\#bettersociety.in\\bettersociety-master\\bettersocietyrepo\\bettersociety\\wwwroot\\css\\site.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "3042"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"RAC3SpVw4L+EkCm7c03hXn9PEp4sPaUsBvwXXfpzAVY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 18 Feb 2025 09:19:31 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "k6564zbshp"
+        },
+        {
+          "Name": "label",
+          "Value": "css/site.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-RAC3SpVw4L+EkCm7c03hXn9PEp4sPaUsBvwXXfpzAVY="
         }
       ]
     },
@@ -8470,51 +8470,6 @@
       ]
     },
     {
-      "Route": "js/selectize.min.b3dtc67sln.js",
-      "AssetFile": "E:\\Work Data\\@back-end-development\\#bettersociety.in\\bettersociety-master\\bettersocietyrepo\\bettersociety\\wwwroot\\js\\selectize.min.js",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "62482"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/javascript"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"eUR+R4uOKSWmCpOiqGvRS45/f2dUri2I0mSGlK7V8gw=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Wed, 13 Mar 2024 14:23:48 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "b3dtc67sln"
-        },
-        {
-          "Name": "label",
-          "Value": "js/selectize.min.js"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-eUR+R4uOKSWmCpOiqGvRS45/f2dUri2I0mSGlK7V8gw="
-        }
-      ]
-    },
-    {
       "Route": "js/selectize.min.js",
       "AssetFile": "E:\\Work Data\\@back-end-development\\#bettersociety.in\\bettersociety-master\\bettersocietyrepo\\bettersociety\\wwwroot\\js\\selectize.min.js",
       "Selectors": [],
@@ -8525,7 +8480,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "62482"
+          "Value": "69266"
         },
         {
           "Name": "Content-Type",
@@ -8533,11 +8488,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"eUR+R4uOKSWmCpOiqGvRS45/f2dUri2I0mSGlK7V8gw=\""
+          "Value": "\"+JSH9zy1T+d+wgkgMN0e+LBctd2bPuM3OBmi38KdQcA=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 13 Mar 2024 14:23:48 GMT"
+          "Value": "Thu, 13 Feb 2025 14:42:04 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -8547,7 +8502,52 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-eUR+R4uOKSWmCpOiqGvRS45/f2dUri2I0mSGlK7V8gw="
+          "Value": "sha256-+JSH9zy1T+d+wgkgMN0e+LBctd2bPuM3OBmi38KdQcA="
+        }
+      ]
+    },
+    {
+      "Route": "js/selectize.min.owmcuinfuw.js",
+      "AssetFile": "E:\\Work Data\\@back-end-development\\#bettersociety.in\\bettersociety-master\\bettersocietyrepo\\bettersociety\\wwwroot\\js\\selectize.min.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "69266"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"+JSH9zy1T+d+wgkgMN0e+LBctd2bPuM3OBmi38KdQcA=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 13 Feb 2025 14:42:04 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "owmcuinfuw"
+        },
+        {
+          "Name": "label",
+          "Value": "js/selectize.min.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-+JSH9zy1T+d+wgkgMN0e+LBctd2bPuM3OBmi38KdQcA="
         }
       ]
     },
@@ -13636,6 +13636,51 @@
       ]
     },
     {
+      "Route": "scripts/User.4m21m8z059.js",
+      "AssetFile": "E:\\Work Data\\@back-end-development\\#bettersociety.in\\bettersociety-master\\bettersocietyrepo\\bettersociety\\wwwroot\\scripts\\User.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "19214"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"hBYuTz3Ywr6ABMhLyRBFoab4dJwFQ9b2jRfWgkyAs+k=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 18 Feb 2025 09:39:43 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "4m21m8z059"
+        },
+        {
+          "Name": "label",
+          "Value": "scripts/User.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-hBYuTz3Ywr6ABMhLyRBFoab4dJwFQ9b2jRfWgkyAs+k="
+        }
+      ]
+    },
+    {
       "Route": "scripts/User.js",
       "AssetFile": "E:\\Work Data\\@back-end-development\\#bettersociety.in\\bettersociety-master\\bettersocietyrepo\\bettersociety\\wwwroot\\scripts\\User.js",
       "Selectors": [],
@@ -13646,7 +13691,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "13290"
+          "Value": "19214"
         },
         {
           "Name": "Content-Type",
@@ -13654,11 +13699,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"wpYrwl4IRreOjb8EcYjzM7vk1cje51JGFSi4/J4vPRk=\""
+          "Value": "\"hBYuTz3Ywr6ABMhLyRBFoab4dJwFQ9b2jRfWgkyAs+k=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 12 Feb 2025 09:00:13 GMT"
+          "Value": "Tue, 18 Feb 2025 09:39:43 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -13668,52 +13713,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-wpYrwl4IRreOjb8EcYjzM7vk1cje51JGFSi4/J4vPRk="
-        }
-      ]
-    },
-    {
-      "Route": "scripts/User.uszcp07o7d.js",
-      "AssetFile": "E:\\Work Data\\@back-end-development\\#bettersociety.in\\bettersociety-master\\bettersocietyrepo\\bettersociety\\wwwroot\\scripts\\User.js",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "13290"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/javascript"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"wpYrwl4IRreOjb8EcYjzM7vk1cje51JGFSi4/J4vPRk=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Wed, 12 Feb 2025 09:00:13 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "uszcp07o7d"
-        },
-        {
-          "Name": "label",
-          "Value": "scripts/User.js"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-wpYrwl4IRreOjb8EcYjzM7vk1cje51JGFSi4/J4vPRk="
+          "Value": "sha256-hBYuTz3Ywr6ABMhLyRBFoab4dJwFQ9b2jRfWgkyAs+k="
         }
       ]
     }

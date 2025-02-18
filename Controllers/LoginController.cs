@@ -48,22 +48,31 @@ namespace bettersociety.Controllers
                 }
 
                 // Check password
-                var result = await _signInManager.CheckPasswordSignInAsync(user, loginDto.Password, lockoutOnFailure: false);
+                //var result = await _signInManager.CheckPasswordSignInAsync(user, loginDto.Password, lockoutOnFailure: false);
+                //if (result.Succeeded)
+                //{
+                //    // Optionally generate a JWT token or authentication cookie here
+                //    var _Token = _tokenService.CreateToken(user);
+                //    Response.Cookies.Append("XSRF-TOKEN", _Token, new CookieOptions
+                //    {
+                //        HttpOnly = true,          // Prevent JavaScript access
+                //        Secure = true,            // Use only over HTTPS
+                //        SameSite = SameSiteMode.Strict, // Prevent CSRF
+                //        Expires = DateTime.UtcNow.AddHours(1) // Set an expiry
+                //    });
+
+                //    return Ok(new { message = "Login successful!" });
+                //}
+                //else
+                //{
+                //    return Unauthorized(new { message = "Invalid password." });
+                //}
+
+                var result = await _signInManager.PasswordSignInAsync(user, loginDto.Password, isPersistent: false, lockoutOnFailure: false);
                 if (result.Succeeded)
                 {
-                    //#region Register Claim
-                    //var claims = new List<Claim>
-                    //{
-                    //    new Claim(ClaimTypes.NameIdentifier, user.Id),
-                    //    new Claim(ClaimTypes.Name, user.UserName)
-                    //    // Add other claims as needed
-                    //};
-
-                    //var identity = new ClaimsIdentity(claims, "Identity.Application");
-                    //var principal = new ClaimsPrincipal(identity);
-
-                    //await HttpContext.SignInAsync("Identity.Application", principal);
-                    //#endregion
+                    // Sign in the user using Identity
+                    await _signInManager.SignInAsync(user, isPersistent: false);
 
                     // Optionally generate a JWT token or authentication cookie here
                     var _Token = _tokenService.CreateToken(user);

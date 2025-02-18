@@ -60,6 +60,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    pointer-events: none;
 }
 
 /* Loader box containing the spinning cog */
@@ -122,4 +123,18 @@
 .better-alert-dark {
     background-color: #09090b;
     color: #fff;
+}
+
+.tags-container {
+    width: 100%;
+    display: flex;
+    gap: 10px;
+    display: none;
+}
+
+.question-tag {
+    background-color: #7f88971a;
+    padding: 3px 10px;
+    border-radius: 0.3rem;
+    cursor: pointer;
 }
