@@ -202,12 +202,15 @@
 
             }
             else {
-                global.toggleAlert(1, "Unexpected error : " + JSON.stringify(errorResponse), "");
+                const errorResponse = await response.json();
+                global.toggleAlert(1, errorResponse.message, "");
+                return;
             }
         }
         catch (error) {
             console.error("Error:", error);
             global.toggleAlert(1, "An unexpected error occurred. Please try again later.", "");
+            return;
         }
     },
 
@@ -224,6 +227,7 @@
 };
 
 let question = {
+    //not in use
     async getTags() {
         $('#divTagList').empty();
         try {
@@ -271,6 +275,36 @@ let question = {
         }
     },
 
+    //not in use
+    filterTags() {
+        let searchText = $("#txtTags").val().toLowerCase();
+        let tags = $("#divTagList .question-tag");
+
+        if (searchText.length === 0) {
+            $("#divTagList").hide(); // Hide if input is empty
+            return;
+        }
+
+        let anyMatch = false;
+        tags.each(function () {
+            let tagText = $(this).text().toLowerCase();
+            if (tagText.includes(searchText)) {
+                $(this).show();
+                anyMatch = true;
+            }
+            else {
+                $(this).hide();
+            }
+        });
+
+        if (anyMatch) {
+            $("#divTagList").show();
+        }
+        else {
+            $("#divTagList").hide();
+        }
+    },
+
     async getCategories() {
         $('#ddlCategory').empty().append(`<option selected value="0">Select a Category</option>`);
         try {
@@ -315,51 +349,14 @@ let question = {
         }
     },
 
-    filterTags() {
-        let searchText = $("#txtTags").val().toLowerCase();
-        let tags = $("#divTagList .question-tag");
-
-        if (searchText.length === 0) {
-            $("#divTagList").hide(); // Hide if input is empty
-            return;
-        }
-
-        let anyMatch = false;
-        tags.each(function () {
-            let tagText = $(this).text().toLowerCase();
-            if (tagText.includes(searchText)) {
-                $(this).show();
-                anyMatch = true;
-            }
-            else {
-                $(this).hide();
-            }
-        });
-
-        if (anyMatch) {
-            $("#divTagList").show();
-        }
-        else {
-            $("#divTagList").hide();
-        }
-    },
-
     async postQuestion() {
         try {
             // Gather data from the form or inputs
             let title = $("#txtQuestionTitle").val()?.trim();
+            let tags = $('#txtTags').val()?.trim();
+            let tagArray = [];
             let postDetail = $(".jqte_editor").html()?.trim();
-            //let tagIds = []; 
             let category = $('#ddlCategory :selected').val();
-
-            let tagIds = $('#divTags span').map(function () {
-                let id = $(this).attr('id'); // Get the id of the span
-                if (!id) return null; // Skip if id is missing
-
-                let match = id.match(/^spnTag_(\d+)$/); // Validate pattern spnTag_<number>
-                return match ? parseInt(match[1]) : null; // Return number if valid, otherwise null
-            }).get().filter(num => num !== null); // Remove any invalid (null) values
-            //console.log(tagIds); // Output: [1, 2, 3, ...]
 
             // Validate Title
             if (!title) {
@@ -373,23 +370,26 @@ let question = {
                 return;
             }
 
-            // Validate Title
+            if (tags != '') {
+                tagArray = tags ? tags.split(',').map(tag => tag.trim()) : [];
+            }
+
+            // Validate Post detail
             if (!postDetail) {
                 global.toggleAlert(2, "Post Content is required and cannot be empty.", "");
                 return;
             }
 
-            if (category = '' || category == 0) {
+            if (category == '' || category == 0) {
                 global.toggleAlert(1, "Please select category.", "");
                 return;
             }
 
             // Prepare data object
-            let blogPostData = {
+            let askQuestionData = {
                 title: title,
                 QuestionDetail: postDetail,
-                CategoryId: category,
-                Tags: tagIds
+                CategoryId: category
                 // Include other properties if needed, e.g., createdOn, createdBy, etc.
             };
 
@@ -400,13 +400,16 @@ let question = {
                     'Content-Type': 'application/json',
                     //'X-XSRF-TOKEN': auth.getCookie("XSRF-TOKEN")
                 },
-                body: JSON.stringify({ "blogPostData": blogPostData, "tagIds": tagIds }),
+                body: JSON.stringify({
+                    "questionData": askQuestionData,
+                    "tagNames": tagArray
+                }),
             });
 
             // Handle the response
             if (response.ok) {
                 const result = await response.json();
-                alert("Blog post created successfully!");
+                global.toggleAlert(0, "Question posted successfully.", "");
                 console.log(result);
             }
             else {
@@ -422,19 +425,20 @@ let question = {
 };
 
 let global = {
-    async executeOrder(button, asyncFunction, ...args) {
+    async executeOrder(e, asyncFunction, ...args) {
+        e.preventDefault(); // Prevent form submission
+
         try {
             global.toggleLoader(1);
-            // Execute the provided async function with arguments
             await asyncFunction(...args);
+            global.toggleLoader(0);
 
-            //how to use ...args
+            //#region how to use ...args
             /* function exampleFunction(...args) {
                 console.log(args); // This will log all the arguments passed to the function in an array.
             }
             exampleFunction(1, 2, 3, "hello", true); */
-
-            global.toggleLoader(0);
+            //#endregion
         }
         catch (error) {
             console.error("An error occurred:", error);

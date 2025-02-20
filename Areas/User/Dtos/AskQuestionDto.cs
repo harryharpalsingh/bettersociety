@@ -1,10 +1,6 @@
-﻿using bettersociety.Models;
-using System.ComponentModel.DataAnnotations;
-using System.Text.Json.Serialization;
-
-namespace bettersociety.Areas.User.Dtos
+﻿namespace bettersociety.Areas.User.Dtos
 {
-    public class CreateBlogPostDto
+    public class AskQuestionDto
     {
         public required string Title { get; set; } = string.Empty;
 
@@ -17,6 +13,5 @@ namespace bettersociety.Areas.User.Dtos
         public string CreatedBy { get; set; } = string.Empty;
 
         public int Deleted { get; set; } = 0;
-
     }
 }

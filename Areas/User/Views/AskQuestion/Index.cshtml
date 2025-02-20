@@ -51,14 +51,17 @@
                             </div>
                             <div class="form-group">
                                 <input id="txtTags" class="input-tags input--tags" type="text" name="tags" placeholder="e.g. javascript">
-                                <div id="divTagList" class="tags-container"></div>
+                                <!--<div id="divTagList" class="tags-container"></div>-->
                             </div>
                         </div><!-- end input-box -->
                         <div class="input-box">
                             <label class="fs-14 text-black fw-medium mb-0">Category</label>
                             <p class="fs-13 pb-3 lh-20">Please choose the appropriate category so the question can be searched easily.</p>
                             <div class="form-group">
-                                <select id="ddlCategory" class="select-container select--container" data-placeholder="Select a Category">
+                                <!--<select id="ddlCategory" class="select-container select--container" data-placeholder="Select a Category">
+                                    <option selected value="0">Select a Category</option>
+                                </select>-->
+                                <select id="ddlCategory" class="form-select" data-placeholder="Select a Category">
                                     <option selected value="0">Select a Category</option>
                                 </select>
                             </div>
@@ -273,8 +276,8 @@
 @section Scripts
 {
     <script type="text/javascript">
-        $("#btnAskQuestion").click(function () {
-            global.executeOrder(this, question.postQuestion);
+        $("#btnAskQuestion").click(function (e) {
+            global.executeOrder(e, question.postQuestion);
         });
 
         $(document).ready(function() {

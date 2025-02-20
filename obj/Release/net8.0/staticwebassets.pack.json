@@ -2,7 +2,7 @@
   "Files": [
     {
       "Id": "E:\\Work Data\\@back-end-development\\#bettersociety.in\\bettersociety-master\\bettersocietyrepo\\bettersociety\\obj\\Release\\net8.0\\scopedcss\\projectbundle\\bettersociety.bundle.scp.css",
-      "PackagePath": "staticwebassets\\bettersociety.bundle.scp.css"
+      "PackagePath": "staticwebassets\\bettersociety.pgag0zwhnm.bundle.scp.css"
     },
     {
       "Id": "E:\\Work Data\\@back-end-development\\#bettersociety.in\\bettersociety-master\\bettersocietyrepo\\bettersociety\\wwwroot\\assets\\banner\\Creation_of_Adam.webp",
@@ -91,6 +91,10 @@
     {
       "Id": "E:\\Work Data\\@back-end-development\\#bettersociety.in\\bettersociety-master\\bettersocietyrepo\\bettersociety\\wwwroot\\assets\\logo\\blue-png_full.png",
       "PackagePath": "staticwebassets\\assets\\logo\\blue-png_full.png"
+    },
+    {
+      "Id": "E:\\Work Data\\@back-end-development\\#bettersociety.in\\bettersociety-master\\bettersocietyrepo\\bettersociety\\wwwroot\\assets\\logo\\bs-logo-svg.svg",
+      "PackagePath": "staticwebassets\\assets\\logo\\bs-logo-svg.svg"
     },
     {
       "Id": "E:\\Work Data\\@back-end-development\\#bettersociety.in\\bettersociety-master\\bettersocietyrepo\\bettersociety\\wwwroot\\css\\bootstrap.min.css",
@@ -523,6 +527,10 @@
     {
       "Id": "E:\\Work Data\\@back-end-development\\#bettersociety.in\\bettersociety-master\\bettersocietyrepo\\bettersociety\\wwwroot\\scripts\\User.js",
       "PackagePath": "staticwebassets\\scripts\\User.js"
+    },
+    {
+      "Id": "obj\\Release\\net8.0\\staticwebassets\\msbuild.bettersociety.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssetEndpoints.props"
     },
     {
       "Id": "obj\\Release\\net8.0\\staticwebassets\\msbuild.bettersociety.Microsoft.AspNetCore.StaticWebAssets.props",

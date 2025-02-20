@@ -1,17 +1,19 @@
 ﻿using bettersociety.Areas.User.Dtos;
 using bettersociety.Areas.User.Interfaces;
 using bettersociety.Data;
+using bettersociety.Helpers;
 using bettersociety.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace bettersociety.Areas.User.Repository
 {
-    public class BlogPostRepository : IBlogPostRepository
+    public class AskQuestionRepository : IAskQuestionRepository
     {
         private readonly ApplicationDbContext _context;
-        public BlogPostRepository(ApplicationDbContext dbContext)
+
+        public AskQuestionRepository(ApplicationDbContext context)
         {
-            _context = dbContext;
+            _context = context;
         }
 
         public async Task<Questions> CreateAsync(Questions questionsModel)
@@ -58,6 +60,21 @@ namespace bettersociety.Areas.User.Repository
             await _context.SaveChangesAsync();
 
             return existingQuestion;
+        }
+
+        public async Task<string> GenerateUniqueSlug(string title)
+        {
+            string slug = SlugHelper.GenerateSlug(title);
+            string baseSlug = slug;
+            int count = 1;
+
+            while (await _context.Questions.AnyAsync(q => q.Slug == slug))
+            {
+                slug = $"{baseSlug}-{count}";
+                count++;
+            }
+
+            return slug;
         }
     }
 }

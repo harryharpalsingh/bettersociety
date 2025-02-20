@@ -1,23 +1,18 @@
 ﻿using bettersociety.Areas.User.Dtos;
+using bettersociety.Areas.User.Interfaces;
 using bettersociety.Extensions;
 using bettersociety.Models;
 using Microsoft.AspNetCore.Identity;
-using System.Security.Claims;
 
 namespace bettersociety.Areas.User.Mappers
 {
-    public static class BlogPostMappers
+    public static class AskQuestionMapper
     {
-        //public static CreateBlogPostDto ToQuestionFromCreateBlogPostDto(this Questions questionsModel)
-        //{
-        //    return new CreateBlogPostDto
-        //    {
-        //        Title = questionsModel.Title,
-        //        QuestionDetail = questionsModel.QuestionDetail,
-        //        CreatedBy = questionsModel.CreatedBy
-        //    };
-        //}        
-        public static Questions ToQuestionsFromCreatePostDto(this CreateBlogPostDto createBlogPostDto, HttpContext httpContext, UserManager<AppUser> _userManager)
+        public static async Task<Questions> ToQuestionsFromAskQuestiontDto(
+            this AskQuestionDto askQuestionDto,
+            HttpContext httpContext,
+            UserManager<AppUser> _userManager,
+            IAskQuestionRepository askQuestionRepository)
         {
             var isAuthenticated = httpContext.User.Identity?.IsAuthenticated ?? false;
             if (!isAuthenticated)
@@ -35,9 +30,10 @@ namespace bettersociety.Areas.User.Mappers
 
             return new Questions
             {
-                Title = createBlogPostDto.Title,
-                QuestionDetail = createBlogPostDto.QuestionDetail,
-                CategoryID = createBlogPostDto.CategoryId,
+                Title = askQuestionDto.Title,
+                QuestionDetail = askQuestionDto.QuestionDetail,
+                Slug = await askQuestionRepository.GenerateUniqueSlug(askQuestionDto.Title), // Call repository for slug
+                CategoryID = askQuestionDto.CategoryId,
                 CreatedBy = userId.ToString(),
             };
         }

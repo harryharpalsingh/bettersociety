@@ -3,7 +3,7 @@ using bettersociety.Models;
 
 namespace bettersociety.Areas.User.Interfaces
 {
-    public interface IBlogPostRepository
+    public interface IAskQuestionRepository
     {
         public Task<List<Questions>> GetQuestionsAsync();
 
@@ -14,5 +14,7 @@ namespace bettersociety.Areas.User.Interfaces
         Task<Questions> UpdateAsync(UpdateBlogPostDto updateBlogPostDto);
 
         Task<Questions> DeleteAsync(int id);
+
+        Task<string> GenerateUniqueSlug(string title);
     }
 }

@@ -20,6 +20,9 @@ namespace bettersociety.Models
 
         public int? CategoryID { get; set; }
 
+        [Required]
+        public string Slug { get; set; }
+
         public DateTime CreatedOn { get; set; } = DateTime.Now;
 
         public string CreatedBy { get; set; }

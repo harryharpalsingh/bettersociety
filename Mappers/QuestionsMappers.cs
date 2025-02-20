@@ -13,6 +13,8 @@ namespace bettersociety.Mappers
                 Id = questionsModel.Id,
                 Title = questionsModel.Title,
                 QuestionDetail = questionsModel.QuestionDetail,
+                CategoryID = questionsModel.CategoryID,
+                Slug = questionsModel.Slug,
                 CreatedBy = questionsModel.CreatedBy,
                 CreatedOn = questionsModel.CreatedOn,
                 Answers = questionsModel.Answers?.Select(a => new AnswersDto
@@ -32,7 +34,7 @@ namespace bettersociety.Mappers
                     Use the null-coalescing operator ?? to assign an empty list new List<AnswersDto>() when questionsModel.Answers is null.
                  */
 
-                };
-            }
+            };
+        }
     }
 }

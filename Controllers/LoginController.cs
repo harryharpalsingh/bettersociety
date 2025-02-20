@@ -68,7 +68,8 @@ namespace bettersociety.Controllers
                 //    return Unauthorized(new { message = "Invalid password." });
                 //}
 
-                var result = await _signInManager.PasswordSignInAsync(user, loginDto.Password, isPersistent: false, lockoutOnFailure: false);
+                //var result = await _signInManager.PasswordSignInAsync(user, loginDto.Password, isPersistent: false, lockoutOnFailure: false);
+                var result = await _signInManager.CheckPasswordSignInAsync(user, loginDto.Password, lockoutOnFailure: false);
                 if (result.Succeeded)
                 {
                     // Sign in the user using Identity

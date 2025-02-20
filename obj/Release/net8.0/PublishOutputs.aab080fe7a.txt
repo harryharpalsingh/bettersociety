@@ -6,12 +6,14 @@ E:\Work Data\@back-end-development\#bettersociety.in\bettersociety-master\better
 E:\Work Data\@back-end-development\#bettersociety.in\bettersociety-master\bettersocietyrepo\bettersociety\obj\Release\net8.0\PubTmp\Out\bettersociety.pdb
 E:\Work Data\@back-end-development\#bettersociety.in\bettersociety-master\bettersocietyrepo\bettersociety\obj\Release\net8.0\PubTmp\Out\Azure.Core.dll
 E:\Work Data\@back-end-development\#bettersociety.in\bettersociety-master\bettersocietyrepo\bettersociety\obj\Release\net8.0\PubTmp\Out\Azure.Identity.dll
+E:\Work Data\@back-end-development\#bettersociety.in\bettersociety-master\bettersocietyrepo\bettersociety\obj\Release\net8.0\PubTmp\Out\Castle.Core.dll
 E:\Work Data\@back-end-development\#bettersociety.in\bettersociety-master\bettersocietyrepo\bettersociety\obj\Release\net8.0\PubTmp\Out\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 E:\Work Data\@back-end-development\#bettersociety.in\bettersociety-master\bettersocietyrepo\bettersociety\obj\Release\net8.0\PubTmp\Out\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
 E:\Work Data\@back-end-development\#bettersociety.in\bettersociety-master\bettersocietyrepo\bettersociety\obj\Release\net8.0\PubTmp\Out\Microsoft.Bcl.AsyncInterfaces.dll
 E:\Work Data\@back-end-development\#bettersociety.in\bettersociety-master\bettersocietyrepo\bettersociety\obj\Release\net8.0\PubTmp\Out\Microsoft.Data.SqlClient.dll
 E:\Work Data\@back-end-development\#bettersociety.in\bettersociety-master\bettersocietyrepo\bettersociety\obj\Release\net8.0\PubTmp\Out\Microsoft.EntityFrameworkCore.dll
 E:\Work Data\@back-end-development\#bettersociety.in\bettersociety-master\bettersocietyrepo\bettersociety\obj\Release\net8.0\PubTmp\Out\Microsoft.EntityFrameworkCore.Abstractions.dll
+E:\Work Data\@back-end-development\#bettersociety.in\bettersociety-master\bettersocietyrepo\bettersociety\obj\Release\net8.0\PubTmp\Out\Microsoft.EntityFrameworkCore.Proxies.dll
 E:\Work Data\@back-end-development\#bettersociety.in\bettersociety-master\bettersocietyrepo\bettersociety\obj\Release\net8.0\PubTmp\Out\Microsoft.EntityFrameworkCore.Relational.dll
 E:\Work Data\@back-end-development\#bettersociety.in\bettersociety-master\bettersocietyrepo\bettersociety\obj\Release\net8.0\PubTmp\Out\Microsoft.EntityFrameworkCore.SqlServer.dll
 E:\Work Data\@back-end-development\#bettersociety.in\bettersociety-master\bettersocietyrepo\bettersociety\obj\Release\net8.0\PubTmp\Out\Microsoft.Identity.Client.dll

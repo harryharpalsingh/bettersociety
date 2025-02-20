@@ -51,13 +51,13 @@ namespace bettersociety.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "3257bfdf-a85f-4614-9692-37fa88ba00d8",
+                            Id = "325adc7c-a60f-471c-9a04-6c097dc7fced",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "bbf2ace0-ac7e-4929-b93b-ce654b738fad",
+                            Id = "b17ac0e4-41fd-4cd7-b0ac-e9a52258a47e",
                             Name = "User",
                             NormalizedName = "USER"
                         });
@@ -327,6 +327,10 @@ namespace bettersociety.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("QuestionDetail")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Slug")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 

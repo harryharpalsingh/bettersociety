@@ -278,3 +278,9 @@ E:\Work Data\@back-end-development\#bettersociety.in\bettersociety-master\better
 E:\Work Data\@back-end-development\#bettersociety.in\bettersociety-master\bettersocietyrepo\bettersociety\obj\Release\net8.0\bettersociety.pdb
 E:\Work Data\@back-end-development\#bettersociety.in\bettersociety-master\bettersocietyrepo\bettersociety\obj\Release\net8.0\bettersociety.genruntimeconfig.cache
 E:\Work Data\@back-end-development\#bettersociety.in\bettersociety-master\bettersocietyrepo\bettersociety\obj\Release\net8.0\ref\bettersociety.dll
+E:\Work Data\@back-end-development\#bettersociety.in\bettersociety-master\bettersocietyrepo\bettersociety\bin\Release\net8.0\bettersociety.staticwebassets.endpoints.json
+E:\Work Data\@back-end-development\#bettersociety.in\bettersociety-master\bettersocietyrepo\bettersociety\bin\Release\net8.0\Castle.Core.dll
+E:\Work Data\@back-end-development\#bettersociety.in\bettersociety-master\bettersocietyrepo\bettersociety\bin\Release\net8.0\Microsoft.EntityFrameworkCore.Proxies.dll
+E:\Work Data\@back-end-development\#bettersociety.in\bettersociety-master\bettersocietyrepo\bettersociety\obj\Release\net8.0\staticwebassets.build.endpoints.json
+E:\Work Data\@back-end-development\#bettersociety.in\bettersociety-master\bettersocietyrepo\bettersociety\obj\Release\net8.0\staticwebassets\msbuild.bettersociety.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
+E:\Work Data\@back-end-development\#bettersociety.in\bettersociety-master\bettersocietyrepo\bettersociety\obj\Release\net8.0\staticwebassets.upToDateCheck.txt

@@ -3,6 +3,7 @@ using bettersociety.Areas.User.Dtos;
 using bettersociety.Areas.User.Interfaces;
 using bettersociety.Areas.User.Mappers;
 using bettersociety.Data;
+using bettersociety.Helpers;
 using bettersociety.Mappers;
 using bettersociety.Models;
 using Microsoft.AspNetCore.Authorization;
@@ -17,16 +18,14 @@ namespace bettersociety.Areas.User.Controllers
     public class AskQuestionController : Controller
     {
         private readonly ApplicationDbContext _context;
-        private readonly IBlogPostRepository _blogPostRepository;
+        private readonly IAskQuestionRepository _askQuestionRepository;
         private readonly IQuestionXrefTagsRepository _questionXrefTagsRepository;
         private readonly UserManager<AppUser> _userManager;
 
-        public AskQuestionController(ApplicationDbContext dbContext,
-            IBlogPostRepository blogPostRepository,
-            IQuestionXrefTagsRepository questionXrefTagsRepository)
+        public AskQuestionController(ApplicationDbContext dbContext, IAskQuestionRepository askQuestionRepository, IQuestionXrefTagsRepository questionXrefTagsRepository)
         {
             _context = dbContext;
-            _blogPostRepository = blogPostRepository;
+            _askQuestionRepository = askQuestionRepository;
             _questionXrefTagsRepository = questionXrefTagsRepository;
         }
 
@@ -38,7 +37,7 @@ namespace bettersociety.Areas.User.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> GetPostById([FromRoute] int id)
         {
-            var question = await _blogPostRepository.GetByIdAsync(id);
+            var question = await _askQuestionRepository.GetByIdAsync(id);
             if (question == null)
             {
                 return NotFound();
@@ -46,42 +45,6 @@ namespace bettersociety.Areas.User.Controllers
 
             return Ok(question.ToQuestionsDto());
         }
-
-        //[HttpGet]
-        //public async Task<IActionResult> GetCategories()
-        //{
-        //    try
-        //    {
-        //        var categories = await _context.QuestionCategories.
-        //            AsNoTracking()
-        //            .Where(category => category.Deleted == 0)
-        //            .Select(category => new
-        //            {
-        //                category.Id,
-        //                category.Category
-        //            })
-        //            .ToListAsync();
-
-        //        if (categories.Count == 0)
-        //        {
-        //            return NotFound();
-        //        }
-
-        //        return Ok(new
-        //        {
-        //            Status = 1,
-        //            Categories = categories
-        //        });
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        return StatusCode(500, new
-        //        {
-        //            Message = "An error occurred!",
-        //            Details = ex.Message
-        //        });
-        //    }
-        //}
 
         [HttpGet]
         public IActionResult GetCategories()
@@ -119,15 +82,23 @@ namespace bettersociety.Areas.User.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreatePost([FromBody] CreateBlogPostDto createBlogDto, IEnumerable<string> tagNames)
+        public async Task<IActionResult> CreatePost([FromBody] CreateQuestionPostDto createQuestionDto)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            var questionModel = createBlogDto.ToQuestionsFromCreatePostDto(HttpContext, _userManager);
-            await _blogPostRepository.CreateAsync(questionModel);
+            if (createQuestionDto == null || createQuestionDto.QuestionData == null)
+            {
+                return BadRequest("Invalid request format.");
+            }
+
+            var askQuestionDto = createQuestionDto.QuestionData;
+            var tagNames = createQuestionDto.TagNames ?? new List<string>(); // Ensure it's not null
+
+            var questionModel = await askQuestionDto.ToQuestionsFromAskQuestiontDto(HttpContext, _userManager, _askQuestionRepository);
+            await _askQuestionRepository.CreateAsync(questionModel);
 
             int QuestionId = questionModel.Id;
 
@@ -145,6 +116,7 @@ namespace bettersociety.Areas.User.Controllers
                 {
                     tagNew = new Tags { TagName = tagName };
                     _context.Tags.Add(tagNew);
+                    await _context.SaveChangesAsync(); // Ensure EF Core generates the ID
                     existingTags.Add(tagNew); // Add newly created tag to the list for future use
                 }
 

@@ -12,6 +12,7 @@
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "8.0.0",
           "Microsoft.EntityFrameworkCore": "8.0.0",
           "Microsoft.EntityFrameworkCore.Design": "8.0.0",
+          "Microsoft.EntityFrameworkCore.Proxies": "8.0.0",
           "Microsoft.EntityFrameworkCore.SqlServer": "8.0.0",
           "Microsoft.EntityFrameworkCore.Tools": "8.0.0",
           "Microsoft.Extensions.Identity.Core": "8.0.0",
@@ -52,6 +53,17 @@
           "lib/netstandard2.0/Azure.Identity.dll": {
             "assemblyVersion": "1.7.0.0",
             "fileVersion": "1.700.22.46903"
+          }
+        }
+      },
+      "Castle.Core/5.1.1": {
+        "dependencies": {
+          "System.Diagnostics.EventLog": "6.0.0"
+        },
+        "runtime": {
+          "lib/net6.0/Castle.Core.dll": {
+            "assemblyVersion": "5.0.0.0",
+            "fileVersion": "5.1.1.0"
           }
         }
       },
@@ -420,6 +432,18 @@
           }
         }
       },
+      "Microsoft.EntityFrameworkCore.Proxies/8.0.0": {
+        "dependencies": {
+          "Castle.Core": "5.1.1",
+          "Microsoft.EntityFrameworkCore": "8.0.0"
+        },
+        "runtime": {
+          "lib/net8.0/Microsoft.EntityFrameworkCore.Proxies.dll": {
+            "assemblyVersion": "8.0.0.0",
+            "fileVersion": "8.0.23.53103"
+          }
+        }
+      },
       "Microsoft.EntityFrameworkCore.Relational/8.0.0": {
         "dependencies": {
           "Microsoft.EntityFrameworkCore": "8.0.0",
@@ -740,6 +764,7 @@
           "System.Runtime.CompilerServices.Unsafe": "6.0.0"
         }
       },
+      "System.Diagnostics.EventLog/6.0.0": {},
       "System.Drawing.Common/6.0.0": {
         "dependencies": {
           "Microsoft.Win32.SystemEvents": "6.0.0"
@@ -907,6 +932,13 @@
       "path": "azure.identity/1.7.0",
       "hashPath": "azure.identity.1.7.0.nupkg.sha512"
     },
+    "Castle.Core/5.1.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-rpYtIczkzGpf+EkZgDr9CClTdemhsrwA/W5hMoPjLkRFnXzH44zDLoovXeKtmxb1ykXK9aJVODSpiJml8CTw2g==",
+      "path": "castle.core/5.1.1",
+      "hashPath": "castle.core.5.1.1.nupkg.sha512"
+    },
     "Humanizer.Core/2.14.1": {
       "type": "package",
       "serviceable": true,
@@ -1025,6 +1057,13 @@
       "sha512": "sha512-94reKYu63jg4O75UI3LMJHwOSi8tQ6IfubiZhdnSsWcgtmAuF8OyLfjK/MIxuvaQRJZAF6E747FIuxjOtb8/og==",
       "path": "microsoft.entityframeworkcore.design/8.0.0",
       "hashPath": "microsoft.entityframeworkcore.design.8.0.0.nupkg.sha512"
+    },
+    "Microsoft.EntityFrameworkCore.Proxies/8.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Cv/+LzqTlDZbwCY4WJaI2EAqtgZJ0N85FQdtLnlbamuk87fXh8uB48DZUbirKY0+epj2hJEwqb4HyZh190QYQw==",
+      "path": "microsoft.entityframeworkcore.proxies/8.0.0",
+      "hashPath": "microsoft.entityframeworkcore.proxies.8.0.0.nupkg.sha512"
     },
     "Microsoft.EntityFrameworkCore.Relational/8.0.0": {
       "type": "package",
@@ -1284,6 +1323,13 @@
       "sha512": "sha512-frQDfv0rl209cKm1lnwTgFPzNigy2EKk1BS3uAvHvlBVKe5cymGyHO+Sj+NLv5VF/AhHsqPIUUwya5oV4CHMUw==",
       "path": "system.diagnostics.diagnosticsource/6.0.0",
       "hashPath": "system.diagnostics.diagnosticsource.6.0.0.nupkg.sha512"
+    },
+    "System.Diagnostics.EventLog/6.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-lcyUiXTsETK2ALsZrX+nWuHSIQeazhqPphLfaRxzdGaG93+0kELqpgEHtwWOlQe7+jSFnKwaCAgL4kjeZCQJnw==",
+      "path": "system.diagnostics.eventlog/6.0.0",
+      "hashPath": "system.diagnostics.eventlog.6.0.0.nupkg.sha512"
     },
     "System.Drawing.Common/6.0.0": {
       "type": "package",
