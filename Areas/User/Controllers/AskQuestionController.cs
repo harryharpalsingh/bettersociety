@@ -3,6 +3,7 @@ using bettersociety.Areas.User.Dtos;
 using bettersociety.Areas.User.Interfaces;
 using bettersociety.Areas.User.Mappers;
 using bettersociety.Data;
+using bettersociety.Extensions;
 using bettersociety.Helpers;
 using bettersociety.Mappers;
 using bettersociety.Models;
@@ -22,7 +23,9 @@ namespace bettersociety.Areas.User.Controllers
         private readonly IQuestionXrefTagsRepository _questionXrefTagsRepository;
         private readonly UserManager<AppUser> _userManager;
 
-        public AskQuestionController(ApplicationDbContext dbContext, IAskQuestionRepository askQuestionRepository, IQuestionXrefTagsRepository questionXrefTagsRepository)
+        public AskQuestionController(ApplicationDbContext dbContext,
+            IAskQuestionRepository askQuestionRepository,
+            IQuestionXrefTagsRepository questionXrefTagsRepository)
         {
             _context = dbContext;
             _askQuestionRepository = askQuestionRepository;
@@ -101,6 +104,7 @@ namespace bettersociety.Areas.User.Controllers
             await _askQuestionRepository.CreateAsync(questionModel);
 
             int QuestionId = questionModel.Id;
+            var loggedInUserId = HttpContext.User.GetUserId();
 
             #region Processing Tags
             // Create a list to hold the tags
@@ -114,7 +118,11 @@ namespace bettersociety.Areas.User.Controllers
                 var tagNew = existingTags.FirstOrDefault(t => t.TagName.Equals(tagName, StringComparison.OrdinalIgnoreCase));
                 if (tagNew == null)
                 {
-                    tagNew = new Tags { TagName = tagName };
+                    tagNew = new Tags
+                    {
+                        TagName = tagName,
+                        CreatedBy = loggedInUserId
+                    };
                     _context.Tags.Add(tagNew);
                     await _context.SaveChangesAsync(); // Ensure EF Core generates the ID
                     existingTags.Add(tagNew); // Add newly created tag to the list for future use

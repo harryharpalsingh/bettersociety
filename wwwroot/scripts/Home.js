@@ -20,12 +20,12 @@
             const result = await response.json();
             //debugger
             if (result && result.status === 1) {
-                const questions = result.questions;
+                const posts = result.questions;
 
                 let qaContent = ``;
-                questions.forEach(question => {
-                    const _answer = question.answers && question.answers.length > 0
-                        ? question.answers[0].answer
+                posts.forEach(post => {
+                    const _answer = post.answers && post.answers.length > 0
+                        ? post.answers[0].answer
                         : "No answers available yet.";
 
                     qaContent += `
@@ -45,9 +45,9 @@
                             </div>
                         </div>
                         <div class="media-body">
-                            <h5 class="mb-2 fw-medium"> <a asp-controller="Home" asp-action="QuestionDetail" data-id="${question.id}">${question.title}</a> </h5>
+                            <h5 class="mb-2 fw-medium"> <a href='/post/${post.slug}' class='cursor-pointer' data-id="${post.id}">${post.title}</a> </h5>
                             <p class="mb-2 truncate lh-20 fs-15">
-                            ${question.questionDetail}  
+                            ${post.questionDetail}  
                             </p>
                             <div class="tags">
                                 <a href="#" class="tag-link">javascript</a>

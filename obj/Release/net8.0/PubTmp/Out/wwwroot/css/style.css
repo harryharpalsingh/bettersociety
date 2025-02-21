@@ -38,14 +38,14 @@ h1, h2, h3, h4, h5, h6, p {
 }
 
 h1, h2, h3, h4, h5, h6 {
-    color: #0d233e;
+    color: #011e29;
 }
 
 body {
     font-size: 16px;
     line-height: 28px;
     font-family: "Ubuntu", sans-serif;
-    color: #6c727c;
+    color: #011e29;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
@@ -2661,13 +2661,13 @@ body {
         }
 
     .media-card .media-body h5 {
-        color: #0d233e;
-        font-size: 18px;
+        color: #111;
+        font-size: 1.5rem;
         font-weight: 700;
     }
 
         .media-card .media-body h5 a {
-            color: #0d233e;
+            color: #111;
             -webkit-transition: all 0.3s;
             -moz-transition: all 0.3s;
             -ms-transition: all 0.3s;

@@ -8,8 +8,7 @@ namespace bettersociety.Areas.User.Mappers
 {
     public static class AskQuestionMapper
     {
-        public static async Task<Questions> ToQuestionsFromAskQuestiontDto(
-            this AskQuestionDto askQuestionDto,
+        public static async Task<Questions> ToQuestionsFromAskQuestiontDto(this AskQuestionDto askQuestionDto,
             HttpContext httpContext,
             UserManager<AppUser> _userManager,
             IAskQuestionRepository askQuestionRepository)
