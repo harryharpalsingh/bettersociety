@@ -30,7 +30,7 @@ namespace bettersociety.Areas.User.Mappers
             return new Questions
             {
                 Title = askQuestionDto.Title,
-                QuestionDetail = askQuestionDto.QuestionDetail,
+                QuestionDetail = askQuestionRepository.GetSetVideoFrame(askQuestionDto.QuestionDetail),
                 Slug = await askQuestionRepository.GenerateUniqueSlug(askQuestionDto.Title), // Call repository for slug
                 CategoryID = askQuestionDto.CategoryId,
                 CreatedBy = userId.ToString(),

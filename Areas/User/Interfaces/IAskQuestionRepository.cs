@@ -15,6 +15,8 @@ namespace bettersociety.Areas.User.Interfaces
 
         Task<Questions> DeleteAsync(int id);
 
+        string GetSetVideoFrame(string questionDetail);
+
         Task<string> GenerateUniqueSlug(string title);
     }
 }

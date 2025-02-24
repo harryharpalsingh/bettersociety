@@ -139,7 +139,8 @@ namespace bettersociety.Areas.User.Controllers
                 QuestionsXrefTags qt = new QuestionsXrefTags
                 {
                     QuestionId = QuestionId,
-                    TagId = tag.Id
+                    TagId = tag.Id,
+                    CreatedBy = loggedInUserId
                 };
                 QxrefTags.Add(qt);
             }

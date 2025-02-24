@@ -12,7 +12,7 @@ namespace bettersociety.Mappers
             {
                 Id = questionsModel.Id,
                 Title = questionsModel.Title,
-                QuestionDetail = questionsModel.QuestionDetail,
+                QuestionDetail = TruncateByWords(questionsModel.QuestionDetail, 30), // Limit to 30 words
                 CategoryID = questionsModel.CategoryID,
                 Slug = questionsModel.Slug,
                 CreatedBy = questionsModel.CreatedBy,
@@ -35,6 +35,22 @@ namespace bettersociety.Mappers
                  */
 
             };
+        }
+
+        private static string TruncateText(string text, int maxLength)
+        {
+            if (string.IsNullOrEmpty(text)) return text;
+            return text.Length > maxLength ? text.Substring(0, maxLength) + "..." : text;
+        }
+
+        private static string TruncateByWords(string text, int wordLimit)
+        {
+            if (string.IsNullOrWhiteSpace(text)) return text;
+
+            var words = text.Split(' ');
+            if (words.Length <= wordLimit) return text;
+
+            return string.Join(" ", words.Take(wordLimit)) + "...";
         }
     }
 }

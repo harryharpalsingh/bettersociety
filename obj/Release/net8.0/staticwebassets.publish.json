@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Qa5HnCjuaTPqoKiQ1gWKS8m/4puwm6k6QPR8tyaZZ40=",
+  "Hash": "okmfiMyE3V/4lgEmIfXmHt9TSCjPJ5p0CdVIgXfOFHs=",
   "Source": "bettersociety",
   "BasePath": "_content/bettersociety",
   "Mode": "Default",
@@ -787,8 +787,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "k6564zbshp",
-      "Integrity": "RAC3SpVw4L+EkCm7c03hXn9PEp4sPaUsBvwXXfpzAVY=",
+      "Fingerprint": "1dmvm9pvcy",
+      "Integrity": "C5O/AJBVx0qs2NvURf6CmF3C6vhsGXW2ITbozkPi6uc=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\site.css"
@@ -5764,6 +5764,51 @@
       ]
     },
     {
+      "Route": "css/site.1dmvm9pvcy.css",
+      "AssetFile": "E:\\Work Data\\@back-end-development\\#bettersociety.in\\bettersociety-master\\bettersocietyrepo\\bettersociety\\wwwroot\\css\\site.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "3441"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"C5O/AJBVx0qs2NvURf6CmF3C6vhsGXW2ITbozkPi6uc=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 24 Feb 2025 05:41:52 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "1dmvm9pvcy"
+        },
+        {
+          "Name": "label",
+          "Value": "css/site.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-C5O/AJBVx0qs2NvURf6CmF3C6vhsGXW2ITbozkPi6uc="
+        }
+      ]
+    },
+    {
       "Route": "css/site.css",
       "AssetFile": "E:\\Work Data\\@back-end-development\\#bettersociety.in\\bettersociety-master\\bettersocietyrepo\\bettersociety\\wwwroot\\css\\site.css",
       "Selectors": [],
@@ -5774,7 +5819,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "3042"
+          "Value": "3441"
         },
         {
           "Name": "Content-Type",
@@ -5782,11 +5827,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"RAC3SpVw4L+EkCm7c03hXn9PEp4sPaUsBvwXXfpzAVY=\""
+          "Value": "\"C5O/AJBVx0qs2NvURf6CmF3C6vhsGXW2ITbozkPi6uc=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 18 Feb 2025 09:19:31 GMT"
+          "Value": "Mon, 24 Feb 2025 05:41:52 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -5796,52 +5841,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-RAC3SpVw4L+EkCm7c03hXn9PEp4sPaUsBvwXXfpzAVY="
-        }
-      ]
-    },
-    {
-      "Route": "css/site.k6564zbshp.css",
-      "AssetFile": "E:\\Work Data\\@back-end-development\\#bettersociety.in\\bettersociety-master\\bettersocietyrepo\\bettersociety\\wwwroot\\css\\site.css",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "3042"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"RAC3SpVw4L+EkCm7c03hXn9PEp4sPaUsBvwXXfpzAVY=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Tue, 18 Feb 2025 09:19:31 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "k6564zbshp"
-        },
-        {
-          "Name": "label",
-          "Value": "css/site.css"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-RAC3SpVw4L+EkCm7c03hXn9PEp4sPaUsBvwXXfpzAVY="
+          "Value": "sha256-C5O/AJBVx0qs2NvURf6CmF3C6vhsGXW2ITbozkPi6uc="
         }
       ]
     },

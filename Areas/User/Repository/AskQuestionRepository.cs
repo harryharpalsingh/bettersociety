@@ -4,6 +4,7 @@ using bettersociety.Data;
 using bettersociety.Helpers;
 using bettersociety.Models;
 using Microsoft.EntityFrameworkCore;
+using System.Text.RegularExpressions;
 
 namespace bettersociety.Areas.User.Repository
 {
@@ -60,6 +61,21 @@ namespace bettersociety.Areas.User.Repository
             await _context.SaveChangesAsync();
 
             return existingQuestion;
+        }
+
+        public string GetSetVideoFrame(string QuestionDetail)
+        {
+            if (string.IsNullOrWhiteSpace(QuestionDetail))
+                return QuestionDetail;
+
+            // Regular expression to find <iframe> tags
+            string pattern = @"<iframe\b[^>]*>(.*?)</iframe>";
+            string replacement = "<div class=\"better-video-container\">$0</div>";
+
+            // Replace iframe tags with wrapped div
+            string QuestionFormattedForVideo = Regex.Replace(QuestionDetail, pattern, replacement, RegexOptions.IgnoreCase);
+
+            return QuestionFormattedForVideo;
         }
 
         public async Task<string> GenerateUniqueSlug(string title)

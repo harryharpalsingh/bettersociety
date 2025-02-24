@@ -138,3 +138,20 @@
     border-radius: 0.3rem;
     cursor: pointer;
 }
+
+.better-video-container {
+    position: relative;
+    width: 100%;
+    max-width: 560px; /* Optional: Limit max width */
+    margin: 0 auto; /* Center the video */
+    padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+    height: 0;
+}
+
+    .better-video-container iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
