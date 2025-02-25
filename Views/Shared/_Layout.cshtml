@@ -40,7 +40,7 @@
                 <div class="col-lg-2">
                     <div class="logo-box">
                         <a asp-area="" asp-controller="Home" asp-action="Index" class="logo">
-                            <img src="~/assets/logo/blue-png_4x4.webp" alt="bettersociety.in" style="width:5rem;" />
+                            <img src="~/assets/logo/blue-png_4x4.webp" alt="bettersociety.in" style="width:4rem;" />
                             <!-- <img src="~/assets/logo/bs-logo-svg.svg" alt="bettersociety.in" style="width:5rem;" /> -->
                         </a>
                         <div class="user-action">
@@ -237,6 +237,8 @@
     <script src="~/js/main.js"></script>
 
     <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/scripts/Home.js" defer="defer"></script>
+    <script src="~/scripts/User.js" defer="defer"></script>
 
     @await RenderSectionAsync("Scripts", required: false)
 </body>

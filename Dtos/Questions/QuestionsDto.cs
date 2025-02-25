@@ -11,6 +11,8 @@ namespace bettersociety.Dtos.Questions
 
         public required string QuestionDetail { get; set; } = string.Empty;
 
+        public required string QuestionDetailFull { get; set; } = string.Empty;
+
         public int? ImageID { get; set; }
 
         public int? CategoryID { get; set; }

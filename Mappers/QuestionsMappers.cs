@@ -15,6 +15,7 @@ namespace bettersociety.Mappers
                 Id = questionsModel.Id,
                 Title = questionsModel.Title,
                 QuestionDetail = TruncateByWords(questionsModel.QuestionDetail, 30), // Limit to 30 words
+                QuestionDetailFull = questionsModel.QuestionDetail,
                 CategoryID = questionsModel.CategoryID,
                 CategoryName = dbContext.QuestionCategories.Where(c => c.Id == questionsModel.CategoryID).Select(c => c.Category).FirstOrDefault(), // Fetch Category Name
                 Slug = questionsModel.Slug,
@@ -42,11 +43,11 @@ namespace bettersociety.Mappers
             };
         }
 
-        private static string TruncateText(string text, int maxLength)
-        {
-            if (string.IsNullOrEmpty(text)) return text;
-            return text.Length > maxLength ? text.Substring(0, maxLength) + "..." : text;
-        }
+        //private static string TruncateText(string text, int maxLength)
+        //{
+        //    if (string.IsNullOrEmpty(text)) return text;
+        //    return text.Length > maxLength ? text.Substring(0, maxLength) + "..." : text;
+        //}
 
         private static string TruncateByWords(string text, int wordLimit)
         {

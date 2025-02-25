@@ -140,4 +140,10 @@ app.MapControllerRoute(
     pattern: "Error/{statusCode}",
     defaults: new { controller = "Error", action = "Index" });
 
+//slug handling
+app.MapControllerRoute(
+    name: "post",
+    pattern: "post/{slug}",
+    defaults: new { controller = "post", action = "Index" });
+
 app.Run();

@@ -1,13 +1,6 @@
 ﻿let home = {
     async getQAList() {
         try {
-            //let p = {
-            //    AttendanceID: attendanceId,
-            //    ServerType: _serverType
-            //};
-
-            //let str = { 'prm': p };
-
             home.toggleSkeleton(1);
 
             // /AreaName/ControllerName/ActionName
@@ -81,6 +74,40 @@
                 $('#div-question-answers').empty().append(qaContent);
 
                 home.toggleSkeleton(0);
+            }
+        }
+        catch (error) {
+            console.log(error);
+        }
+    },
+
+    async getPost(slug) {
+        try {
+            let postDto = { Slug: slug };
+
+            // /AreaName/ControllerName/ActionName
+            const response = await fetch('/post/GetPostBySlug', {
+                method: "POST",
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(postDto),
+            });
+
+            //const result = await response.json();
+
+            if (response.ok) {
+                const result = await response.json();
+
+                let tagsHtml = '';
+                result.tags.forEach(function (tag) {
+                    tagsHtml += `<div class="tag-link tag-link-md">${tag}</div>`;
+                });
+                
+                $('#spnPostTitle').empty().append(result.title);
+                $('#spnPostedByUserFullname').empty().append(result.createdByUserFullname);
+                $('#spnPostedOn').empty().append(result.createdAgo);
+                $('#divPostContent').empty().append(result.questionDetailFull);
+                $('#divPostRelatedTags').empty().append(tagsHtml);
+                //console.log(response);
             }
         }
         catch (error) {

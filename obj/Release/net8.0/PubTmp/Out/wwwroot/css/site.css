@@ -125,11 +125,12 @@
     color: #fff;
 }
 
-.tags-container {
-    width: 100%;
+.better-tags-container {
     display: flex;
-    gap: 10px;
-    display: none;
+    gap: 5px;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
 }
 
 .question-tag {

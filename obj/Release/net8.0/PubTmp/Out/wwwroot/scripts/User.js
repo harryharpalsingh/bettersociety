@@ -425,8 +425,11 @@ let question = {
 };
 
 let global = {
-    async executeOrder(e, asyncFunction, ...args) {
-        e.preventDefault(); // Prevent form submission
+    async executeOrder(button, asyncFunction, ...args) {
+
+        if (button && button.preventDefault) {
+            button.preventDefault(); // Prevent default action only if button is an event object
+        }
 
         try {
             global.toggleLoader(1);
