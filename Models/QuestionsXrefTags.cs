@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace bettersociety.Models
 {
@@ -18,5 +19,11 @@ namespace bettersociety.Models
         public DateTime CreatedOn { get; set; } = DateTime.Now;
 
         public int Deleted { get; set; } = 0;
+
+        [ForeignKey("QuestionId")]
+        public virtual Questions Question { get; set; }
+
+        [ForeignKey("TagId")]
+        public virtual Tags Tag { get; set; }
     }
 }

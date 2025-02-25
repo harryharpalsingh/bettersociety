@@ -46,7 +46,7 @@ namespace bettersociety.Areas.User.Controllers
                 return NotFound();
             }
 
-            return Ok(question.ToQuestionsDto());
+            return Ok(question.ToQuestionsDto(_context));
         }
 
         [HttpGet]
@@ -148,7 +148,7 @@ namespace bettersociety.Areas.User.Controllers
 
             await _questionXrefTagsRepository.CreateRangeAsync(QxrefTags);
 
-            return CreatedAtAction(nameof(GetPostById), new { id = questionModel.Id }, questionModel.ToQuestionsDto());
+            return CreatedAtAction(nameof(GetPostById), new { id = questionModel.Id }, questionModel.ToQuestionsDto(_context));
         }
     }
 }

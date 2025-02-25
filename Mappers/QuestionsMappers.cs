@@ -1,12 +1,14 @@
-﻿using bettersociety.Dtos.Answers;
+﻿using bettersociety.Data;
+using bettersociety.Dtos.Answers;
 using bettersociety.Dtos.Questions;
 using bettersociety.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace bettersociety.Mappers
 {
     public static class QuestionsMappers
     {
-        public static QuestionsDto ToQuestionsDto(this Questions questionsModel)
+        public static QuestionsDto ToQuestionsDto(this Questions questionsModel, ApplicationDbContext dbContext)
         {
             return new QuestionsDto
             {
@@ -14,9 +16,12 @@ namespace bettersociety.Mappers
                 Title = questionsModel.Title,
                 QuestionDetail = TruncateByWords(questionsModel.QuestionDetail, 30), // Limit to 30 words
                 CategoryID = questionsModel.CategoryID,
+                CategoryName = dbContext.QuestionCategories.Where(c => c.Id == questionsModel.CategoryID).Select(c => c.Category).FirstOrDefault(), // Fetch Category Name
                 Slug = questionsModel.Slug,
                 CreatedBy = questionsModel.CreatedBy,
                 CreatedOn = questionsModel.CreatedOn,
+                CreatedByUserFullname = dbContext.Users.Where(u => u.Id == questionsModel.CreatedBy).Select(u => u.FullName).FirstOrDefault(),// Fetch the FullName from AspNetUsers
+                Tags = dbContext.QuestionsXrefTags.Where(qt => qt.QuestionId == questionsModel.Id).Select(qt => qt.Tag.TagName).ToList(),
                 Answers = questionsModel.Answers?.Select(a => new AnswersDto
                 {
                     Id = a.Id,

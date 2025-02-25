@@ -280,6 +280,12 @@ body {
     font-weight: 500 !important;
 }
 
+.better-post-title {
+    font-size: 1.25em !important;
+    font-weight: 700 !important;
+    line-height: 1.25;
+}
+
 .fw-semi-bold {
     font-weight: 600 !important;
 }
@@ -3841,6 +3847,7 @@ body {
     -o-transition: all 0.2s;
     transition: all 0.2s;
     border: 1px solid rgba(121, 127, 135, 0.05);
+    cursor: default;
 }
 
     .tag-link:hover {

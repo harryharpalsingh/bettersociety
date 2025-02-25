@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Text.Json.Serialization;
 
 namespace bettersociety.Models
@@ -20,6 +21,10 @@ namespace bettersociety.Models
 
         public int? CategoryID { get; set; }
 
+        // Navigation Property
+        [ForeignKey("CategoryID")]
+        public virtual QuestionCategories? Category { get; set; } 
+
         [Required]
         public string Slug { get; set; }
 
@@ -31,8 +36,10 @@ namespace bettersociety.Models
 
         public int Deleted { get; set; } = 0;
 
-        //One to many relationship
-        //Lazy Loading: Virtual property
+        // One to many relationship
+        // Lazy Loading: Virtual property
         public virtual List<Answers> Answers { get; set; } = new List<Answers>();
+
+        public virtual List<QuestionsXrefTags> QuestionsXrefTags { get; set; } = new(); // Many-to-Many Relationship
     }
 }

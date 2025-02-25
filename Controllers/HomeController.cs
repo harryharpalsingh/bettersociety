@@ -42,7 +42,7 @@ namespace bettersociety.Controllers
             var questions = _dbContext.Questions
                 //.Include(q => q.Answers) // Eagerly load related data
                 .AsNoTracking() //Improves performance (no tracking needed for read-only queries)
-                .Select(static q => q.ToQuestionsDto())
+                .Select(q => q.ToQuestionsDto(_dbContext))
                 .ToList();
 
             ////Explicit loading
@@ -81,7 +81,7 @@ namespace bettersociety.Controllers
             return Ok(new
             {
                 Status = 1,
-                Questions = questions.ToQuestionsDto()
+                Questions = questions.ToQuestionsDto(_dbContext)
             });
         }
     }

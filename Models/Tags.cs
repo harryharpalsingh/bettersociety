@@ -15,5 +15,8 @@ namespace bettersociety.Models
         public DateTime CreatedOn { get; set; } = DateTime.Now;
 
         public int Deleted { get; set; } = 0;
+
+        // Navigation property
+        public virtual List<QuestionsXrefTags> QuestionsXrefTags { get; set; } = new();
     }
 }
