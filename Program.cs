@@ -126,9 +126,16 @@ app.UseAuthorization();
 //    );
 //});
 
-app.MapControllerRoute(
-    name: "areas",
-    pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
+//app.MapControllerRoute(
+//    name: "areas",
+//    pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
+
+app.MapAreaControllerRoute(
+    name: "user_default",
+    areaName: "User",
+    pattern: "u",
+    defaults: new { controller = "Home", action = "Index" }
+);
 
 app.MapControllerRoute(
     name: "default",

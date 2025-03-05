@@ -3,7 +3,7 @@
 namespace bettersociety.Areas.User.Controllers
 {
     [Area("User")]
-    [Route("User/Home")]
+    [Route("u")]
     public class HomeController : Controller
     {
         public IActionResult Index()

@@ -143,7 +143,7 @@
 .better-video-container {
     position: relative;
     width: 100%;
-    max-width: 560px; /* Optional: Limit max width */
+    /*max-width: 560px;*/ /* Optional: Limit max width */
     margin: 0 auto; /* Center the video */
     padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
     height: 0;

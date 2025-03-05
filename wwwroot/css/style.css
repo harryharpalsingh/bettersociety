@@ -2,7 +2,7 @@
 /*
 	Author: Harpal Singh
 	Email: harryharpalsingh@gmail.com
-	Website: harryis.dev
+	Website: harryharpalsingh.com
 */
 /*===== font size ====*/
 /*===== font weight ====*/
@@ -44,7 +44,10 @@ h1, h2, h3, h4, h5, h6 {
 body {
     font-size: 16px;
     line-height: 28px;
-    font-family: "Ubuntu", sans-serif;
+    /*font-family: "Ubuntu", sans-serif;
+    font-family: "Merriweather", serif !important;
+    font-family: "Segoe UI", -apple-system, sans-serif;*/
+    font-family: 'Lato', sans-serif;
     color: #011e29;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -3004,7 +3007,7 @@ body {
 .section-desc {
     line-height: 30px;
     font-size: 17px;
-    font-weight: 100;
+    font-weight: 300;
 }
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
@@ -4683,7 +4686,7 @@ div.upvotejs a.star {
     }
 
     #back-to-top:hover {
-        background-color: #2d86eb;
+        background-color: #1649fd;
         color: #fff;
     }
 

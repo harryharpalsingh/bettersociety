@@ -5,6 +5,7 @@
 @{
     var user = User.Identity.IsAuthenticated ? await UserManager.GetUserAsync(User) : null;
     var userName = user?.FullName ?? "Guest";
+    var currentYear = DateTime.Now.Year;
 }
 
 <!DOCTYPE html>
@@ -21,6 +22,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com/">
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&amp;display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap" rel="stylesheet">
 
     <!-- inject:css -->
     <link rel="stylesheet" href="~/css/bootstrap.min.css">
@@ -79,7 +81,7 @@
                                     <a asp-area="User" asp-controller="Home" asp-action="Index">Home</a>
                                 </li>
                                 <li>
-                                    <a asp-area="User" asp-controller="BlogPost" asp-action="Index">Ask a Question</a>
+                                    <a asp-area="User" asp-controller="AskQuestion" asp-action="Index">Ask a Question</a>
                                 </li>
                                 <!--<li class="is-mega-menu">
                                     <a href="#">pages <i class="la la-angle-down fs-11"></i></a>
@@ -246,7 +248,7 @@
                     <a asp-area="User" asp-controller="Home" asp-action="Index">Home</a>
                 </li>
                 <li>
-                    <a asp-area="User" asp-controller="BlogPost" asp-action="Index">Ask a Question</a>
+                    <a asp-area="User" asp-controller="AskQuestion" asp-action="Index">Ask a Question</a>
                 </li>
 
                 <!--<li>
@@ -386,7 +388,7 @@
                 <div class="col-lg-3 responsive-column-half">
                     <div class="footer-item">
                         <a asp-area="User" asp-controller="Home" asp-action="Index" class="d-inline-block">
-                            <img src="~/assets/logo/blue-png_4x4.webp" alt="bettersociety.in" style="width:5rem;" class="footer-logo" />
+                            <img src="~/assets/logo/blue-png_4x4.webp" alt="bettersociety.in" style="width:4rem;" class="footer-logo" />
                         </a>
                         @* <p class="py-3 fs-15 lh-24">
                         The strength of society lies in the kindness of its people. Let us build a world we’re proud to share.
@@ -431,7 +433,7 @@
         <div class="container">
             <div class="row align-items-center pb-4 copyright-wrap">
                 <div class="col-lg-6">
-                    <p class="copyright-desc copyright--desc fs-14">Copyright &copy; 2024 <a href="https://bettersociety.in/">better society</a></p>
+                    <p class="copyright-desc copyright--desc fs-14">Copyright &copy; @currentYear <a href="https://bettersociety.in/">better society</a></p>
                 </div><!-- end col-lg-6 -->
                 <div class="col-lg-6">
                     <div class="generic-list-item social-icon-box text-end">
@@ -472,12 +474,12 @@
     <script src="~/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/owl.carousel.min.js"></script>
     <script src="~/js/jquery-te-1.4.0.min.js"></script>
-    <script type="text/javascript" src="~/scripts/User.js"></script>
     <script src="~/js/selectize.min.js"></script>
     <script src="~/js/jquery.multi-file.min.js"></script>
     <script src="~/js/main.js"></script>
 
     <script src="~/js/site.js" asp-append-version="true"></script>
+    <script type="text/javascript" src="~/scripts/User.js"></script>
 
     @await RenderSectionAsync("Scripts", required: false)
 </body>

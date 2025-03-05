@@ -15,6 +15,7 @@ using Microsoft.EntityFrameworkCore;
 namespace bettersociety.Areas.User.Controllers
 {
     [Area("User")]
+    [Route("u/ask-question")]
     [Authorize]
     public class AskQuestionController : Controller
     {
@@ -32,6 +33,7 @@ namespace bettersociety.Areas.User.Controllers
             _questionXrefTagsRepository = questionXrefTagsRepository;
         }
 
+        [HttpGet("")] // This ensures /u/ask-question calls Index()
         public IActionResult Index()
         {
             return View();
@@ -49,7 +51,8 @@ namespace bettersociety.Areas.User.Controllers
             return Ok(question.ToQuestionsDto(_context));
         }
 
-        [HttpGet]
+        //[HttpGet]
+        [HttpGet("GetCategories")] // Avoids conflict with Index()
         public IActionResult GetCategories()
         {
             try

@@ -198,7 +198,7 @@
 
                 $('#txtUserName, #txtUserEmail, #txtUserPassword').val('');
                 //redirect to Feed
-                window.open("/User/AskQuestion", "_self");
+                window.open("/u", "_self");
 
             }
             else {
@@ -231,7 +231,7 @@ let question = {
     async getTags() {
         $('#divTagList').empty();
         try {
-            const response = await fetch('/User/Tags/GetAllTags', {
+            const response = await fetch('/u/Tags/GetAllTags', {
                 method: "GET",
                 headers: {
                     'Content-Type': 'application/json',
@@ -308,7 +308,7 @@ let question = {
     async getCategories() {
         $('#ddlCategory').empty().append(`<option selected value="0">Select a Category</option>`);
         try {
-            const response = await fetch('/User/AskQuestion/GetCategories', {
+            const response = await fetch('/u/ask-question/GetCategories', {
                 method: "GET",
                 headers: {
                     'Content-Type': 'application/json',
@@ -394,7 +394,7 @@ let question = {
             };
 
             // Send data to server
-            const response = await fetch('/User/AskQuestion/CreatePost', {
+            const response = await fetch('/u/ask-question/CreatePost', {
                 method: "POST",
                 headers: {
                     'Content-Type': 'application/json',

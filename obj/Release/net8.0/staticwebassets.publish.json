@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "3BjFVa1JNrdDhbAZHLPN9Bpr719MpS5P7aXjusef68g=",
+  "Hash": "KfrrVwRgt/Oa+e0v1e6aRMd0EYf1EF3sKsk9uflSvIk=",
   "Source": "bettersociety",
   "BasePath": "_content/bettersociety",
   "Mode": "Default",
@@ -787,8 +787,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "w3hiq5v5ah",
-      "Integrity": "5Bq70yICHieOftd5Vlh/vKCC/zfyCQ7hwX52TNpujsY=",
+      "Fingerprint": "bsokj6jy01",
+      "Integrity": "hcoDBYDqffy6WTGKXeVM7P3x0gR9G50NNnRz6l80CPc=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\site.css"
@@ -808,8 +808,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "ub9s1vsv9u",
-      "Integrity": "Oht4JIkoorVDXtfVKXMsQxOn3Tp6ucN0bbwEsIqTZ8M=",
+      "Fingerprint": "lfh2q529d3",
+      "Integrity": "wbLo5wWFDc1hkMa5erXQSVKxPaWDHonU3z0SHbTJibM=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\style.css"
@@ -5764,6 +5764,51 @@
       ]
     },
     {
+      "Route": "css/site.bsokj6jy01.css",
+      "AssetFile": "E:\\Work Data\\@back-end-development\\#bettersociety.in\\bettersociety-master\\bettersocietyrepo\\bettersociety\\wwwroot\\css\\site.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "3495"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"hcoDBYDqffy6WTGKXeVM7P3x0gR9G50NNnRz6l80CPc=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 27 Feb 2025 07:39:40 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "bsokj6jy01"
+        },
+        {
+          "Name": "label",
+          "Value": "css/site.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-hcoDBYDqffy6WTGKXeVM7P3x0gR9G50NNnRz6l80CPc="
+        }
+      ]
+    },
+    {
       "Route": "css/site.css",
       "AssetFile": "E:\\Work Data\\@back-end-development\\#bettersociety.in\\bettersociety-master\\bettersocietyrepo\\bettersociety\\wwwroot\\css\\site.css",
       "Selectors": [],
@@ -5774,7 +5819,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "3491"
+          "Value": "3495"
         },
         {
           "Name": "Content-Type",
@@ -5782,11 +5827,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"5Bq70yICHieOftd5Vlh/vKCC/zfyCQ7hwX52TNpujsY=\""
+          "Value": "\"hcoDBYDqffy6WTGKXeVM7P3x0gR9G50NNnRz6l80CPc=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 25 Feb 2025 08:40:09 GMT"
+          "Value": "Thu, 27 Feb 2025 07:39:40 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -5796,52 +5841,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-5Bq70yICHieOftd5Vlh/vKCC/zfyCQ7hwX52TNpujsY="
-        }
-      ]
-    },
-    {
-      "Route": "css/site.w3hiq5v5ah.css",
-      "AssetFile": "E:\\Work Data\\@back-end-development\\#bettersociety.in\\bettersociety-master\\bettersocietyrepo\\bettersociety\\wwwroot\\css\\site.css",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "3491"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"5Bq70yICHieOftd5Vlh/vKCC/zfyCQ7hwX52TNpujsY=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Tue, 25 Feb 2025 08:40:09 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "w3hiq5v5ah"
-        },
-        {
-          "Name": "label",
-          "Value": "css/site.css"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-5Bq70yICHieOftd5Vlh/vKCC/zfyCQ7hwX52TNpujsY="
+          "Value": "sha256-hcoDBYDqffy6WTGKXeVM7P3x0gR9G50NNnRz6l80CPc="
         }
       ]
     },
@@ -5856,7 +5856,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "139114"
+          "Value": "139271"
         },
         {
           "Name": "Content-Type",
@@ -5864,11 +5864,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"Oht4JIkoorVDXtfVKXMsQxOn3Tp6ucN0bbwEsIqTZ8M=\""
+          "Value": "\"wbLo5wWFDc1hkMa5erXQSVKxPaWDHonU3z0SHbTJibM=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 25 Feb 2025 08:41:38 GMT"
+          "Value": "Thu, 27 Feb 2025 08:34:52 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -5878,12 +5878,12 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-Oht4JIkoorVDXtfVKXMsQxOn3Tp6ucN0bbwEsIqTZ8M="
+          "Value": "sha256-wbLo5wWFDc1hkMa5erXQSVKxPaWDHonU3z0SHbTJibM="
         }
       ]
     },
     {
-      "Route": "css/style.ub9s1vsv9u.css",
+      "Route": "css/style.lfh2q529d3.css",
       "AssetFile": "E:\\Work Data\\@back-end-development\\#bettersociety.in\\bettersociety-master\\bettersocietyrepo\\bettersociety\\wwwroot\\css\\style.css",
       "Selectors": [],
       "ResponseHeaders": [
@@ -5893,7 +5893,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "139114"
+          "Value": "139271"
         },
         {
           "Name": "Content-Type",
@@ -5901,11 +5901,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"Oht4JIkoorVDXtfVKXMsQxOn3Tp6ucN0bbwEsIqTZ8M=\""
+          "Value": "\"wbLo5wWFDc1hkMa5erXQSVKxPaWDHonU3z0SHbTJibM=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 25 Feb 2025 08:41:38 GMT"
+          "Value": "Thu, 27 Feb 2025 08:34:52 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -5915,7 +5915,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "ub9s1vsv9u"
+          "Value": "lfh2q529d3"
         },
         {
           "Name": "label",
@@ -5923,7 +5923,7 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-Oht4JIkoorVDXtfVKXMsQxOn3Tp6ucN0bbwEsIqTZ8M="
+          "Value": "sha256-wbLo5wWFDc1hkMa5erXQSVKxPaWDHonU3z0SHbTJibM="
         }
       ]
     },
