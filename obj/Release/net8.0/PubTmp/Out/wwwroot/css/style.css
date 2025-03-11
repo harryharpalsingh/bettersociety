@@ -3007,7 +3007,7 @@ body {
 .section-desc {
     line-height: 30px;
     font-size: 17px;
-    font-weight: 100;
+    font-weight: 300;
 }
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
@@ -4686,7 +4686,7 @@ div.upvotejs a.star {
     }
 
     #back-to-top:hover {
-        background-color: #2d86eb;
+        background-color: #1649fd;
         color: #fff;
     }
 

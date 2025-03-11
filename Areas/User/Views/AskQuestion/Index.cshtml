@@ -84,7 +84,7 @@
                         <div class="input-box">
                             <label class="fs-14 text-black fw-medium">Image</label>
                             <div class="form-group">
-                                <input type="file" class="form-control" id="fpImage">
+                                <input type="file" class="form-control" id="fileAttachment">
                                 <!--<div class="file-upload-wrap file-upload-layout-2">
                                     <input id="fpAttachment" type="file" name="files[]" class="file-upload-input" multiple>
                                     <span class="file-upload-text d-flex align-items-center justify-content-center"><i class="la la-cloud-upload me-2 fs-24"></i>Drop files here or click to upload.</span>
@@ -277,7 +277,7 @@
 {
     <script type="text/javascript">
         $("#btnAskQuestion").click(function (e) {
-            global.executeOrder(e, question.postQuestion);
+            global.executeOrder(e, question.postQuestionWithAttachment);
         });
 
         $(document).ready(function() {

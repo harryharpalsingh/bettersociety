@@ -422,6 +422,101 @@ let question = {
             alert("An error occurred while saving the blog post. Please try again.");
         }
     },
+
+    async postQuestionWithAttachment() {
+        try {
+            let title = $("#txtQuestionTitle").val()?.trim();
+            let tags = $('#txtTags').val()?.trim();
+            //let tagArray = [];
+            let postDetail = $(".jqte_editor").html()?.trim();
+            let category = $('#ddlCategory :selected').val();
+            let fileInput = $('#fileAttachment')[0]?.files[0];
+
+            if (!title || title.length < 5 || title.length > 100) {
+                global.toggleAlert(2, "Title must be between 5 and 100 characters.", "#txtQuestionTitle");
+                return;
+            }
+
+            if (!postDetail) {
+                global.toggleAlert(2, "Post Content is required and cannot be empty.", "");
+                return;
+            }
+
+            if (category == '' || category == 0) {
+                global.toggleAlert(1, "Please select category.", "");
+                return;
+            }
+
+            // File type validation
+            const allowedExtensions = ['jpg', 'jpeg', 'png', 'gif', 'webp'];
+            if (fileInput) {
+                const fileExtension = fileInput.name.split('.').pop().toLowerCase();
+                if (!allowedExtensions.includes(fileExtension)) {
+                    global.toggleAlert(2, "Invalid file type.  Allowed types: .jpg,  .jpeg,  .png,  .gif,  .webp", "#fileAttachment");
+                    return;
+                }
+
+                // File size validation (Optional - Recommended)
+
+                /* fileInput.size → This property represents the size of the selected file in bytes.
+                   maxSizeInMB → This is your desired maximum file size limit (in MB).
+                   1024 * 1024 → This converts 1 MB into bytes since fileInput.size is measured in bytes.
+                */
+
+                const maxSizeInMB = 5; // Maximum 5 MB
+                // if (fileInput.size > 5,242,880 bytes)
+                if (fileInput.size > maxSizeInMB * 1024 * 1024) {
+                    global.toggleAlert(2, `File size exceeds ${maxSizeInMB} MB limit.`, "#fileAttachment");
+                    return;
+                }
+            }
+
+            let askQuestionData = {
+                title: title,
+                QuestionDetail: postDetail,
+                CategoryId: category
+                // Include other properties if needed, e.g., createdOn, createdBy, etc.
+            };
+
+            // Prepare form data for file upload
+            let formData = new FormData();
+            //formData.append('title', title);
+            formData.append('QuestionData', JSON.stringify(askQuestionData));
+            if (tags) {
+                //tagArray = tags.split(',').map(tag => tag.trim());
+                tags.split(',').forEach(tag => {
+                    formData.append('TagNames', tag.trim()); // Directly appending trimmed tags
+                });
+            }
+
+            //formData.append('CategoryId', category);
+            //formData.append('tagNames', JSON.stringify(tagArray));
+
+            // Append file if present
+            if (fileInput) {
+                formData.append('fileAttachment', fileInput);
+            }
+
+            const response = await fetch('/u/ask-question/CreatePostWithAttachment', {
+                method: "POST",
+                body: formData
+            });
+
+            if (response.ok) {
+                const result = await response.json();
+                global.toggleAlert(0, "Question posted successfully.", "");
+                console.log(result);
+            }
+            else {
+                const errorResponse = await response.json();
+                alert("Error: " + JSON.stringify(errorResponse));
+            }
+        } catch (e) {
+            console.error("An error occurred:", e);
+            alert("An error occurred while saving the blog post. Please try again.");
+        }
+    }
+
 };
 
 let global = {

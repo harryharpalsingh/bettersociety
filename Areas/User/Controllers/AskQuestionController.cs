@@ -153,5 +153,120 @@ namespace bettersociety.Areas.User.Controllers
 
             return CreatedAtAction(nameof(GetPostById), new { id = questionModel.Id }, questionModel.ToQuestionsDto(_context));
         }
+
+        [HttpPost]
+        [Route("CreatePostWithAttachment")]
+        public async Task<IActionResult> CreatePostWithAttachment([FromForm] CreateQuestionPostDto createQuestionDto, IFormFile? fileAttachment)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            if (createQuestionDto == null || createQuestionDto.QuestionData == null)
+            {
+                return BadRequest("Invalid request format.");
+            }
+
+            try
+            {
+                var askQuestionDto = createQuestionDto.QuestionData;
+                var tagNames = createQuestionDto.TagNames ?? new List<string>(); // Ensure it's not null
+
+                var questionModel = await askQuestionDto.ToQuestionsFromAskQuestiontDto(HttpContext, _userManager, _askQuestionRepository);
+                await _askQuestionRepository.CreateAsync(questionModel);
+
+                int QuestionId = questionModel.Id;
+                var loggedInUserId = HttpContext.User.GetUserId();
+
+                #region Processing Tags
+                // Create a list to hold the tags
+                var tagsList = new List<Tags>();
+                // Fetch all existing tags in one query to avoid N+1 queries
+                var existingTags = await _context.Tags.Where(t => tagNames.Contains(t.TagName)).ToListAsync();
+
+                foreach (var tagName in tagNames)
+                {
+                    // Check if the tag exists, if not, create it
+                    var tagNew = existingTags.FirstOrDefault(t => t.TagName.Equals(tagName, StringComparison.OrdinalIgnoreCase));
+                    if (tagNew == null)
+                    {
+                        tagNew = new Tags
+                        {
+                            TagName = tagName,
+                            CreatedBy = loggedInUserId
+                        };
+                        _context.Tags.Add(tagNew);
+                        await _context.SaveChangesAsync(); // Ensure EF Core generates the ID
+                        existingTags.Add(tagNew); // Add newly created tag to the list for future use
+                    }
+
+                    tagsList.Add(tagNew);
+                }
+                #endregion
+
+                #region Proecssing Question Xref Tags
+                List<QuestionsXrefTags> QxrefTags = new List<QuestionsXrefTags>();
+                foreach (var tag in tagsList)
+                {
+                    QuestionsXrefTags qt = new QuestionsXrefTags
+                    {
+                        QuestionId = QuestionId,
+                        TagId = tag.Id,
+                        CreatedBy = loggedInUserId
+                    };
+                    QxrefTags.Add(qt);
+                }
+                #endregion
+
+                #region Processing Attachments
+                if (fileAttachment != null)
+                {
+                    var uploadsFolder = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "uploads");
+                    if (!Directory.Exists(uploadsFolder))
+                    {
+                        Directory.CreateDirectory(uploadsFolder);
+                    }
+
+                    /* Path Traversal Attack Protection (Critical Security Concern)
+                        - An attacker could attempt to exploit the file path using ../ or other path traversal patterns. 
+                        - Solution: Use Path.GetFileName() to sanitize the file name. */
+                    var sanitizedFileName = Path.GetFileName(fileAttachment.FileName);
+                    var fileName = Guid.NewGuid().ToString() + Path.GetExtension(sanitizedFileName);
+                    var filePath = Path.Combine(uploadsFolder, fileName);
+
+                    using (var stream = new FileStream(filePath, FileMode.Create))
+                    {
+                        await fileAttachment.CopyToAsync(stream);
+                    }
+
+                    string attachmentUrl = $"/uploads/{fileName}";
+
+                    // Save the file path in the Attachments model
+                    var attachment = new Attachments
+                    {
+                        QuestionId = QuestionId,
+                        Attachment = attachmentUrl
+                    };
+
+                    _context.Attachments.Add(attachment);
+                    await _context.SaveChangesAsync();
+                }
+                #endregion
+
+                await _questionXrefTagsRepository.CreateRangeAsync(QxrefTags);
+
+                return CreatedAtAction(nameof(GetPostById), new { id = questionModel.Id }, questionModel.ToQuestionsDto(_context));
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new
+                {
+                    Message = "An error occurred!",
+                    Details = ex.Message
+                });
+            }
+        }
+
     }
 }

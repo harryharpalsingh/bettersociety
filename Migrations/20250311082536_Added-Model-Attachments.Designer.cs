@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using bettersociety.Data;
 
@@ -11,9 +12,11 @@ using bettersociety.Data;
 namespace bettersociety.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250311082536_Added-Model-Attachments")]
+    partial class AddedModelAttachments
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -51,13 +54,13 @@ namespace bettersociety.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "80ba4e8e-ff54-402b-b088-482db8ce7d22",
+                            Id = "ee459511-5929-4c39-9a43-bf2db73a45ad",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "5aa6b038-e060-44a9-a464-41f439b1c610",
+                            Id = "916a1c1f-7e12-426d-8a47-bbb8fed209ac",
                             Name = "User",
                             NormalizedName = "USER"
                         });
@@ -270,31 +273,6 @@ namespace bettersociety.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers", (string)null);
-                });
-
-            modelBuilder.Entity("bettersociety.Models.Attachments", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Attachment")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("CreatedOn")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("QuestionId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("QuestionId");
-
-                    b.ToTable("Attachments");
                 });
 
             modelBuilder.Entity("bettersociety.Models.QuestionCategories", b =>
@@ -518,17 +496,6 @@ namespace bettersociety.Migrations
                     b.HasOne("bettersociety.Models.Questions", "Questions")
                         .WithMany("Answers")
                         .HasForeignKey("QuestionsId");
-
-                    b.Navigation("Questions");
-                });
-
-            modelBuilder.Entity("bettersociety.Models.Attachments", b =>
-                {
-                    b.HasOne("bettersociety.Models.Questions", "Questions")
-                        .WithMany()
-                        .HasForeignKey("QuestionId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
 
                     b.Navigation("Questions");
                 });
