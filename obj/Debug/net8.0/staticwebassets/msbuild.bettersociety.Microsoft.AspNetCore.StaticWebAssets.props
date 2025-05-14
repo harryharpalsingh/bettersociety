@@ -408,8 +408,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>30aemm1zwt</Fingerprint>
-      <Integrity>3RcyQmvLc9W5ghpWQ3rC4svpIw083BQnnMGljgu0yZY=</Integrity>
+      <Fingerprint>i5o2lvopzr</Fingerprint>
+      <Integrity>xrcyQnEAN98tsQ10eC87SOZlJJ32wLPuuUYwOclwt/A=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\assets\logo\bs-logo-svg.svg'))</OriginalItemSpec>
@@ -2370,8 +2370,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>n452z8bpc5</Fingerprint>
-      <Integrity>d5nBubQGOudNOSoP9EiSm21gS8hig/FPIMiLJmKW2XE=</Integrity>
+      <Fingerprint>jvwvnvqep5</Fingerprint>
+      <Integrity>Lyta8qJwMDsRCuXTGJ3ycobFBMABKQQn1kBq2i75Lp8=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\scripts\User.js'))</OriginalItemSpec>

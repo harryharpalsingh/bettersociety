@@ -113,22 +113,53 @@ app.Use(async (context, next) =>
 });
 
 // Map error pages
-app.UseStatusCodePagesWithReExecute("/Error/Index", "?statusCode={0}");
+app.UseStatusCodePages(async context =>
+{
+    var request = context.HttpContext.Request;
+    var response = context.HttpContext.Response;
+
+    if (response.StatusCode == 404 || response.StatusCode == 500)
+    {
+        var isUserArea = request.Path.StartsWithSegments("/u");
+
+        var statusCode = response.StatusCode;
+
+        // Avoid infinite loop
+        if (!request.Path.StartsWithSegments("/u/Error") && !request.Path.StartsWithSegments("/Error"))
+        {
+            var redirectPath = isUserArea
+                ? $"/u/Error/{statusCode}"
+                : $"/Error/{statusCode}";
+
+            context.HttpContext.Response.Redirect(redirectPath);
+        }
+    }
+});
+
+app.UseStatusCodePages(async context =>
+{
+    var response = context.HttpContext.Response;
+
+    if (response.StatusCode == 401 || response.StatusCode == 403)
+    {
+        response.ContentType = "application/json";
+        await response.WriteAsync(System.Text.Json.JsonSerializer.Serialize(new
+        {
+            Message = "Unauthorized access"
+        }));
+    }
+});
 
 app.UseAuthentication();
 app.UseAuthorization();
 
-//app.UseEndpoints(endpoints =>
-//{
-//    endpoints.MapControllerRoute(
-//      name: "areas",
-//      pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
-//    );
-//});
-
-//app.MapControllerRoute(
-//    name: "areas",
-//    pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
+// Error handling route for Area (User)
+app.MapAreaControllerRoute(
+    name: "user_error",
+    areaName: "User",
+    pattern: "u/Error/{statusCode}",
+    defaults: new { controller = "Error", action = "Index" }
+);
 
 app.MapAreaControllerRoute(
     name: "user_default",
@@ -147,7 +178,7 @@ app.MapControllerRoute(
     pattern: "Error/{statusCode}",
     defaults: new { controller = "Error", action = "Index" });
 
-//slug handling
+//slug handling at Root
 app.MapControllerRoute(
     name: "post",
     pattern: "post/{slug}",

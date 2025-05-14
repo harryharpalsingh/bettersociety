@@ -87,7 +87,7 @@ namespace bettersociety.Areas.User.Controllers
             }
         }
 
-        [HttpPost]
+        [HttpPost("CreatePost")]
         public async Task<IActionResult> CreatePost([FromBody] CreateQuestionPostDto createQuestionDto)
         {
             if (!ModelState.IsValid)

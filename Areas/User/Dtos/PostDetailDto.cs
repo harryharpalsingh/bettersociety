@@ -5,6 +5,6 @@ namespace bettersociety.Areas.User.Dtos
     public class PostDetailDto
     {
         [Required]
-        public string Slug { get; set; }
+        public string? Slug { get; set; }
     }
 }

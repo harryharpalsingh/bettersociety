@@ -36,7 +36,7 @@
     <!-- end inject -->
 </head>
 <body>
-    <!-- start cssload-loader -->
+    <!-- start cssload-loader
     <div id="preloader">
         <div class="loader">
             <svg class="spinner" viewBox="0 0 50 50">
@@ -44,7 +44,7 @@
             </svg>
         </div>
     </div>
-    <!-- end cssload-loader -->
+    end cssload-loader -->
     <!--====================================== START HEADER AREA ======================================-->
     <header class="header-area bg-white border-bottom border-bottom-gray">
         <div class="container">
@@ -474,6 +474,7 @@
 
     <script src="~/js/site.js" asp-append-version="true"></script>
     <script type="text/javascript" src="~/scripts/User.js"></script>
+    <script type="text/javascript" src="~/scripts/Home.js" defer="defer"></script>
 
     @await RenderSectionAsync("Scripts", required: false)
 </body>

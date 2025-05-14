@@ -4106,11 +4106,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\Work Data\\@back-end-development\\#bettersociety.in\\bettersociety-master\\bettersocietyrepo\\bettersociety\\bettersociety.csproj",
+      "projectUniqueName": "E:\\Work Data\\1-back-end-development\\#bettersociety.in\\bettersociety-master\\bettersocietyrepo\\bettersociety\\bettersociety.csproj",
       "projectName": "bettersociety",
-      "projectPath": "E:\\Work Data\\@back-end-development\\#bettersociety.in\\bettersociety-master\\bettersocietyrepo\\bettersociety\\bettersociety.csproj",
+      "projectPath": "E:\\Work Data\\1-back-end-development\\#bettersociety.in\\bettersociety-master\\bettersocietyrepo\\bettersociety\\bettersociety.csproj",
       "packagesPath": "C:\\Users\\Microsoft\\.nuget\\packages\\",
-      "outputPath": "E:\\Work Data\\@back-end-development\\#bettersociety.in\\bettersociety-master\\bettersocietyrepo\\bettersociety\\obj\\",
+      "outputPath": "E:\\Work Data\\1-back-end-development\\#bettersociety.in\\bettersociety-master\\bettersocietyrepo\\bettersociety\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

@@ -3514,11 +3514,11 @@ body {
 
 /*======== generic-list-item-white ========*/
 .generic-list-item-white li {
-    color: rgba(255, 255, 255, 0.5);
+    color: rgba(255, 255, 255, 0.7);
 }
 
     .generic-list-item-white li a {
-        color: rgba(255, 255, 255, 0.5);
+        color: rgba(255, 255, 255, 0.7);
     }
 
 /*======== generic-list-item-hover-underline ========*/
